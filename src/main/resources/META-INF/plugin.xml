@@ -1,15 +1,18 @@
 <!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
 <idea-plugin>
-    <id>com.github.wingwr.javacodeassist</id>
-    <name>Java-Code_Assist</name>
-    <vendor>wingwr</vendor>
+    <id>com.tongji.jea</id>
+    <name>JEA_Code_Assist</name>
+    <vendor>Wing_WR</vendor>
 
     <depends>com.intellij.modules.platform</depends>
 
     <resource-bundle>messages.MyBundle</resource-bundle>
 
     <extensions defaultExtensionNs="com.intellij">
-        <toolWindow factoryClass="com.github.wingwr.javacodeassist.toolWindow.MyToolWindowFactory" id="MyToolWindow"/>
-        <postStartupActivity implementation="com.github.wingwr.javacodeassist.startup.MyProjectActivity" />
+        <toolWindow factoryClass="com.tongji.jea.toolWindow.JEAToolWindowFactory"
+                    id="JEA_Code_Assist"
+                    anchor="right"/>
+
+        <postStartupActivity implementation="com.tongji.jea.listeners.JEACodeAssistActivityListener"/>
     </extensions>
 </idea-plugin>
