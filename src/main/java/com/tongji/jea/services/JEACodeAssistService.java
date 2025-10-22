@@ -3,7 +3,7 @@ package com.tongji.jea.services;
 import com.intellij.openapi.components.Service;
 import com.intellij.openapi.diagnostic.Logger;
 import com.intellij.openapi.project.Project;
-
+import org.jetbrains.annotations.NotNull;
 @Service(Service.Level.PROJECT)
 public final class JEACodeAssistService {
     private static final Logger LOG = Logger.getInstance(JEACodeAssistService.class);
@@ -12,10 +12,10 @@ public final class JEACodeAssistService {
         LOG.info("JEACodeAssistService initialized for project: " + project.getName());
     }
 
-    public String getLLMAnswerBack(String question) {
-        // TODO: 待添加获取LLM的回复逻辑
-
-        // 模拟后台回答逻辑
-        return "You asked: " + question + "\nResponse: (dummy TA reply)";
+    public String askTA(@NotNull String question) {
+        LOG.info("AskTA called with question: " + question);
+        String answer = new LLMService().ask(question);
+        LOG.info("Answer: " + answer);
+        return answer;
     }
 }
