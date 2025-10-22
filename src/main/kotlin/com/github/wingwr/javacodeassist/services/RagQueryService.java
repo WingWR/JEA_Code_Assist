@@ -35,11 +35,18 @@ public class RagQueryService {
      * @return  异步返回一个包含相似条目和相似度的列表
      */
     public CompletableFuture<List<SimilaritySearcher.ScoredEntry>> querySelectedCodeAndSearch(String selectedCode, int topK) {
-        return embeddingClient.embedText(selectedCode)
-                .thenApplyAsync(embedding -> {
-                    List<KnowledgeEntry> kb = loadKb();
-                    return SimilaritySearcher.searchTopK(embedding, kb, topK);
-                });
+
+        // 1. 同步获取文本向量
+        // 2. 异步执行相似度搜索
+        return CompletableFuture.supplyAsync(() -> {
+            try {
+                List<Double> embedding = embeddingClient.getEmbedding(selectedCode);
+                List<KnowledgeEntry> kb = loadKb();
+                return SimilaritySearcher.searchTopK(embedding, kb, topK);
+            } catch (Exception e) {
+                throw new RuntimeException("Embedding failed", e);
+            }
+        });
     }
 
     public void refreshKnowledgeBase() {

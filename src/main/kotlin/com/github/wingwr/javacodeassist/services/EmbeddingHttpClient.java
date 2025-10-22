@@ -4,6 +4,9 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * EmbeddingClient
  * ----------------
@@ -24,7 +27,7 @@ public class EmbeddingHttpClient {
         this.model = model;
     }
 
-    public double[] getEmbedding(String text) throws Exception{
+    public List<Double> getEmbedding(String text) throws Exception{
         if(text == null || text.isEmpty()){
             throw new IllegalArgumentException("text cannot be null or empty");
         }
@@ -38,7 +41,7 @@ public class EmbeddingHttpClient {
         payload.set("input", inputNode);
 
         //构造embedding模型api路径
-        String path = "/api/v1/services/embeddings/" + model;
+        String path = "/api/v1/services/embeddings/text-embedding/text-embedding/" + model;
 
         JsonNode response = executor.executePost(path, payload);
 
@@ -54,9 +57,9 @@ public class EmbeddingHttpClient {
             throw new IllegalStateException("Invalid response: missing 'embedding' array.");
         }
 
-        double[] result = new double[firstEmbedding.size()];
+        List<Double> result = new ArrayList<>(firstEmbedding.size());
         for (int i = 0; i < firstEmbedding.size(); i++) {
-            result[i] = firstEmbedding.get(i).asDouble();
+            result.add(firstEmbedding.get(i).asDouble());
         }
 
         return result;
