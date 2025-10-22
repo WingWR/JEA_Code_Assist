@@ -49,6 +49,13 @@ dependencies {
 
         testFramework(TestFrameworkType.Platform)
     }
+
+    // http 相关依赖
+    implementation("com.squareup.okhttp3:okhttp:4.12.0")
+    implementation("com.fasterxml.jackson.core:jackson-databind:2.17.0")
+
+    // 阿里云百炼调用SDK
+    implementation(group = "com.alibaba", name = "dashscope-sdk-java", version = "2.21.12")
 }
 
 // Configure IntelliJ Platform Gradle Plugin - read more: https://plugins.jetbrains.com/docs/intellij/tools-intellij-platform-gradle-plugin-extension.html
