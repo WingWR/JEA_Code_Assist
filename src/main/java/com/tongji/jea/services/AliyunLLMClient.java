@@ -7,6 +7,9 @@ import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.util.Scanner;
 import org.json.JSONArray;
+/**
+ * 阿里云大模型客户端
+ */
 
 public class AliyunLLMClient {
 
