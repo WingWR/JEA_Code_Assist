@@ -8,7 +8,9 @@ import kotlin.coroutines.Continuation;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-
+/**
+ * 项目启动时的活动监听器
+ */
 public class JEACodeAssistActivityListener implements ProjectActivity {
     private static final Logger LOG = Logger.getInstance(JEACodeAssistActivityListener.class);
 
