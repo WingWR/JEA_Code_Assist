@@ -15,4 +15,13 @@
 
         <postStartupActivity implementation="com.tongji.jea.listeners.JEACodeAssistActivityListener"/>
     </extensions>
+    <actions>
+        <action
+                id="com.example.jeaassistant.actions.AskTAAction"
+                class="com.tongji.jea.actions.AskTAAction"
+                text="Ask Teaching Assistant"
+                description="Ask the AI assistant about selected code">
+            <add-to-group group-id="EditorPopupMenu" anchor="last"/>
+        </action>
+    </actions>
 </idea-plugin>

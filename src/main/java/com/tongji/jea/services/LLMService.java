@@ -1,6 +1,9 @@
 package com.tongji.jea.services;
 import org.jetbrains.annotations.NotNull;
-
+/**
+ * 与大语言模型（LLM）交互的服务类
+ * 即所有输入（资料、代码上下文、问题）在此处集成处理
+ */
 public class LLMService {
 
     private final AliyunLLMClient client;

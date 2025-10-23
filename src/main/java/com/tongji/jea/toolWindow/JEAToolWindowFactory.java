@@ -12,6 +12,8 @@ import javax.swing.*;
 import java.awt.*;
 
 public class JEAToolWindowFactory implements ToolWindowFactory {
+    // 保存最后一个创建的聊天面板实例
+    private static JPanel latestChatPanel = null;
 
     @Override
     public void createToolWindowContent(@NotNull Project project, @NotNull ToolWindow toolWindow) {
@@ -23,6 +25,7 @@ public class JEAToolWindowFactory implements ToolWindowFactory {
 
         // 聊天消息面板
         JPanel chatPanel = createChatPanel();
+        latestChatPanel = chatPanel;
         JScrollPane chatScrollPane = new JScrollPane(chatPanel);
         chatScrollPane.setOpaque(false);
         chatScrollPane.getViewport().setOpaque(false);
@@ -96,7 +99,7 @@ public class JEAToolWindowFactory implements ToolWindowFactory {
         if (question.isEmpty()) return;
 
         addMessage(chatPanel, question, true);
-        String answer = service.askTA(question);
+        String answer = service.askTA(question);//后端的唯一交互点
         addMessage(chatPanel, answer, false);
 
         inputArea.setText("");
@@ -106,8 +109,16 @@ public class JEAToolWindowFactory implements ToolWindowFactory {
         SwingUtilities.invokeLater(() -> chatScrollPane.getVerticalScrollBar()
                 .setValue(chatScrollPane.getVerticalScrollBar().getMaximum()));
     }
+    public static void addExternalMessage(String question, String answer) {
+        if (latestChatPanel == null) return;
 
-    private void addMessage(JPanel chatPanel, String message, boolean isUser) {
+        addMessage(latestChatPanel, "You:\n" + question, true);
+        addMessage(latestChatPanel, "Assistant:\n" + answer, false);
+        latestChatPanel.revalidate();
+        latestChatPanel.repaint();
+    }
+
+    private static void addMessage(JPanel chatPanel, String message, boolean isUser) {
         // 外层面板：决定左右对齐 (FlowLayout)
         JPanel messagePanel = new JPanel(new FlowLayout(isUser ? FlowLayout.RIGHT : FlowLayout.LEFT));
         messagePanel.setOpaque(false);
