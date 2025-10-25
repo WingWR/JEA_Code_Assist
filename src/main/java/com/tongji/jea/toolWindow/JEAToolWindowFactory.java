@@ -3,37 +3,56 @@ package com.tongji.jea.toolWindow;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.wm.ToolWindow;
 import com.intellij.openapi.wm.ToolWindowFactory;
+import com.intellij.ui.Gray;
 import com.intellij.ui.JBColor;
 import com.intellij.ui.components.JBScrollPane;
 import com.intellij.ui.content.Content;
 import com.intellij.ui.content.ContentFactory;
 import com.intellij.util.ui.JBUI;
+import com.tongji.jea.model.ContextItem;
+import com.tongji.jea.services.ContextManagerService;
 import com.tongji.jea.services.JEACodeAssistService;
+import com.tongji.jea.toolWindow.conponents.ContextTagComponent;
+import com.tongji.jea.toolWindow.conponents.WrapLayout;
 import org.jetbrains.annotations.NotNull;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.List;
 
 public class JEAToolWindowFactory implements ToolWindowFactory {
+    // 保存 Project 实例供删除回调使用
+    private Project project;
+
+    // UI 组件引用（每个 ToolWindow 实例独立）
+    private JPanel chatPanel;
+    private JPanel tagPanel;       // 上下文标签区
+    private JTextArea inputArea;
+
+    // listener 引用，便于在 dispose 或重新创建时取消注册（这里简单实现）
+    private ContextManagerService.Listener contextListener;
 
     /////// 创建面板方法
     @Override
     public void createToolWindowContent(@NotNull Project project, @NotNull ToolWindow toolWindow) {
+        this.project = project;
+
         JEACodeAssistService service = project.getService(JEACodeAssistService.class);
+        ContextManagerService contextManagerService = ContextManagerService.getInstance(project);
 
         // 主面板，透明
         JPanel mainPanel = new JPanel(new BorderLayout());
         mainPanel.setOpaque(false);
 
         // 聊天消息面板
-        JPanel chatPanel = createChatPanel();
+        chatPanel = createChatPanel();
         JBScrollPane chatScrollPane = new JBScrollPane(chatPanel);
         chatScrollPane.setOpaque(false);
         chatScrollPane.getViewport().setOpaque(false);
         chatScrollPane.setBorder(BorderFactory.createEmptyBorder()); // 去掉滚动边框
 
         // 输入区
-        JPanel inputPanel = createInputPanel(service, chatPanel, chatScrollPane);
+        JPanel inputPanel = createInputPanel(service, contextManagerService, chatPanel, chatScrollPane);
 
         mainPanel.add(chatScrollPane, BorderLayout.CENTER);
         mainPanel.add(inputPanel, BorderLayout.SOUTH);
@@ -41,6 +60,13 @@ public class JEAToolWindowFactory implements ToolWindowFactory {
         ContentFactory contentFactory = ContentFactory.getInstance();
         Content content = contentFactory.createContent(mainPanel, "", false);
         toolWindow.getContentManager().addContent(content);
+
+        // 注册监听器：当 context 变化时刷新 tagPanel（在 UI 线程）
+        contextListener = newList -> SwingUtilities.invokeLater(() -> refreshTags(newList));
+        contextManagerService.addListener(contextListener);
+
+        // 首次填充（如果 service 在别处已添加上下文）
+        SwingUtilities.invokeLater(() -> refreshTags(contextManagerService.getAllContexts()));
     }
 
     // 聊天面板
@@ -52,15 +78,24 @@ public class JEAToolWindowFactory implements ToolWindowFactory {
     }
 
     // 输入面板
-    private JPanel createInputPanel(JEACodeAssistService service, JPanel chatPanel, JScrollPane chatScrollPane) {
+    private JPanel createInputPanel(JEACodeAssistService service, ContextManagerService contextService, JPanel chatPanel, JScrollPane chatScrollPane) {
+        JPanel container = new JPanel(new BorderLayout());
+        container.setOpaque(false);
+        container.setBackground(Gray._40);
+
         JPanel inputPanel = new JPanel();
         inputPanel.setLayout(new BoxLayout(inputPanel, BoxLayout.X_AXIS));
         inputPanel.setOpaque(false);
 
-        JTextArea inputArea = new JTextArea();
+        // 上下文标签区（FlowLayout，自动换行需要自行控制宽度；这里简单左对齐）
+        tagPanel = new JPanel(new WrapLayout(FlowLayout.LEFT, 6, 6));
+        tagPanel.setBackground(Gray._40);
+        tagPanel.setOpaque(false);
+
+        inputArea = new JTextArea(3, 40);
         inputArea.setLineWrap(true);
         inputArea.setWrapStyleWord(true);
-        inputArea.setFont(new Font("Microsoft YaHei", Font.PLAIN, 16));
+        inputArea.setFont(new Font("Microsoft YaHei", Font.PLAIN, 14));
         inputArea.setBorder(JBUI.Borders.empty(6));
 
         // 只在超过最大高度时才允许滚动
@@ -94,8 +129,28 @@ public class JEAToolWindowFactory implements ToolWindowFactory {
         inputPanel.add(inputScrollPane);
         inputPanel.add(Box.createRigidArea(new Dimension(5, 0)));
         inputPanel.add(sendButton);
-        return inputPanel;
+
+        container.add(tagPanel, BorderLayout.NORTH);
+        container.add(inputPanel, BorderLayout.CENTER);
+        return container;
     }
+
+    /** 根据 ContextItem 列表刷新 tagPanel（在 UI 线程调用） */
+    private void refreshTags(List<ContextItem> contexts) {
+        tagPanel.removeAll();
+        for (ContextItem item : contexts) {
+            // ContextTagComponent 是美化的标签 UI（下面会给出实现）
+            ContextTagComponent tag = new ContextTagComponent(item, () -> {
+                // 点击删除时，从服务移除（非 UI 直接操作数据）
+                ContextManagerService.getInstance(getProjectFromComponent()).removeContext(item);
+                refreshTags(contexts);
+            });
+            tagPanel.add(tag);
+        }
+        tagPanel.revalidate();
+        tagPanel.repaint();
+    }
+
 
     //////// 聊天面板的逻辑功能
     // 向消息窗口发送信息
@@ -147,5 +202,13 @@ public class JEAToolWindowFactory implements ToolWindowFactory {
         chatPanel.add(messagePanel);
         chatPanel.revalidate();
         chatPanel.repaint();
+    }
+
+    // 辅助：通过某个组件查找 Project（用于删除回调中获取 project）
+    private Project getProjectFromComponent() {
+        if (project == null) {
+            throw new UnsupportedOperationException("请将 createToolWindowContent 中的 project 保存为实例字段以供删除回调使用。");
+        }
+        return project;
     }
 }

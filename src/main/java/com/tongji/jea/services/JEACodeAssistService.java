@@ -62,6 +62,4 @@ public final class JEACodeAssistService {
 
         return finalResponse;
     }
-
-
 }
