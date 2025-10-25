@@ -3,8 +3,11 @@ package com.tongji.jea.toolWindow;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.wm.ToolWindow;
 import com.intellij.openapi.wm.ToolWindowFactory;
+import com.intellij.ui.JBColor;
+import com.intellij.ui.components.JBScrollPane;
 import com.intellij.ui.content.Content;
 import com.intellij.ui.content.ContentFactory;
+import com.intellij.util.ui.JBUI;
 import com.tongji.jea.services.JEACodeAssistService;
 import org.jetbrains.annotations.NotNull;
 
@@ -13,6 +16,7 @@ import java.awt.*;
 
 public class JEAToolWindowFactory implements ToolWindowFactory {
 
+    /////// 创建面板方法
     @Override
     public void createToolWindowContent(@NotNull Project project, @NotNull ToolWindow toolWindow) {
         JEACodeAssistService service = project.getService(JEACodeAssistService.class);
@@ -23,7 +27,7 @@ public class JEAToolWindowFactory implements ToolWindowFactory {
 
         // 聊天消息面板
         JPanel chatPanel = createChatPanel();
-        JScrollPane chatScrollPane = new JScrollPane(chatPanel);
+        JBScrollPane chatScrollPane = new JBScrollPane(chatPanel);
         chatScrollPane.setOpaque(false);
         chatScrollPane.getViewport().setOpaque(false);
         chatScrollPane.setBorder(BorderFactory.createEmptyBorder()); // 去掉滚动边框
@@ -39,6 +43,7 @@ public class JEAToolWindowFactory implements ToolWindowFactory {
         toolWindow.getContentManager().addContent(content);
     }
 
+    // 聊天面板
     private JPanel createChatPanel() {
         JPanel chatPanel = new JPanel();
         chatPanel.setLayout(new BoxLayout(chatPanel, BoxLayout.Y_AXIS));
@@ -46,6 +51,7 @@ public class JEAToolWindowFactory implements ToolWindowFactory {
         return chatPanel;
     }
 
+    // 输入面板
     private JPanel createInputPanel(JEACodeAssistService service, JPanel chatPanel, JScrollPane chatScrollPane) {
         JPanel inputPanel = new JPanel();
         inputPanel.setLayout(new BoxLayout(inputPanel, BoxLayout.X_AXIS));
@@ -55,11 +61,11 @@ public class JEAToolWindowFactory implements ToolWindowFactory {
         inputArea.setLineWrap(true);
         inputArea.setWrapStyleWord(true);
         inputArea.setFont(new Font("Microsoft YaHei", Font.PLAIN, 16));
-        inputArea.setMargin(new Insets(6, 6, 6, 6));
+        inputArea.setBorder(JBUI.Borders.empty(6));
 
         // 只在超过最大高度时才允许滚动
-        JScrollPane inputScrollPane = new JScrollPane(inputArea);
-        inputScrollPane.setBorder(BorderFactory.createLineBorder(Color.GRAY));
+        JBScrollPane inputScrollPane = new JBScrollPane(inputArea);
+        inputScrollPane.setBorder(BorderFactory.createLineBorder(JBColor.GRAY));
         inputScrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
 
         int maxHeight = 120; // 最大高度，到达后再出现滚动条
@@ -91,13 +97,16 @@ public class JEAToolWindowFactory implements ToolWindowFactory {
         return inputPanel;
     }
 
+    //////// 聊天面板的逻辑功能
+    // 向消息窗口发送信息
     private void sendMessage(JEACodeAssistService service, JTextArea inputArea, JPanel chatPanel, JScrollPane chatScrollPane) {
         String question = inputArea.getText().trim();
         if (question.isEmpty()) return;
 
-        addMessage(chatPanel, question, true);
-        String answer = service.askTA(question);
-        addMessage(chatPanel, answer, false);
+        // 这里是消息的发送和接收
+        addMessage(chatPanel, "You:\n" + question);
+        String answer = service.getLLMAnswerBack(question); // 此处接入后端的返回逻辑
+        addMessage(chatPanel, "Assistant:\n" + answer);
 
         inputArea.setText("");
         chatPanel.revalidate();
@@ -107,9 +116,10 @@ public class JEAToolWindowFactory implements ToolWindowFactory {
                 .setValue(chatScrollPane.getVerticalScrollBar().getMaximum()));
     }
 
-    private void addMessage(JPanel chatPanel, String message, boolean isUser) {
+    // 在消息窗口显示信息
+    private void addMessage(JPanel chatPanel, String message) {
         // 外层面板：决定左右对齐 (FlowLayout)
-        JPanel messagePanel = new JPanel(new FlowLayout(isUser ? FlowLayout.RIGHT : FlowLayout.LEFT));
+        JPanel messagePanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
         messagePanel.setOpaque(false);
 
         // 文本区域：显示消息内容
@@ -120,11 +130,6 @@ public class JEAToolWindowFactory implements ToolWindowFactory {
         messageArea.setEditable(false);
         messageArea.setOpaque(true);
         messageArea.setBorder(BorderFactory.createEmptyBorder(8, 10, 8, 10));
-
-        // 右侧消息文字靠右显示
-        if (isUser) {
-            messageArea.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
-        }
 
         // 限制宽度，让气泡不会太宽
         int maxWidth = 350;
