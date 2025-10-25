@@ -12,7 +12,9 @@ public final class JEACodeAssistService {
         LOG.info("JEACodeAssistService initialized for project: " + project.getName());
     }
 
-    public String askTA(String question) {
+    public String getLLMAnswerBack(String question) {
+        // TODO: 待添加获取LLM的回复逻辑
+
         // 模拟后台回答逻辑
         return "You asked: " + question + "\nResponse: (dummy TA reply)";
     }
