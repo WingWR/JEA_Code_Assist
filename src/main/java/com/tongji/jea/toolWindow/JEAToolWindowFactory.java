@@ -60,13 +60,6 @@ public class JEAToolWindowFactory implements ToolWindowFactory {
         ContentFactory contentFactory = ContentFactory.getInstance();
         Content content = contentFactory.createContent(mainPanel, "", false);
         toolWindow.getContentManager().addContent(content);
-
-        // 注册监听器：当 context 变化时刷新 tagPanel（在 UI 线程）
-        contextListener = newList -> SwingUtilities.invokeLater(() -> refreshTags(newList));
-        contextManagerService.addListener(contextListener);
-
-        // 首次填充（如果 service 在别处已添加上下文）
-        SwingUtilities.invokeLater(() -> refreshTags(contextManagerService.getAllContexts()));
     }
 
     // 聊天面板
