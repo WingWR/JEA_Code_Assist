@@ -3,8 +3,11 @@ package com.tongji.jea.toolWindow;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.wm.ToolWindow;
 import com.intellij.openapi.wm.ToolWindowFactory;
+import com.intellij.ui.JBColor;
+import com.intellij.ui.components.JBScrollPane;
 import com.intellij.ui.content.Content;
 import com.intellij.ui.content.ContentFactory;
+import com.intellij.util.ui.JBUI;
 import com.tongji.jea.services.JEACodeAssistService;
 import org.jetbrains.annotations.NotNull;
 
@@ -26,7 +29,8 @@ public class JEAToolWindowFactory implements ToolWindowFactory {
         // 聊天消息面板
         JPanel chatPanel = createChatPanel();
         latestChatPanel = chatPanel;
-        JScrollPane chatScrollPane = new JScrollPane(chatPanel);
+        JBScrollPane chatScrollPane = new JBScrollPane(chatPanel);
+        chatScrollPane.getVerticalScrollBar().setUnitIncrement(16); // 设置滚动框的滚动速度
         chatScrollPane.setOpaque(false);
         chatScrollPane.getViewport().setOpaque(false);
         chatScrollPane.setBorder(BorderFactory.createEmptyBorder()); // 去掉滚动边框
@@ -58,11 +62,11 @@ public class JEAToolWindowFactory implements ToolWindowFactory {
         inputArea.setLineWrap(true);
         inputArea.setWrapStyleWord(true);
         inputArea.setFont(new Font("Microsoft YaHei", Font.PLAIN, 16));
-        inputArea.setMargin(new Insets(6, 6, 6, 6));
+        inputArea.setBorder(JBUI.Borders.empty(6));
 
         // 只在超过最大高度时才允许滚动
-        JScrollPane inputScrollPane = new JScrollPane(inputArea);
-        inputScrollPane.setBorder(BorderFactory.createLineBorder(Color.GRAY));
+        JBScrollPane inputScrollPane = new JBScrollPane(inputArea);
+        inputScrollPane.setBorder(BorderFactory.createLineBorder(JBColor.GRAY));
         inputScrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
 
         int maxHeight = 120; // 最大高度，到达后再出现滚动条
