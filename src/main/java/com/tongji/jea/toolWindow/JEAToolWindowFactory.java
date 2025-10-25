@@ -52,7 +52,7 @@ public class JEAToolWindowFactory implements ToolWindowFactory {
         chatScrollPane.setBorder(BorderFactory.createEmptyBorder()); // 去掉滚动边框
 
         // 输入区
-        JPanel inputPanel = createInputPanel(service, contextManagerService, chatPanel, chatScrollPane);
+        JPanel inputPanel = createInputPanel(service, chatPanel, chatScrollPane);
 
         mainPanel.add(chatScrollPane, BorderLayout.CENTER);
         mainPanel.add(inputPanel, BorderLayout.SOUTH);
@@ -78,7 +78,7 @@ public class JEAToolWindowFactory implements ToolWindowFactory {
     }
 
     // 输入面板
-    private JPanel createInputPanel(JEACodeAssistService service, ContextManagerService contextService, JPanel chatPanel, JScrollPane chatScrollPane) {
+    private JPanel createInputPanel(JEACodeAssistService service, JPanel chatPanel, JScrollPane chatScrollPane) {
         JPanel container = new JPanel(new BorderLayout());
         container.setOpaque(false);
         container.setBackground(Gray._40);
