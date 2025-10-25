@@ -1,4 +1,4 @@
-package com.github.wingwr.javacodeassist.services;
+package com.tongji.jea.services;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -113,6 +113,5 @@ public class DashScopeExecutor {
     public void close() {
         httpClient.connectionPool().evictAll();
     }
-
 
 }

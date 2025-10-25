@@ -6,14 +6,35 @@ import com.intellij.openapi.wm.ToolWindowFactory;
 import com.intellij.ui.content.Content;
 import com.intellij.ui.content.ContentFactory;
 import com.tongji.jea.services.JEACodeAssistService;
+import com.tongji.jea.toolWindow.components.ContextTagComponent;
 import org.jetbrains.annotations.NotNull;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class JEAToolWindowFactory implements ToolWindowFactory {
-    // 保存最后一个创建的聊天面板实例
-    private static JPanel latestChatPanel = null;
+    /** 保存最后一个创建的聊天面板实例（供外部调用） */
+    private static JEAToolWindowFactory instance;
+
+    /** 聊天内容面板 */
+    private JPanel chatPanel;
+    /** 输入区文本框 */
+    private JTextArea inputArea;
+    /** 上下文标签区 */
+    private JPanel contextPanel;
+    /** 用于保存所有上下文标签内容 */
+    private final List<String> contextList = new ArrayList<>();
+
+    public JEAToolWindowFactory() {
+        instance = this;
+    }
+
+    /** 获取当前实例（供 AskTAAction 使用） */
+    public static JEAToolWindowFactory getInstance() {
+        return instance;
+    }
 
     @Override
     public void createToolWindowContent(@NotNull Project project, @NotNull ToolWindow toolWindow) {
@@ -23,9 +44,13 @@ public class JEAToolWindowFactory implements ToolWindowFactory {
         JPanel mainPanel = new JPanel(new BorderLayout());
         mainPanel.setOpaque(false);
 
-        // 聊天消息面板
+        // ===== 上下文标签区 =====
+        contextPanel = new JPanel(new FlowLayout(FlowLayout.LEFT, 6, 6));
+        contextPanel.setBackground(new Color(245, 245, 245));
+        contextPanel.setBorder(BorderFactory.createTitledBorder("上下文 Context"));
+
+        // ===== 聊天消息区 =====
         JPanel chatPanel = createChatPanel();
-        latestChatPanel = chatPanel;
         JScrollPane chatScrollPane = new JScrollPane(chatPanel);
         chatScrollPane.setOpaque(false);
         chatScrollPane.getViewport().setOpaque(false);
@@ -34,6 +59,8 @@ public class JEAToolWindowFactory implements ToolWindowFactory {
         // 输入区
         JPanel inputPanel = createInputPanel(service, chatPanel, chatScrollPane);
 
+        // 组装布局
+        mainPanel.add(contextPanel, BorderLayout.NORTH);
         mainPanel.add(chatScrollPane, BorderLayout.CENTER);
         mainPanel.add(inputPanel, BorderLayout.SOUTH);
 
@@ -42,6 +69,7 @@ public class JEAToolWindowFactory implements ToolWindowFactory {
         toolWindow.getContentManager().addContent(content);
     }
 
+    /** 创建聊天区 */
     private JPanel createChatPanel() {
         JPanel chatPanel = new JPanel();
         chatPanel.setLayout(new BoxLayout(chatPanel, BoxLayout.Y_AXIS));
@@ -49,6 +77,7 @@ public class JEAToolWindowFactory implements ToolWindowFactory {
         return chatPanel;
     }
 
+    /** 创建输入区（包含发送逻辑） */
     private JPanel createInputPanel(JEACodeAssistService service, JPanel chatPanel, JScrollPane chatScrollPane) {
         JPanel inputPanel = new JPanel();
         inputPanel.setLayout(new BoxLayout(inputPanel, BoxLayout.X_AXIS));
@@ -94,30 +123,59 @@ public class JEAToolWindowFactory implements ToolWindowFactory {
         return inputPanel;
     }
 
-    private void sendMessage(JEACodeAssistService service, JTextArea inputArea, JPanel chatPanel, JScrollPane chatScrollPane) {
-        String question = inputArea.getText().trim();
-        if (question.isEmpty()) return;
+    /** 点击 Send 时执行 */
+    private void sendMessage(JEACodeAssistService service, JTextArea inputArea, JPanel chatPanel, JScrollPane scrollPane) {
+        String userInput = inputArea.getText().trim();
+        if (userInput.isEmpty()) return;
 
-        addMessage(chatPanel, question, true);
-        String answer = service.askTA(question);//后端的唯一交互点
+        // 拼接上下文标签
+        StringBuilder fullPrompt = new StringBuilder();
+        if (!contextList.isEmpty()) {
+            fullPrompt.append("【上下文】\n");
+            for (String ctx : contextList) {
+                fullPrompt.append(ctx).append("\n---\n");
+            }
+        }
+        fullPrompt.append("【用户问题】\n").append(userInput);
+
+        // 展示并调用服务
+        addMessage(chatPanel, userInput, true);
+        String answer = service.askTA(fullPrompt.toString());
         addMessage(chatPanel, answer, false);
 
         inputArea.setText("");
         chatPanel.revalidate();
         chatPanel.repaint();
 
-        SwingUtilities.invokeLater(() -> chatScrollPane.getVerticalScrollBar()
-                .setValue(chatScrollPane.getVerticalScrollBar().getMaximum()));
-    }
-    public static void addExternalMessage(String question, String answer) {
-        if (latestChatPanel == null) return;
-
-        addMessage(latestChatPanel, "You:\n" + question, true);
-        addMessage(latestChatPanel, "Assistant:\n" + answer, false);
-        latestChatPanel.revalidate();
-        latestChatPanel.repaint();
+        SwingUtilities.invokeLater(() ->
+                scrollPane.getVerticalScrollBar().setValue(scrollPane.getVerticalScrollBar().getMaximum())
+        );
     }
 
+    /** 添加上下文标签（供外部调用） */
+    public void addContextTag(String tagText) {
+        if (contextPanel == null) return;
+        ContextTagComponent tag = new ContextTagComponent(tagText, () -> removeContextTag(tagText));
+        contextList.add(tagText);
+        contextPanel.add(tag);
+        contextPanel.revalidate();
+        contextPanel.repaint();
+    }
+
+    /** 删除标签 */
+    private void removeContextTag(String tagText) {
+        contextList.remove(tagText);
+        for (Component c : contextPanel.getComponents()) {
+            if (c instanceof ContextTagComponent t && t.getTitle().equals(tagText)) {
+                contextPanel.remove(t);
+                break;
+            }
+        }
+        contextPanel.revalidate();
+        contextPanel.repaint();
+    }
+
+    /** 添加聊天消息 */
     private static void addMessage(JPanel chatPanel, String message, boolean isUser) {
         // 外层面板：决定左右对齐 (FlowLayout)
         JPanel messagePanel = new JPanel(new FlowLayout(isUser ? FlowLayout.RIGHT : FlowLayout.LEFT));

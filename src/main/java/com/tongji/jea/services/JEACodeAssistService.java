@@ -19,7 +19,7 @@ public final class JEACodeAssistService {
 
     public String askTA(@NotNull String question) {
         LOG.info("AskTA called with question: " + question);
-        String answer = new LLMService().ask(question);
+        String answer = new LLMService("sk-7d351140e99c4744a37d73b67bfe7592").ask(question);
         LOG.info("Answer: " + answer);
         return answer;
     }
