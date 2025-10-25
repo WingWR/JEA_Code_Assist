@@ -1,4 +1,4 @@
-package com.github.wingwr.javacodeassist.data;
+package com.tongji.jea.model;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;

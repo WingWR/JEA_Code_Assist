@@ -1,11 +1,11 @@
-package com.github.wingwr.javacodeassist.services;
+package com.tongji.jea.services;
 
-import com.github.wingwr.javacodeassist.data.KnowledgeEntry;
+import com.tongji.jea.model.KnowledgeEntry;
 import java.util.*;
 import java.util.stream.Collectors;
 
 /**
- * 余弦相似度搜索器（在 Kotlin 内部执行）
+ * 余弦相似度搜索器
  */
 public class SimilaritySearcher {
     public static double cosineSimilarity(List<Double> a, List<Double> b) {

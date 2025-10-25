@@ -1,6 +1,7 @@
 [
   {
-    "text": "Java Enterprise Application Development\nDr. Fan Hongfei17 September 2025Lecture 0Introduction to the Course",
+    "chunk_id": "Lec-00-Introduction_p1_c1",
+    "content": "Java Enterprise Application Development\nDr. Fan Hongfei17 September 2025Lecture 0Introduction to the Course",
     "embedding": [
       -0.0453002005815506,
       0.014258450828492641,
@@ -1028,10 +1029,12 @@
       0.012419968843460083
     ],
     "source": "Lec-00-Introduction.pdf",
-    "page": 1
+    "page": 1,
+    "chunk_index": 1
   },
   {
-    "text": "Learning Objectives•LO1: understand the Java EE platform’s general working mechanism and key concepts•LO2: learn the basic syntax and skills of Java programming•LO3: learn key techniques and skills involved in developing Java enterprise applications•LO4: develop the capability of designing and implementing complex software systems based on the Java EE platform\n2",
+    "chunk_id": "Lec-00-Introduction_p2_c1",
+    "content": "Learning Objectives•LO1: understand the Java EE platform’s general working mechanism and key concepts•LO2: learn the basic syntax and skills of Java programming•LO3: learn key techniques and skills involved in developing Java enterprise applications•LO4: develop the capability of designing and implementing complex software systems based on the Java EE platform\n2",
     "embedding": [
       -0.03983351215720177,
       0.0916443020105362,
@@ -2059,10 +2062,12 @@
       -0.010752325877547264
     ],
     "source": "Lec-00-Introduction.pdf",
-    "page": 2
+    "page": 2,
+    "chunk_index": 1
   },
   {
-    "text": "Contents•Part A: Java Foundations–Variables, operators, control flow statements, arrays, numbers and strings, exceptions, generics, annotations, reflection•Part B: Object-Oriented Programming with Java–Classes and objects, inheritance and interfaces•Part C: Basics of Java EE Programming–Servlet programming, client state maintenance, JDBC•Part D: Advanced Topics in Java Enterprise Application Development–JPA and Hibernate, Spring, JMS, JTA3",
+    "chunk_id": "Lec-00-Introduction_p3_c1",
+    "content": "Contents•Part A: Java Foundations–Variables, operators, control flow statements, arrays, numbers and strings, exceptions, generics, annotations, reflection•Part B: Object-Oriented Programming with Java–Classes and objects, inheritance and interfaces•Part C: Basics of Java EE Programming–Servlet programming, client state maintenance, JDBC•Part D: Advanced Topics in Java Enterprise Application Development–JPA and Hibernate, Spring, JMS, JTA3",
     "embedding": [
       -0.08203878253698349,
       0.09241223335266113,
@@ -3090,10 +3095,12 @@
       0.015995033085346222
     ],
     "source": "Lec-00-Introduction.pdf",
-    "page": 3
+    "page": 3,
+    "chunk_index": 1
   },
   {
-    "text": "Assessment Componentsa)Attendance and participation (10%)b)Programming examination (20%)c)Assignment A (20%), group-based–A software project that deeply involves fundamental Java programming concepts and techniques–Source code, documents, and presentationd)Assignment B (50%), group-based–A software project that deeply involves enterprise Java development concepts and techniques–Source code, documents, and presentation•For c and d, each group contains at most 4 members4",
+    "chunk_id": "Lec-00-Introduction_p4_c1",
+    "content": "Assessment Componentsa)Attendance and participation (10%)b)Programming examination (20%)c)Assignment A (20%), group-based–A software project that deeply involves fundamental Java programming concepts and techniques–Source code, documents, and presentationd)Assignment B (50%), group-based–A software project that deeply involves enterprise Java development concepts and techniques–Source code, documents, and presentation•For c and d, each group contains at most 4 members4",
     "embedding": [
       -0.07986322790384293,
       0.06097118556499481,
@@ -4121,10 +4128,12 @@
       -0.02514789067208767
     ],
     "source": "Lec-00-Introduction.pdf",
-    "page": 4
+    "page": 4,
+    "chunk_index": 1
   },
   {
-    "text": "Dr. Fan Hongfei17 September 2025Lecture 1Introduction to JavaJava Enterprise Application Development",
+    "chunk_id": "Lec-01-Introduction-to-Java_p1_c1",
+    "content": "Dr. Fan Hongfei17 September 2025Lecture 1Introduction to JavaJava Enterprise Application Development",
     "embedding": [
       -0.052593331784009933,
       0.014399007894098759,
@@ -5152,10 +5161,12 @@
       0.024250105023384094
     ],
     "source": "Lec-01-Introduction-to-Java.pdf",
-    "page": 1
+    "page": 1,
+    "chunk_index": 1
   },
   {
-    "text": "Popularity of Java•More than 17 million developers•TIOBE programming community index (September 2025)\n2",
+    "chunk_id": "Lec-01-Introduction-to-Java_p2_c1",
+    "content": "Popularity of Java•More than 17 million developers•TIOBE programming community index (September 2025)\n2",
     "embedding": [
       -0.03649154305458069,
       0.051982346922159195,
@@ -6183,10 +6194,12 @@
       -0.02248055301606655
     ],
     "source": "Lec-01-Introduction-to-Java.pdf",
-    "page": 2
+    "page": 2,
+    "chunk_index": 1
   },
   {
-    "text": "Brief History•James Gosling, Mike Sheridan, and Patrick Naughton initiated the project in June 1991•Initially called Oak after an oak tree that stood outside Gosling’s office•Finally renamed Java, from Java coffee•Designed with a C/C++-style syntax•Java 1.0 released by Sun in 1996–“Write Once, Run Anywhere” (WORA)•Soon incorporated by major web browsers3",
+    "chunk_id": "Lec-01-Introduction-to-Java_p3_c1",
+    "content": "Brief History•James Gosling, Mike Sheridan, and Patrick Naughton initiated the project in June 1991•Initially called Oak after an oak tree that stood outside Gosling’s office•Finally renamed Java, from Java coffee•Designed with a C/C++-style syntax•Java 1.0 released by Sun in 1996–“Write Once, Run Anywhere” (WORA)•Soon incorporated by major web browsers3",
     "embedding": [
       -0.03198741376399994,
       0.08570146560668945,
@@ -7214,10 +7227,12 @@
       -0.01231648400425911
     ],
     "source": "Lec-01-Introduction-to-Java.pdf",
-    "page": 3
+    "page": 3,
+    "chunk_index": 1
   },
   {
-    "text": "Brief History (cont.)•Java 2 (initially released in 1998/1999)–Multiple configurations for different types of platforms•J2SE, desktop version•J2EE, for enterprise applications•J2ME, optimized for mobile applications•Renamed as Java SE/Java EE/Java ME in 2006•Latest version: JDK 24 (latest), JDK 21 (latest LTS)\n4",
+    "chunk_id": "Lec-01-Introduction-to-Java_p4_c1",
+    "content": "Brief History (cont.)•Java 2 (initially released in 1998/1999)–Multiple configurations for different types of platforms•J2SE, desktop version•J2EE, for enterprise applications•J2ME, optimized for mobile applications•Renamed as Java SE/Java EE/Java ME in 2006•Latest version: JDK 24 (latest), JDK 21 (latest LTS)\n4",
     "embedding": [
       -0.058989208191633224,
       0.08817003667354584,
@@ -8245,10 +8260,12 @@
       -0.03208322450518608
     ],
     "source": "Lec-01-Introduction-to-Java.pdf",
-    "page": 4
+    "page": 4,
+    "chunk_index": 1
   },
   {
-    "text": "The Java Programming Language•Characteristics–Simple–Object oriented–Distributed–Multithreaded–Dynamic–Architecture neutral–Portable–High performance–Robust–Secure5",
+    "chunk_id": "Lec-01-Introduction-to-Java_p5_c1",
+    "content": "The Java Programming Language•Characteristics–Simple–Object oriented–Distributed–Multithreaded–Dynamic–Architecture neutral–Portable–High performance–Robust–Secure5",
     "embedding": [
       -0.04060887545347214,
       0.09028716385364532,
@@ -9276,10 +9293,12 @@
       0.032760344445705414
     ],
     "source": "Lec-01-Introduction-to-Java.pdf",
-    "page": 5
+    "page": 5,
+    "chunk_index": 1
   },
   {
-    "text": "The Java Platform•A software-only platform that runs on top of other hardware-based platforms•Two components–Java Virtual Machine (JVM)–Java Application Programming Interface (API)\n6",
+    "chunk_id": "Lec-01-Introduction-to-Java_p6_c1",
+    "content": "The Java Platform•A software-only platform that runs on top of other hardware-based platforms•Two components–Java Virtual Machine (JVM)–Java Application Programming Interface (API)\n6",
     "embedding": [
       -0.03376347944140434,
       0.08557698875665665,
@@ -10307,10 +10326,12 @@
       -0.038378212600946426
     ],
     "source": "Lec-01-Introduction-to-Java.pdf",
-    "page": 6
+    "page": 6,
+    "chunk_index": 1
   },
   {
-    "text": "Java Platforms•Java SE (Standard Edition)–For general-purpose use on desktop PCs, servers and similar devices•Java EE (Enterprise Edition)–Extending Java SE, useful for multi-tier client-server enterprise applications•Java ME (Micro Edition)–Specifies several different sets of libraries (known as profiles) for devices with limited storage, display, and power capacities7",
+    "chunk_id": "Lec-01-Introduction-to-Java_p7_c1",
+    "content": "Java Platforms•Java SE (Standard Edition)–For general-purpose use on desktop PCs, servers and similar devices•Java EE (Enterprise Edition)–Extending Java SE, useful for multi-tier client-server enterprise applications•Java ME (Micro Edition)–Specifies several different sets of libraries (known as profiles) for devices with limited storage, display, and power capacities7",
     "embedding": [
       -0.019244076684117317,
       0.12548448145389557,
@@ -11338,10 +11359,12 @@
       0.005154384765774012
     ],
     "source": "Lec-01-Introduction-to-Java.pdf",
-    "page": 7
+    "page": 7,
+    "chunk_index": 1
   },
   {
-    "text": "Dr. Fan Hongfei17 September 2025Lecture 2Variables, Operators, Control Flow Statements, and ArraysJava Enterprise Application Development",
+    "chunk_id": "Lec-02-Variables-Operators-ControlFlowStatements-and-Arrays_p1_c1",
+    "content": "Dr. Fan Hongfei17 September 2025Lecture 2Variables, Operators, Control Flow Statements, and ArraysJava Enterprise Application Development",
     "embedding": [
       -0.06549200415611267,
       0.04300418868660927,
@@ -12369,10 +12392,12 @@
       0.03451695665717125
     ],
     "source": "Lec-02-Variables-Operators-ControlFlowStatements-and-Arrays.pdf",
-    "page": 1
+    "page": 1,
+    "chunk_index": 1
   },
   {
-    "text": "Getting Started with Java Programming•Step 1: download and install the latest JDK–https://www.oracle.com/java/technologies/downloads/•Step 2: download and install an IDE–IntelliJ IDEA (recommended)–Visual Studio Code (considerable)–Eclipse•Step 3: Go!–A Hello Worldexample2",
+    "chunk_id": "Lec-02-Variables-Operators-ControlFlowStatements-and-Arrays_p2_c1",
+    "content": "Getting Started with Java Programming•Step 1: download and install the latest JDK–https://www.oracle.com/java/technologies/downloads/•Step 2: download and install an IDE–IntelliJ IDEA (recommended)–Visual Studio Code (considerable)–Eclipse•Step 3: Go!–A Hello Worldexample2",
     "embedding": [
       -0.05142919719219208,
       0.0562589168548584,
@@ -13400,10 +13425,12 @@
       0.008825215511023998
     ],
     "source": "Lec-02-Variables-Operators-ControlFlowStatements-and-Arrays.pdf",
-    "page": 2
+    "page": 2,
+    "chunk_index": 1
   },
   {
-    "text": "Variables•Four kinds of variables–Instance Variables (Non-Static Fields), Class Variables (Static Fields),Local Variables, Parameters•Naming–Case-sensitive, beginning with a letter, $, or _–Subsequent characters may be letters, digits, $, _–Must not be a keyword or reserved word–If the name consists of only one word, spell that word in all lowercase letters; if it consists of more than one word, capitalize the first letter of each subsequent word–If your variable stores a constant value,",
+    "chunk_id": "Lec-02-Variables-Operators-ControlFlowStatements-and-Arrays_p3_c1",
+    "content": "Variables•Four kinds of variables–Instance Variables (Non-Static Fields), Class Variables (Static Fields),Local Variables, Parameters•Naming–Case-sensitive, beginning with a letter, $, or _–Subsequent characters may be letters, digits, $, _–Must not be a keyword or reserved word–If the name consists of only one word, spell that word in all lowercase letters; if it consists of more than one word, capitalize the first letter of each subsequent word–If your variable stores a constant value,",
     "embedding": [
       -0.07979005575180054,
       0.020476801320910454,
@@ -14431,10 +14458,12 @@
       0.001603368204087019
     ],
     "source": "Lec-02-Variables-Operators-ControlFlowStatements-and-Arrays.pdf",
-    "page": 3
+    "page": 3,
+    "chunk_index": 1
   },
   {
-    "text": "word, capitalize the first letter of each subsequent word–If your variable stores a constant value, capitalize every letter and separate subsequent words with the underscore character3",
+    "chunk_id": "Lec-02-Variables-Operators-ControlFlowStatements-and-Arrays_p3_c2",
+    "content": "word, capitalize the first letter of each subsequent word–If your variable stores a constant value, capitalize every letter and separate subsequent words with the underscore character3",
     "embedding": [
       -0.08693168312311172,
       0.0522468164563179,
@@ -15462,10 +15491,12 @@
       -0.0003978880704380572
     ],
     "source": "Lec-02-Variables-Operators-ControlFlowStatements-and-Arrays.pdf",
-    "page": 3
+    "page": 3,
+    "chunk_index": 2
   },
   {
-    "text": "Primitive Data Types•Java is statically-typed: variables first declared, then used•8 primitive data types–byte, short, int, long–float, double–boolean–char•Special support for character strings–String, immutable4",
+    "chunk_id": "Lec-02-Variables-Operators-ControlFlowStatements-and-Arrays_p4_c1",
+    "content": "Primitive Data Types•Java is statically-typed: variables first declared, then used•8 primitive data types–byte, short, int, long–float, double–boolean–char•Special support for character strings–String, immutable4",
     "embedding": [
       -0.0819118320941925,
       0.06568221747875214,
@@ -16493,10 +16524,12 @@
       0.03611885383725166
     ],
     "source": "Lec-02-Variables-Operators-ControlFlowStatements-and-Arrays.pdf",
-    "page": 4
+    "page": 4,
+    "chunk_index": 1
   },
   {
-    "text": "Default Values•Default will be zero or null\n5Data TypeDefault Value (for fields)byte0short0int0long0Lfloat0.0fdouble0.0dchar'\\u0000'String (or any object) nullbooleanfalse",
+    "chunk_id": "Lec-02-Variables-Operators-ControlFlowStatements-and-Arrays_p5_c1",
+    "content": "Default Values•Default will be zero or null\n5Data TypeDefault Value (for fields)byte0short0int0long0Lfloat0.0fdouble0.0dchar'\\u0000'String (or any object) nullbooleanfalse",
     "embedding": [
       -0.05846806615591049,
       0.03023410588502884,
@@ -17524,10 +17557,12 @@
       0.053830042481422424
     ],
     "source": "Lec-02-Variables-Operators-ControlFlowStatements-and-Arrays.pdf",
-    "page": 5
+    "page": 5,
+    "chunk_index": 1
   },
   {
-    "text": "Literals•A literal is the source code representation of a fixed value•Integer Literals–An integer literal is of type long if it ends with the letter L or l; otherwise it is of type int–Decimal, Hexadecimal (0x~), Binary (0b~)•Floating-Point Literals–A floating-point literal is of type float if it ends with the letter F or f; otherwise its type is double–Can also be expressed using E or e (for scientific notation)•Character and String Literals6",
+    "chunk_id": "Lec-02-Variables-Operators-ControlFlowStatements-and-Arrays_p6_c1",
+    "content": "Literals•A literal is the source code representation of a fixed value•Integer Literals–An integer literal is of type long if it ends with the letter L or l; otherwise it is of type int–Decimal, Hexadecimal (0x~), Binary (0b~)•Floating-Point Literals–A floating-point literal is of type float if it ends with the letter F or f; otherwise its type is double–Can also be expressed using E or e (for scientific notation)•Character and String Literals6",
     "embedding": [
       -0.02384515292942524,
       0.005846505984663963,
@@ -18555,10 +18590,12 @@
       0.033057380467653275
     ],
     "source": "Lec-02-Variables-Operators-ControlFlowStatements-and-Arrays.pdf",
-    "page": 6
+    "page": 6,
+    "chunk_index": 1
   },
   {
-    "text": "Operator Precedence\n7OperatorsPrecedencepostfixexpr++expr--unary++expr--expr+expr-expr~ !multiplicative* / %additive+ -shift<< >> >>>relational< > <= >= instanceofequality== !=bitwise AND&bitwise exclusive OR^bitwise inclusive OR|logical AND&&logical OR||ternary? :assignment= += -= *= /= %= &= ^= |= <<= >>= >>>=",
+    "chunk_id": "Lec-02-Variables-Operators-ControlFlowStatements-and-Arrays_p7_c1",
+    "content": "Operator Precedence\n7OperatorsPrecedencepostfixexpr++expr--unary++expr--expr+expr-expr~ !multiplicative* / %additive+ -shift<< >> >>>relational< > <= >= instanceofequality== !=bitwise AND&bitwise exclusive OR^bitwise inclusive OR|logical AND&&logical OR||ternary? :assignment= += -= *= /= %= &= ^= |= <<= >>= >>>=",
     "embedding": [
       -0.0818110853433609,
       -0.0024798985105007887,
@@ -19586,10 +19623,12 @@
       0.016669008880853653
     ],
     "source": "Lec-02-Variables-Operators-ControlFlowStatements-and-Arrays.pdf",
-    "page": 7
+    "page": 7,
+    "chunk_index": 1
   },
   {
-    "text": "Assignment, Arithmetic, and Unary•Simple Assignment Operator: =•Arithmetic Operators: +, -, *, /, %–You may combine the arithmetic operators with the simple assignment operator to create compound assignments–The + operator can also be used for concatenating two strings together•Unary Operators: +, -, ++, --, !\n8",
+    "chunk_id": "Lec-02-Variables-Operators-ControlFlowStatements-and-Arrays_p8_c1",
+    "content": "Assignment, Arithmetic, and Unary•Simple Assignment Operator: =•Arithmetic Operators: +, -, *, /, %–You may combine the arithmetic operators with the simple assignment operator to create compound assignments–The + operator can also be used for concatenating two strings together•Unary Operators: +, -, ++, --, !\n8",
     "embedding": [
       -0.056361809372901917,
       0.018836788833141327,
@@ -20617,10 +20656,12 @@
       0.029755588620901108
     ],
     "source": "Lec-02-Variables-Operators-ControlFlowStatements-and-Arrays.pdf",
-    "page": 8
+    "page": 8,
+    "chunk_index": 1
   },
   {
-    "text": "Equality, Relational, and Conditional•Equality and Relational Operators: ==, !=, >, >=, <, <=•Conditional Operators: &&, ||–Short-circuiting: the second operand is evaluated only if needed•Ternary operator: a ? b : c•Type Comparison Operator: instanceof–Test if an object is an instance of a class, an instance of a subclass, or an instance of a class that implements a particular interface9",
+    "chunk_id": "Lec-02-Variables-Operators-ControlFlowStatements-and-Arrays_p9_c1",
+    "content": "Equality, Relational, and Conditional•Equality and Relational Operators: ==, !=, >, >=, <, <=•Conditional Operators: &&, ||–Short-circuiting: the second operand is evaluated only if needed•Ternary operator: a ? b : c•Type Comparison Operator: instanceof–Test if an object is an instance of a class, an instance of a subclass, or an instance of a class that implements a particular interface9",
     "embedding": [
       -0.09200189262628555,
       0.01618761382997036,
@@ -21648,10 +21689,12 @@
       -0.001183966756798327
     ],
     "source": "Lec-02-Variables-Operators-ControlFlowStatements-and-Arrays.pdf",
-    "page": 9
+    "page": 9,
+    "chunk_index": 1
   },
   {
-    "text": "Bitwise and Bit Shift•Unary bitwise complement operator \"~\" inverts a bit pattern•Signed left shift operator \"<<\" shifts a bit pattern to the left, and the signed right shift operator \">>\" shifts a bit pattern to the right•Bitwise & operator performs a bitwise AND operation•Bitwise ^ operator performs a bitwise exclusive OR operation•The bitwise | operator performs a bitwise inclusive OR operation10",
+    "chunk_id": "Lec-02-Variables-Operators-ControlFlowStatements-and-Arrays_p10_c1",
+    "content": "Bitwise and Bit Shift•Unary bitwise complement operator \"~\" inverts a bit pattern•Signed left shift operator \"<<\" shifts a bit pattern to the left, and the signed right shift operator \">>\" shifts a bit pattern to the right•Bitwise & operator performs a bitwise AND operation•Bitwise ^ operator performs a bitwise exclusive OR operation•The bitwise | operator performs a bitwise inclusive OR operation10",
     "embedding": [
       -0.03483723849058151,
       0.0063533298671245575,
@@ -22679,10 +22722,12 @@
       -0.007276367861777544
     ],
     "source": "Lec-02-Variables-Operators-ControlFlowStatements-and-Arrays.pdf",
-    "page": 10
+    "page": 10,
+    "chunk_index": 1
   },
   {
-    "text": "The \"Hello World!\" Application•Source code and bytecode•General structure•The main method•Source code comments (3 kinds)–Javadoc: specific for Java\n11",
+    "chunk_id": "Lec-02-Variables-Operators-ControlFlowStatements-and-Arrays_p11_c1",
+    "content": "The \"Hello World!\" Application•Source code and bytecode•General structure•The main method•Source code comments (3 kinds)–Javadoc: specific for Java\n11",
     "embedding": [
       -0.024813828989863396,
       0.032829660922288895,
@@ -23710,10 +23755,12 @@
       0.03069925867021084
     ],
     "source": "Lec-02-Variables-Operators-ControlFlowStatements-and-Arrays.pdf",
-    "page": 11
+    "page": 11,
+    "chunk_index": 1
   },
   {
-    "text": "Expressions, Statements, and Blocks•Expression: made up of variables, operators, and method invocations, that evaluates to a single value•Statement: a complete unit of execution–Expression statements•Assignment expressions•Any use of ++ or --•Method invocations•Object creation expressions–Declaration statements–Control flow statements•Block: a group of zero or more statements between balanced braces12",
+    "chunk_id": "Lec-02-Variables-Operators-ControlFlowStatements-and-Arrays_p12_c1",
+    "content": "Expressions, Statements, and Blocks•Expression: made up of variables, operators, and method invocations, that evaluates to a single value•Statement: a complete unit of execution–Expression statements•Assignment expressions•Any use of ++ or --•Method invocations•Object creation expressions–Declaration statements–Control flow statements•Block: a group of zero or more statements between balanced braces12",
     "embedding": [
       -0.08244922757148743,
       0.007477235049009323,
@@ -24741,10 +24788,12 @@
       0.04921037703752518
     ],
     "source": "Lec-02-Variables-Operators-ControlFlowStatements-and-Arrays.pdf",
-    "page": 12
+    "page": 12,
+    "chunk_index": 1
   },
   {
-    "text": "Control Flow Statements•The if-then Statement•The if-then-else Statement•The switch Statement–Working with byte, short, char, int, enumerated types, String, and a few special classes that wrap certain primitive types•The while and do-while Statements•The for Statement•Branching Statements: break, continue, return13",
+    "chunk_id": "Lec-02-Variables-Operators-ControlFlowStatements-and-Arrays_p13_c1",
+    "content": "Control Flow Statements•The if-then Statement•The if-then-else Statement•The switch Statement–Working with byte, short, char, int, enumerated types, String, and a few special classes that wrap certain primitive types•The while and do-while Statements•The for Statement•Branching Statements: break, continue, return13",
     "embedding": [
       -0.0844607949256897,
       0.037981607019901276,
@@ -25772,10 +25821,12 @@
       0.037981607019901276
     ],
     "source": "Lec-02-Variables-Operators-ControlFlowStatements-and-Arrays.pdf",
-    "page": 13
+    "page": 13,
+    "chunk_index": 1
   },
   {
-    "text": "Arrays•Array: a container object•Declaring a variable to refer to an array–int[] anArray;•Creating, initializing, and accessing an array–anArray= new int[10];•Length of array: arrayRefVar.length•Shortcut syntax to create and initialize an array–int[] anArray= {100, 200, 300, 400, 500, 600, 700, 800};•The enhanced for statement: recommended14",
+    "chunk_id": "Lec-02-Variables-Operators-ControlFlowStatements-and-Arrays_p14_c1",
+    "content": "Arrays•Array: a container object•Declaring a variable to refer to an array–int[] anArray;•Creating, initializing, and accessing an array–anArray= new int[10];•Length of array: arrayRefVar.length•Shortcut syntax to create and initialize an array–int[] anArray= {100, 200, 300, 400, 500, 600, 700, 800};•The enhanced for statement: recommended14",
     "embedding": [
       -0.07305870205163956,
       0.043551746755838394,
@@ -26803,10 +26854,12 @@
       0.03691590204834938
     ],
     "source": "Lec-02-Variables-Operators-ControlFlowStatements-and-Arrays.pdf",
-    "page": 14
+    "page": 14,
+    "chunk_index": 1
   },
   {
-    "text": "Duplicating Arrays•Whenever you need to duplicate an array –Using the assignment (=) statement?•Correct way: using arraycopyutility!–public static void arraycopy(Object src, intsrcPos, Object dest, intdestPos, intlength)•Related issue: passing arrays to methods–Sample code and explanation–Java is “passing by value”15",
+    "chunk_id": "Lec-02-Variables-Operators-ControlFlowStatements-and-Arrays_p15_c1",
+    "content": "Duplicating Arrays•Whenever you need to duplicate an array –Using the assignment (=) statement?•Correct way: using arraycopyutility!–public static void arraycopy(Object src, intsrcPos, Object dest, intdestPos, intlength)•Related issue: passing arrays to methods–Sample code and explanation–Java is “passing by value”15",
     "embedding": [
       -0.036919813603162766,
       0.04052875563502312,
@@ -27834,10 +27887,12 @@
       0.03953869268298149
     ],
     "source": "Lec-02-Variables-Operators-ControlFlowStatements-and-Arrays.pdf",
-    "page": 15
+    "page": 15,
+    "chunk_index": 1
   },
   {
-    "text": "Array Manipulations•Methods for performing array manipulations by the java.util.Arraysclass–arraycopy, copyOfRange–equals–binarySearch–fill–sort, parallelSort(demonstration of performance difference)–Many more (for your private study)16",
+    "chunk_id": "Lec-02-Variables-Operators-ControlFlowStatements-and-Arrays_p16_c1",
+    "content": "Array Manipulations•Methods for performing array manipulations by the java.util.Arraysclass–arraycopy, copyOfRange–equals–binarySearch–fill–sort, parallelSort(demonstration of performance difference)–Many more (for your private study)16",
     "embedding": [
       -0.016971014440059662,
       0.06684905290603638,
@@ -28865,10 +28920,12 @@
       -0.016377409920096397
     ],
     "source": "Lec-02-Variables-Operators-ControlFlowStatements-and-Arrays.pdf",
-    "page": 16
+    "page": 16,
+    "chunk_index": 1
   },
   {
-    "text": "Multidimensional Arrays•Declaration and creationint[][] myNumbers= new int[4][6];int[][] myNumbers= { {1, 2, 3, 4}, {5, 6, 7, 8} };•In Java, a multidimensional array is an array whose components are themselves arrays–Rows are allowed to vary in length: ragged arrayint[][] myNumbers= { {1, 2, 3, 4}, {5, 6, 7}, {8, 9} };–Initialization issueint[][] myNumbers= new int[3][];17",
+    "chunk_id": "Lec-02-Variables-Operators-ControlFlowStatements-and-Arrays_p17_c1",
+    "content": "Multidimensional Arrays•Declaration and creationint[][] myNumbers= new int[4][6];int[][] myNumbers= { {1, 2, 3, 4}, {5, 6, 7, 8} };•In Java, a multidimensional array is an array whose components are themselves arrays–Rows are allowed to vary in length: ragged arrayint[][] myNumbers= { {1, 2, 3, 4}, {5, 6, 7}, {8, 9} };–Initialization issueint[][] myNumbers= new int[3][];17",
     "embedding": [
       -0.06997690349817276,
       0.0966930165886879,
@@ -29896,10 +29953,12 @@
       0.041393883526325226
     ],
     "source": "Lec-02-Variables-Operators-ControlFlowStatements-and-Arrays.pdf",
-    "page": 17
+    "page": 17,
+    "chunk_index": 1
   },
   {
-    "text": "ArrayList•Declaration and initialization•add, remove•get, set•size, clear, isEmpty•contains, indexOf\n18",
+    "chunk_id": "Lec-02-Variables-Operators-ControlFlowStatements-and-Arrays_p18_c1",
+    "content": "ArrayList•Declaration and initialization•add, remove•get, set•size, clear, isEmpty•contains, indexOf\n18",
     "embedding": [
       -0.0587644949555397,
       0.03167096897959709,
@@ -30927,10 +30986,12 @@
       0.052052970975637436
     ],
     "source": "Lec-02-Variables-Operators-ControlFlowStatements-and-Arrays.pdf",
-    "page": 18
+    "page": 18,
+    "chunk_index": 1
   },
   {
-    "text": "Dr. Fan Hongfei24September 2025Lecture 3Numbers and StringsJava Enterprise Application Development",
+    "chunk_id": "Lec-03-Numbers-and-Strings_p1_c1",
+    "content": "Dr. Fan Hongfei24September 2025Lecture 3Numbers and StringsJava Enterprise Application Development",
     "embedding": [
       -0.03958585113286972,
       0.005909338127821684,
@@ -31958,10 +32019,12 @@
       0.020867349579930305
     ],
     "source": "Lec-03-Numbers-and-Strings.pdf",
-    "page": 1
+    "page": 1,
+    "chunk_index": 1
   },
   {
-    "text": "Wrapper Classes•There are reasons to use objects in place of primitives–Java platform provides wrapper classes\n2Primitive typeWrapper classbooleanBooleanbyteBytecharCharacterfloatFloatintIntegerlongLongshortShortdoubleDouble",
+    "chunk_id": "Lec-03-Numbers-and-Strings_p2_c1",
+    "content": "Wrapper Classes•There are reasons to use objects in place of primitives–Java platform provides wrapper classes\n2Primitive typeWrapper classbooleanBooleanbyteBytecharCharacterfloatFloatintIntegerlongLongshortShortdoubleDouble",
     "embedding": [
       -0.035434380173683167,
       0.04749925807118416,
@@ -32989,10 +33052,12 @@
       0.05163106694817543
     ],
     "source": "Lec-03-Numbers-and-Strings.pdf",
-    "page": 2
+    "page": 2,
+    "chunk_index": 1
   },
   {
-    "text": "Autoboxingand Unboxing•Wrapping can be done by the compilerCharacter ch= 'a';•Autoboxing–Passed as a parameter to a method that expects an object of the corresponding wrapper class–Assigned to a variable of the corresponding wrapper class•Unboxing–Passed as a parameter to a method that expects a value of the corresponding primitive type–Assigned to a variable of the corresponding primitive type3",
+    "chunk_id": "Lec-03-Numbers-and-Strings_p3_c1",
+    "content": "Autoboxingand Unboxing•Wrapping can be done by the compilerCharacter ch= 'a';•Autoboxing–Passed as a parameter to a method that expects an object of the corresponding wrapper class–Assigned to a variable of the corresponding wrapper class•Unboxing–Passed as a parameter to a method that expects a value of the corresponding primitive type–Assigned to a variable of the corresponding primitive type3",
     "embedding": [
       -0.036942850798368454,
       0.028022348880767822,
@@ -34020,10 +34085,12 @@
       0.026856064796447754
     ],
     "source": "Lec-03-Numbers-and-Strings.pdf",
-    "page": 3
+    "page": 3,
+    "chunk_index": 1
   },
   {
-    "text": "Methods Implemented•Converting the value of Number object to the primitive data type returned•Comparing the Number object to the argument•Determining whether the Number object is equal to the argument•Conversion (with Integeras example)–parseInt(String s), parseInt(String s, intradix)–toString()–valueOf(inti)4",
+    "chunk_id": "Lec-03-Numbers-and-Strings_p4_c1",
+    "content": "Methods Implemented•Converting the value of Number object to the primitive data type returned•Comparing the Number object to the argument•Determining whether the Number object is equal to the argument•Conversion (with Integeras example)–parseInt(String s), parseInt(String s, intradix)–toString()–valueOf(inti)4",
     "embedding": [
       -0.05099575221538544,
       0.017252294346690178,
@@ -35051,10 +35118,12 @@
       0.0585753433406353
     ],
     "source": "Lec-03-Numbers-and-Strings.pdf",
-    "page": 4
+    "page": 4,
+    "chunk_index": 1
   },
   {
-    "text": "Formatting Numeric Print Output•print•println•public PrintStreamformat(String format, Object... args)–Format specifiers begin with a percent sign (%) and end with a converter•The DecimalFormatclass–For your private study5",
+    "chunk_id": "Lec-03-Numbers-and-Strings_p5_c1",
+    "content": "Formatting Numeric Print Output•print•println•public PrintStreamformat(String format, Object... args)–Format specifiers begin with a percent sign (%) and end with a converter•The DecimalFormatclass–For your private study5",
     "embedding": [
       -0.06482034176588058,
       0.032904982566833496,
@@ -36082,10 +36151,12 @@
       -0.007401559501886368
     ],
     "source": "Lec-03-Numbers-and-Strings.pdf",
-    "page": 5
+    "page": 5,
+    "chunk_index": 1
   },
   {
-    "text": "Beyond Basic Arithmetic•The Mathclass–Math.E, Math.PI–abs–ceil, floor, round–min, max–exp, log, pow, sqrt–sin, cos, tan, asin, acos, atan•Random numbers–The random() method returns a pseudo-randomly selected number between 0.0 and 1.06",
+    "chunk_id": "Lec-03-Numbers-and-Strings_p6_c1",
+    "content": "Beyond Basic Arithmetic•The Mathclass–Math.E, Math.PI–abs–ceil, floor, round–min, max–exp, log, pow, sqrt–sin, cos, tan, asin, acos, atan•Random numbers–The random() method returns a pseudo-randomly selected number between 0.0 and 1.06",
     "embedding": [
       -0.07831492274999619,
       -0.00803152285516262,
@@ -37113,10 +37184,12 @@
       0.01129717007279396
     ],
     "source": "Lec-03-Numbers-and-Strings.pdf",
-    "page": 6
+    "page": 6,
+    "chunk_index": 1
   },
   {
-    "text": "Characters•The Characterclass–isLetter, isDigit–isWhitespace–isUpperCase, isLowerCase–toUpperCase, toLowerCase–toString•Escape sequences–\\t, \\b, \\n, \\r, \\’, \\’’, \\\\7",
+    "chunk_id": "Lec-03-Numbers-and-Strings_p7_c1",
+    "content": "Characters•The Characterclass–isLetter, isDigit–isWhitespace–isUpperCase, isLowerCase–toUpperCase, toLowerCase–toString•Escape sequences–\\t, \\b, \\n, \\r, \\’, \\’’, \\\\7",
     "embedding": [
       -0.06227877736091614,
       0.03656408563256264,
@@ -38144,10 +38217,12 @@
       -0.022411290556192398
     ],
     "source": "Lec-03-Numbers-and-Strings.pdf",
-    "page": 7
+    "page": 7,
+    "chunk_index": 1
   },
   {
-    "text": "Strings•The Stringclass has 13 constructors that allow you to provide the initial value•The Stringclass is immutable–Once created, a String object cannot be changed•length()•concat()•format()8",
+    "chunk_id": "Lec-03-Numbers-and-Strings_p8_c1",
+    "content": "Strings•The Stringclass has 13 constructors that allow you to provide the initial value•The Stringclass is immutable–Once created, a String object cannot be changed•length()•concat()•format()8",
     "embedding": [
       -0.04363718256354332,
       0.07537022233009338,
@@ -39175,10 +39250,12 @@
       0.014455029740929604
     ],
     "source": "Lec-03-Numbers-and-Strings.pdf",
-    "page": 8
+    "page": 8,
+    "chunk_index": 1
   },
   {
-    "text": "Converting between Numbers & Strings•Converting Strings to Numbers–A method valueOfconverts a string to an object–Each of the Number subclasses that wrap primitive numeric types also provides a parseXXX()method•Converting Numbers to Strings–String.valueOf()–toString()\n9",
+    "chunk_id": "Lec-03-Numbers-and-Strings_p9_c1",
+    "content": "Converting between Numbers & Strings•Converting Strings to Numbers–A method valueOfconverts a string to an object–Each of the Number subclasses that wrap primitive numeric types also provides a parseXXX()method•Converting Numbers to Strings–String.valueOf()–toString()\n9",
     "embedding": [
       -0.05319313332438469,
       0.015671564266085625,
@@ -40206,10 +40283,12 @@
       0.012720785103738308
     ],
     "source": "Lec-03-Numbers-and-Strings.pdf",
-    "page": 9
+    "page": 9,
+    "chunk_index": 1
   },
   {
-    "text": "Manipulating Characters in a String•charAt•substring•trim, toLowerCase, toUpperCase•indexOf, lastIndexOf, contains•replace, replaceAll, replaceFirst10",
+    "chunk_id": "Lec-03-Numbers-and-Strings_p10_c1",
+    "content": "Manipulating Characters in a String•charAt•substring•trim, toLowerCase, toUpperCase•indexOf, lastIndexOf, contains•replace, replaceAll, replaceFirst10",
     "embedding": [
       -0.03805559501051903,
       0.025682073086500168,
@@ -41237,10 +41316,12 @@
       -0.004094638861715794
     ],
     "source": "Lec-03-Numbers-and-Strings.pdf",
-    "page": 10
+    "page": 10,
+    "chunk_index": 1
   },
   {
-    "text": "The StringBuilderClass•StringBuilderobjects are like String objects, except that they can be modified•StringBuilder(), StringBuilder(intinitCapacity)•append, delete, deleteCharAt, insert•replace, setCharAt, reverse•toString11",
+    "chunk_id": "Lec-03-Numbers-and-Strings_p11_c1",
+    "content": "The StringBuilderClass•StringBuilderobjects are like String objects, except that they can be modified•StringBuilder(), StringBuilder(intinitCapacity)•append, delete, deleteCharAt, insert•replace, setCharAt, reverse•toString11",
     "embedding": [
       -0.054403677582740784,
       0.018534904345870018,
@@ -42268,10 +42349,12 @@
       0.030837407335639
     ],
     "source": "Lec-03-Numbers-and-Strings.pdf",
-    "page": 11
+    "page": 11,
+    "chunk_index": 1
   },
   {
-    "text": "Practice1.Implement a program, which accepts a list of strings provided by the user, and outputs the sorted list of strings ordered by length. For strings with the same length, they are sorted by alphabetical order.2.Implement a program, which allows the user to input a string (without space), and outputs the list of characters (such as letters, digits, symbols) occurred in the string. The same letters in lowercase and uppercase are regarded as a unique one. The characters are sorted by their",
+    "chunk_id": "Lec-03-Numbers-and-Strings_p12_c1",
+    "content": "Practice1.Implement a program, which accepts a list of strings provided by the user, and outputs the sorted list of strings ordered by length. For strings with the same length, they are sorted by alphabetical order.2.Implement a program, which allows the user to input a string (without space), and outputs the list of characters (such as letters, digits, symbols) occurred in the string. The same letters in lowercase and uppercase are regarded as a unique one. The characters are sorted by their",
     "embedding": [
       -0.0390939824283123,
       0.030791930854320526,
@@ -43299,10 +43382,12 @@
       -0.006861582398414612
     ],
     "source": "Lec-03-Numbers-and-Strings.pdf",
-    "page": 12
+    "page": 12,
+    "chunk_index": 1
   },
   {
-    "text": "letters in lowercase and uppercase are regarded as a unique one. The characters are sorted by their occurrences in the string.12",
+    "chunk_id": "Lec-03-Numbers-and-Strings_p12_c2",
+    "content": "letters in lowercase and uppercase are regarded as a unique one. The characters are sorted by their occurrences in the string.12",
     "embedding": [
       -0.04388860613107681,
       0.03387055546045303,
@@ -44330,10 +44415,12 @@
       0.0028734812512993813
     ],
     "source": "Lec-03-Numbers-and-Strings.pdf",
-    "page": 12
+    "page": 12,
+    "chunk_index": 2
   },
   {
-    "text": "Dr. Fan Hongfei24September 2025Lecture 4Classes and ObjectsJava Enterprise Application Development",
+    "chunk_id": "Lec-04-Classes-and-Objects_p1_c1",
+    "content": "Dr. Fan Hongfei24September 2025Lecture 4Classes and ObjectsJava Enterprise Application Development",
     "embedding": [
       -0.0758533850312233,
       0.012937841936945915,
@@ -45361,10 +45448,12 @@
       0.028063762933015823
     ],
     "source": "Lec-04-Classes-and-Objects.pdf",
-    "page": 1
+    "page": 1,
+    "chunk_index": 1
   },
   {
-    "text": "Declaring Classes•Class declaration•The modifiers public and private\n2classMyClassextendsMySuperClassimplementsYourInterface{// field, constructor, and// method declarations}",
+    "chunk_id": "Lec-04-Classes-and-Objects_p2_c1",
+    "content": "Declaring Classes•Class declaration•The modifiers public and private\n2classMyClassextendsMySuperClassimplementsYourInterface{// field, constructor, and// method declarations}",
     "embedding": [
       -0.12813003361225128,
       0.039036788046360016,
@@ -46392,10 +46481,12 @@
       0.005200376734137535
     ],
     "source": "Lec-04-Classes-and-Objects.pdf",
-    "page": 2
+    "page": 2,
+    "chunk_index": 1
   },
   {
-    "text": "Declaring Member Variables•Several kinds of variables–Member variables in a class: fields–Variables in a method or block: local variables–Variables in method declarations: parameters•Field declarations are composed of–Zero or more modifiers, such aspublicorprivate–The field’s type–The field’s name3",
+    "chunk_id": "Lec-04-Classes-and-Objects_p3_c1",
+    "content": "Declaring Member Variables•Several kinds of variables–Member variables in a class: fields–Variables in a method or block: local variables–Variables in method declarations: parameters•Field declarations are composed of–Zero or more modifiers, such aspublicorprivate–The field’s type–The field’s name3",
     "embedding": [
       -0.07835862040519714,
       0.018574567511677742,
@@ -47423,10 +47514,12 @@
       0.008658536709845066
     ],
     "source": "Lec-04-Classes-and-Objects.pdf",
-    "page": 3
+    "page": 3,
+    "chunk_index": 1
   },
   {
-    "text": "Defining Methods•Method declarations have six components–Modifiers–The return type–The method name–The parameter list–An exception list–The method body•Naming a method: convention•Signature: method name + parameter types–Example: divide(int x, int y)•Overloading methods: based on signature match4publicintdivide(int x, int y) throwsDividedByZeroException{if ( y == 0 ) {throw new DividedByZeroException();}return x / y;}",
+    "chunk_id": "Lec-04-Classes-and-Objects_p4_c1",
+    "content": "Defining Methods•Method declarations have six components–Modifiers–The return type–The method name–The parameter list–An exception list–The method body•Naming a method: convention•Signature: method name + parameter types–Example: divide(int x, int y)•Overloading methods: based on signature match4publicintdivide(int x, int y) throwsDividedByZeroException{if ( y == 0 ) {throw new DividedByZeroException();}return x / y;}",
     "embedding": [
       -0.07751655578613281,
       0.02563491463661194,
@@ -48454,10 +48547,12 @@
       -0.003475855803117156
     ],
     "source": "Lec-04-Classes-and-Objects.pdf",
-    "page": 4
+    "page": 4,
+    "chunk_index": 1
   },
   {
-    "text": "Passing Information to a Method•Passing by value, at any time–Passing primitive data type arguments–Passing reference data type arguments•Arbitrary number of arguments–You can use a construct called varargsto pass an arbitrary number of values to a method•Parameter names–A parameter can have the same name as one of the class’ fields: to shadow the field5",
+    "chunk_id": "Lec-04-Classes-and-Objects_p5_c1",
+    "content": "Passing Information to a Method•Passing by value, at any time–Passing primitive data type arguments–Passing reference data type arguments•Arbitrary number of arguments–You can use a construct called varargsto pass an arbitrary number of values to a method•Parameter names–A parameter can have the same name as one of the class’ fields: to shadow the field5",
     "embedding": [
       -0.04224424064159393,
       0.03825395554304123,
@@ -49485,10 +49580,12 @@
       0.0016406330978497863
     ],
     "source": "Lec-04-Classes-and-Objects.pdf",
-    "page": 5
+    "page": 5,
+    "chunk_index": 1
   },
   {
-    "text": "Constructors•Constructor declaration•Default constructor•Constructor overloading•Constructor chaining•Private constructor•How about destructors?\n6public class Account {private String name;private float balance;public Account() {name = \"default\";balance = 100;}public Account(String name) {this.name = name;balance = 100;}public Account(String name, float balance) {this.name = name;this.balance= balance;}}",
+    "chunk_id": "Lec-04-Classes-and-Objects_p6_c1",
+    "content": "Constructors•Constructor declaration•Default constructor•Constructor overloading•Constructor chaining•Private constructor•How about destructors?\n6public class Account {private String name;private float balance;public Account() {name = \"default\";balance = 100;}public Account(String name) {this.name = name;balance = 100;}public Account(String name, float balance) {this.name = name;this.balance= balance;}}",
     "embedding": [
       -0.056772198528051376,
       0.044405680149793625,
@@ -50516,10 +50613,12 @@
       -0.004966818727552891
     ],
     "source": "Lec-04-Classes-and-Objects.pdf",
-    "page": 6
+    "page": 6,
+    "chunk_index": 1
   },
   {
-    "text": "Creating and Using Objects•Creating objects–Declaration, instantiation, initialization–The reference returned by the new operator does not have to be assigned to a variable•Example: new Rectangle(100, 50).getArea()•Referencing an object’s fields–Use a simple name for a field within its own class–Code outside: objectReference.fieldName•Calling an object’s methods•Garbage collector–An object is eligiblefor garbage collection when there is no more reference to it–The finalize()",
+    "chunk_id": "Lec-04-Classes-and-Objects_p7_c1",
+    "content": "Creating and Using Objects•Creating objects–Declaration, instantiation, initialization–The reference returned by the new operator does not have to be assigned to a variable•Example: new Rectangle(100, 50).getArea()•Referencing an object’s fields–Use a simple name for a field within its own class–Code outside: objectReference.fieldName•Calling an object’s methods•Garbage collector–An object is eligiblefor garbage collection when there is no more reference to it–The finalize()",
     "embedding": [
       -0.05845050886273384,
       -0.0013565936824306846,
@@ -51547,10 +51646,12 @@
       0.0178142711520195
     ],
     "source": "Lec-04-Classes-and-Objects.pdf",
-    "page": 7
+    "page": 7,
+    "chunk_index": 1
   },
   {
-    "text": "object is eligiblefor garbage collection when there is no more reference to it–The finalize() method–System.gc()7Account a = new Account(\"Garfield\", 8);",
+    "chunk_id": "Lec-04-Classes-and-Objects_p7_c2",
+    "content": "object is eligiblefor garbage collection when there is no more reference to it–The finalize() method–System.gc()7Account a = new Account(\"Garfield\", 8);",
     "embedding": [
       -0.05604134872555733,
       0.040562957525253296,
@@ -52578,10 +52679,12 @@
       0.013643324375152588
     ],
     "source": "Lec-04-Classes-and-Objects.pdf",
-    "page": 7
+    "page": 7,
+    "chunk_index": 2
   },
   {
-    "text": "Access Control•At the top level–public, or package-private (no explicit modifier)•At the member level–public, private, protected, or package-private (no explicit modifier)\n8ModifierClassPackageSubclassWorldpublicYYYYprotectedYYYNno modifierYYNNprivateYNNN",
+    "chunk_id": "Lec-04-Classes-and-Objects_p8_c1",
+    "content": "Access Control•At the top level–public, or package-private (no explicit modifier)•At the member level–public, private, protected, or package-private (no explicit modifier)\n8ModifierClassPackageSubclassWorldpublicYYYYprotectedYYYNno modifierYYNNprivateYNNN",
     "embedding": [
       -0.07025003433227539,
       0.016898244619369507,
@@ -53609,10 +53712,12 @@
       0.009324006736278534
     ],
     "source": "Lec-04-Classes-and-Objects.pdf",
-    "page": 8
+    "page": 8,
+    "chunk_index": 1
   },
   {
-    "text": "Access Control (cont.)•Example•Visibility of members in the Alphaclass\n9\nModifierAlphaBetaAlphaSubGammapublicYYYYprotectedYYYNno modifierYYNNprivateYNNN",
+    "chunk_id": "Lec-04-Classes-and-Objects_p9_c1",
+    "content": "Access Control (cont.)•Example•Visibility of members in the Alphaclass\n9\nModifierAlphaBetaAlphaSubGammapublicYYYYprotectedYYYNno modifierYYNNprivateYNNN",
     "embedding": [
       -0.05646003410220146,
       0.02172555774450302,
@@ -54640,10 +54745,12 @@
       0.024961277842521667
     ],
     "source": "Lec-04-Classes-and-Objects.pdf",
-    "page": 9
+    "page": 9,
+    "chunk_index": 1
   },
   {
-    "text": "Class Members (Static Members)•Instance variables vs. class variables •The staticmodifier•Class variables are referenced by the class name itself–Static fields can also be referenced by an object reference, but discouraged•Class methods should be invoked with the class name–Static methods can also be referenced by an object reference, but discouraged•Combinations of instance and class variables/methods•Constants: static modifier in combination with the final modifier•Singleton10",
+    "chunk_id": "Lec-04-Classes-and-Objects_p10_c1",
+    "content": "Class Members (Static Members)•Instance variables vs. class variables •The staticmodifier•Class variables are referenced by the class name itself–Static fields can also be referenced by an object reference, but discouraged•Class methods should be invoked with the class name–Static methods can also be referenced by an object reference, but discouraged•Combinations of instance and class variables/methods•Constants: static modifier in combination with the final modifier•Singleton10",
     "embedding": [
       -0.08945734053850174,
       -0.0023380527272820473,
@@ -55671,10 +55778,12 @@
       -0.051886554807424545
     ],
     "source": "Lec-04-Classes-and-Objects.pdf",
-    "page": 10
+    "page": 10,
+    "chunk_index": 1
   },
   {
-    "text": "Initializing Fields•You can often provide an initial value for a field in its declaration•Instance variables can be initialized in constructors•For class variables: static initialization blocks•An alternative: private static method–Advantage: can be reused later if you need to reinitialize the class variable11static{// whatever code is needed for initialization goes here}",
+    "chunk_id": "Lec-04-Classes-and-Objects_p11_c1",
+    "content": "Initializing Fields•You can often provide an initial value for a field in its declaration•Instance variables can be initialized in constructors•For class variables: static initialization blocks•An alternative: private static method–Advantage: can be reused later if you need to reinitialize the class variable11static{// whatever code is needed for initialization goes here}",
     "embedding": [
       -0.07598431408405304,
       0.022506404668092728,
@@ -56702,10 +56811,12 @@
       -0.005601407494395971
     ],
     "source": "Lec-04-Classes-and-Objects.pdf",
-    "page": 11
+    "page": 11,
+    "chunk_index": 1
   },
   {
-    "text": "Practice•Design and implement a Pointclass–Fields (private): xPos, yPos–A set of constructors, including a default constructor–Getters and setters for xPosand yPos•Design and implement a Circleclass–Fields (private): radius, center(represented as Point)–A set of constructors, including a default constructor–Getters and setters for radiusand center–getArea: compute and return the area of the circle–toString: return the information of the circle•Design and implement three static methods–Circle[]",
+    "chunk_id": "Lec-04-Classes-and-Objects_p12_c1",
+    "content": "Practice•Design and implement a Pointclass–Fields (private): xPos, yPos–A set of constructors, including a default constructor–Getters and setters for xPosand yPos•Design and implement a Circleclass–Fields (private): radius, center(represented as Point)–A set of constructors, including a default constructor–Getters and setters for radiusand center–getArea: compute and return the area of the circle–toString: return the information of the circle•Design and implement three static methods–Circle[]",
     "embedding": [
       -0.004028376191854477,
       0.0002911771007347852,
@@ -57733,10 +57844,12 @@
       0.014877153560519218
     ],
     "source": "Lec-04-Classes-and-Objects.pdf",
-    "page": 12
+    "page": 12,
+    "chunk_index": 1
   },
   {
-    "text": "return the information of the circle•Design and implement three static methods–Circle[] generate(intamount, float maxRadius, Point upperLeft, Point lowerRight)–Circle max(Circle... circles)–void sort(Circle[] circles)12",
+    "chunk_id": "Lec-04-Classes-and-Objects_p12_c2",
+    "content": "return the information of the circle•Design and implement three static methods–Circle[] generate(intamount, float maxRadius, Point upperLeft, Point lowerRight)–Circle max(Circle... circles)–void sort(Circle[] circles)12",
     "embedding": [
       -0.012541239149868488,
       -3.0194516511983238e-05,
@@ -58764,10 +58877,12 @@
       0.025804385542869568
     ],
     "source": "Lec-04-Classes-and-Objects.pdf",
-    "page": 12
+    "page": 12,
+    "chunk_index": 2
   },
   {
-    "text": "Nested Classes•Java allows you to define a class within another class•Nested classes are divided into two categories:static nested classes & inner classes•A nested class is a member of its enclosing class–Can be declared private, public, protected, or package private–Inner classes have access to other members of the enclosing class, even if they are declared private•Reasons for using nested classes–Logically grouping classes that are only used in one place–Increasing encapsulation, leading to",
+    "chunk_id": "Lec-04-Classes-and-Objects_p13_c1",
+    "content": "Nested Classes•Java allows you to define a class within another class•Nested classes are divided into two categories:static nested classes & inner classes•A nested class is a member of its enclosing class–Can be declared private, public, protected, or package private–Inner classes have access to other members of the enclosing class, even if they are declared private•Reasons for using nested classes–Logically grouping classes that are only used in one place–Increasing encapsulation, leading to",
     "embedding": [
       -0.0844196081161499,
       0.0323016420006752,
@@ -59795,10 +59910,12 @@
       0.037821654230356216
     ],
     "source": "Lec-04-Classes-and-Objects.pdf",
-    "page": 13
+    "page": 13,
+    "chunk_index": 1
   },
   {
-    "text": "grouping classes that are only used in one place–Increasing encapsulation, leading to more readable and maintainable code13classOuterClass{... classNestedClass{ ... }}",
+    "chunk_id": "Lec-04-Classes-and-Objects_p13_c2",
+    "content": "grouping classes that are only used in one place–Increasing encapsulation, leading to more readable and maintainable code13classOuterClass{... classNestedClass{ ... }}",
     "embedding": [
       -0.07458475977182388,
       0.012104067020118237,
@@ -60826,10 +60943,12 @@
       0.02139676921069622
     ],
     "source": "Lec-04-Classes-and-Objects.pdf",
-    "page": 13
+    "page": 13,
+    "chunk_index": 2
   },
   {
-    "text": "Static Nested Classes•A static nested class is behaviorally a top-level class that has been nested in another top-level class for packaging convenience•Static nested classes are accessed using the enclosing class name•A static nested class cannot refer directly to instance variables or methods\n14",
+    "chunk_id": "Lec-04-Classes-and-Objects_p14_c1",
+    "content": "Static Nested Classes•A static nested class is behaviorally a top-level class that has been nested in another top-level class for packaging convenience•Static nested classes are accessed using the enclosing class name•A static nested class cannot refer directly to instance variables or methods\n14",
     "embedding": [
       -0.0977606549859047,
       0.026047637686133385,
@@ -61857,10 +61976,12 @@
       -0.030525600537657738
     ],
     "source": "Lec-04-Classes-and-Objects.pdf",
-    "page": 14
+    "page": 14,
+    "chunk_index": 1
   },
   {
-    "text": "Inner Classes•An inner class is associated with an instance of its enclosing class, and has direct access to that object’s methods and fields•It cannot define any static member itself•To instantiate an inner class:•The shadowing issue: an example15OuterClass.InnerClassinnerObject= outerObject.newInnerClass();",
+    "chunk_id": "Lec-04-Classes-and-Objects_p15_c1",
+    "content": "Inner Classes•An inner class is associated with an instance of its enclosing class, and has direct access to that object’s methods and fields•It cannot define any static member itself•To instantiate an inner class:•The shadowing issue: an example15OuterClass.InnerClassinnerObject= outerObject.newInnerClass();",
     "embedding": [
       -0.08693963289260864,
       0.01860346645116806,
@@ -62888,10 +63009,12 @@
       0.033705104142427444
     ],
     "source": "Lec-04-Classes-and-Objects.pdf",
-    "page": 15
+    "page": 15,
+    "chunk_index": 1
   },
   {
-    "text": "Local Classes•Classes defined in a block (a group of zero or more statements between balanced braces)•Typically defined in the body of a method•A local class has access to the members of its enclosing class•A local class has access to local variables that are declared final or effectively final•Declarations of a type in a local class shadowdeclarations in the enclosing scope16",
+    "chunk_id": "Lec-04-Classes-and-Objects_p16_c1",
+    "content": "Local Classes•Classes defined in a block (a group of zero or more statements between balanced braces)•Typically defined in the body of a method•A local class has access to the members of its enclosing class•A local class has access to local variables that are declared final or effectively final•Declarations of a type in a local class shadowdeclarations in the enclosing scope16",
     "embedding": [
       -0.07393211126327515,
       0.011461721733212471,
@@ -63919,10 +64042,12 @@
       -0.0044684684835374355
     ],
     "source": "Lec-04-Classes-and-Objects.pdf",
-    "page": 16
+    "page": 16,
+    "chunk_index": 1
   },
   {
-    "text": "EnumTypes•An enumtype: a special data type that enables for a variable to be a set of predefined constants•Java enumtypes are much more powerful than their counterparts in other languages–All enumsimplicitly extend java.lang.Enum–The enumclass body can include methods and other fields–The constructor for an enumtype must be package-private or private access–Demo17",
+    "chunk_id": "Lec-04-Classes-and-Objects_p17_c1",
+    "content": "EnumTypes•An enumtype: a special data type that enables for a variable to be a set of predefined constants•Java enumtypes are much more powerful than their counterparts in other languages–All enumsimplicitly extend java.lang.Enum–The enumclass body can include methods and other fields–The constructor for an enumtype must be package-private or private access–Demo17",
     "embedding": [
       -0.051968131214380264,
       0.05283205211162567,
@@ -64950,10 +65075,12 @@
       -0.043727658689022064
     ],
     "source": "Lec-04-Classes-and-Objects.pdf",
-    "page": 17
+    "page": 17,
+    "chunk_index": 1
   },
   {
-    "text": "Practice•Implement a class named Stack, which stores intelements, and provides the following methods:–void push(intx), intpop(), intsize(), void clear()•Implement an inner class StackIterator, which supports the iteration through stored values–void reset(), booleanhasNext(), intnext()•Experiment with the Stackand StackIteratorclasses in the mainmethod18",
+    "chunk_id": "Lec-04-Classes-and-Objects_p18_c1",
+    "content": "Practice•Implement a class named Stack, which stores intelements, and provides the following methods:–void push(intx), intpop(), intsize(), void clear()•Implement an inner class StackIterator, which supports the iteration through stored values–void reset(), booleanhasNext(), intnext()•Experiment with the Stackand StackIteratorclasses in the mainmethod18",
     "embedding": [
       -0.07342936098575592,
       -0.002452920423820615,
@@ -65981,10 +66108,12 @@
       0.0463431216776371
     ],
     "source": "Lec-04-Classes-and-Objects.pdf",
-    "page": 18
+    "page": 18,
+    "chunk_index": 1
   },
   {
-    "text": "Dr. Fan Hongfei11 October 2025Lecture 5Inheritance and InterfacesJava Enterprise Application Development",
+    "chunk_id": "Lec-05-Inheritance-and-Interfaces_p1_c1",
+    "content": "Dr. Fan Hongfei11 October 2025Lecture 5Inheritance and InterfacesJava Enterprise Application Development",
     "embedding": [
       -0.07108201831579208,
       0.012282310985028744,
@@ -67012,10 +67141,12 @@
       0.05574152618646622
     ],
     "source": "Lec-05-Inheritance-and-Interfaces.pdf",
-    "page": 1
+    "page": 1,
+    "chunk_index": 1
   },
   {
-    "text": "Inheritance•Classes can be derived from other classes, inheriting fields and methods•Definitions–Subclass(derived class/extended class/child class)–Superclass(base class/parent class)•Every class has one and only one direct superclass (single inheritance)–Excepting Object, which has no superclass•A subclass inherits all the members(fields, methods, and nested classes) from its superclass–Constructors are not members2",
+    "chunk_id": "Lec-05-Inheritance-and-Interfaces_p2_c1",
+    "content": "Inheritance•Classes can be derived from other classes, inheriting fields and methods•Definitions–Subclass(derived class/extended class/child class)–Superclass(base class/parent class)•Every class has one and only one direct superclass (single inheritance)–Excepting Object, which has no superclass•A subclass inherits all the members(fields, methods, and nested classes) from its superclass–Constructors are not members2",
     "embedding": [
       -0.09435766190290451,
       -0.003291190369054675,
@@ -68043,10 +68174,12 @@
       0.015170090831816196
     ],
     "source": "Lec-05-Inheritance-and-Interfaces.pdf",
-    "page": 2
+    "page": 2,
+    "chunk_index": 1
   },
   {
-    "text": "What You Can Do in a Subclass•Use the inherited members as is, replace them, hide them, or supplement them–Declare a field in the subclass with the same name as the one in the superclass, thus hidingit (NOT recommended)–Write a new instance method in the subclass that has the same signature as the one in the superclass, thus overridingit–Write a new static method in the subclass that has the same signature as the one in the superclass, thus hidingit–Write a subclass constructor that invokesthe",
+    "chunk_id": "Lec-05-Inheritance-and-Interfaces_p3_c1",
+    "content": "What You Can Do in a Subclass•Use the inherited members as is, replace them, hide them, or supplement them–Declare a field in the subclass with the same name as the one in the superclass, thus hidingit (NOT recommended)–Write a new instance method in the subclass that has the same signature as the one in the superclass, thus overridingit–Write a new static method in the subclass that has the same signature as the one in the superclass, thus hidingit–Write a subclass constructor that invokesthe",
     "embedding": [
       -0.06383024156093597,
       0.024758396670222282,
@@ -69074,10 +69207,12 @@
       0.038087137043476105
     ],
     "source": "Lec-05-Inheritance-and-Interfaces.pdf",
-    "page": 3
+    "page": 3,
+    "chunk_index": 1
   },
   {
-    "text": "signature as the one in the superclass, thus hidingit–Write a subclass constructor that invokesthe constructor of the superclass•How about private members in a superclass?3",
+    "chunk_id": "Lec-05-Inheritance-and-Interfaces_p3_c2",
+    "content": "signature as the one in the superclass, thus hidingit–Write a subclass constructor that invokesthe constructor of the superclass•How about private members in a superclass?3",
     "embedding": [
       -0.06348278373479843,
       0.04203766584396362,
@@ -70105,10 +70240,12 @@
       0.016731450334191322
     ],
     "source": "Lec-05-Inheritance-and-Interfaces.pdf",
-    "page": 3
+    "page": 3,
+    "chunk_index": 2
   },
   {
-    "text": "Casting Objects•Implicit casting•Explicit casting–A runtime check will be performed•The instanceofoperator\n4",
+    "chunk_id": "Lec-05-Inheritance-and-Interfaces_p4_c1",
+    "content": "Casting Objects•Implicit casting•Explicit casting–A runtime check will be performed•The instanceofoperator\n4",
     "embedding": [
       -0.0663396567106247,
       0.017599044367671013,
@@ -71136,10 +71273,12 @@
       0.02770913392305374
     ],
     "source": "Lec-05-Inheritance-and-Interfaces.pdf",
-    "page": 4
+    "page": 4,
+    "chunk_index": 1
   },
   {
-    "text": "Overriding and Hiding Methods•Instance methods–The same signature and return type–An overriding method can also return a subtype: called a covariantreturn type•Static methods–The same signature•Distinction between hiding a static method and overriding an instance method–An example: Animal, Cat•Modifiers–The access specifier for an overriding method can allow more, but not less, access than the overridden method•Polymorphism–Virtual method invocation5",
+    "chunk_id": "Lec-05-Inheritance-and-Interfaces_p5_c1",
+    "content": "Overriding and Hiding Methods•Instance methods–The same signature and return type–An overriding method can also return a subtype: called a covariantreturn type•Static methods–The same signature•Distinction between hiding a static method and overriding an instance method–An example: Animal, Cat•Modifiers–The access specifier for an overriding method can allow more, but not less, access than the overridden method•Polymorphism–Virtual method invocation5",
     "embedding": [
       -0.02470238506793976,
       0.04036501422524452,
@@ -72167,10 +72306,12 @@
       -0.023650886490941048
     ],
     "source": "Lec-05-Inheritance-and-Interfaces.pdf",
-    "page": 5
+    "page": 5,
+    "chunk_index": 1
   },
   {
-    "text": "Using the Keyword “super”•Accessing superclass members–Invoke the overridden method–Refer to a hidden field•Subclass constructors–Invocation of a superclass constructor must be the first line in the subclass constructor–Constructor chaining\n6",
+    "chunk_id": "Lec-05-Inheritance-and-Interfaces_p6_c1",
+    "content": "Using the Keyword “super”•Accessing superclass members–Invoke the overridden method–Refer to a hidden field•Subclass constructors–Invocation of a superclass constructor must be the first line in the subclass constructor–Constructor chaining\n6",
     "embedding": [
       -0.0678735002875328,
       -0.0014232303947210312,
@@ -73198,10 +73339,12 @@
       -0.01419287919998169
     ],
     "source": "Lec-05-Inheritance-and-Interfaces.pdf",
-    "page": 6
+    "page": 6,
+    "chunk_index": 1
   },
   {
-    "text": "Object as a Superclass•protected Object clone() throws CloneNotSupportedException•public booleanequals(Object obj)•protected void finalize() throws Throwable•public String toString()\n7",
+    "chunk_id": "Lec-05-Inheritance-and-Interfaces_p7_c1",
+    "content": "Object as a Superclass•protected Object clone() throws CloneNotSupportedException•public booleanequals(Object obj)•protected void finalize() throws Throwable•public String toString()\n7",
     "embedding": [
       -0.0694517120718956,
       0.007440125569701195,
@@ -74229,10 +74372,12 @@
       0.010792531073093414
     ],
     "source": "Lec-05-Inheritance-and-Interfaces.pdf",
-    "page": 7
+    "page": 7,
+    "chunk_index": 1
   },
   {
-    "text": "Abstract and Final Methods/Classes•An abstract class is a class declared abstract: it may or may not include abstract methods•An abstract method is a method declared without an implementation•Example•Final methods and classes–Methods called from constructors should generally be declared final8",
+    "chunk_id": "Lec-05-Inheritance-and-Interfaces_p8_c1",
+    "content": "Abstract and Final Methods/Classes•An abstract class is a class declared abstract: it may or may not include abstract methods•An abstract method is a method declared without an implementation•Example•Final methods and classes–Methods called from constructors should generally be declared final8",
     "embedding": [
       -0.053814154118299484,
       0.04410494118928909,
@@ -75260,10 +75405,12 @@
       -0.01071995124220848
     ],
     "source": "Lec-05-Inheritance-and-Interfaces.pdf",
-    "page": 8
+    "page": 8,
+    "chunk_index": 1
   },
   {
-    "text": "Interfaces•Generally speaking, interfaces are contracts•A reference type, that can contain only constants, method signatures, default methods, static methods, and nested types•Interfaces cannot be instantiated–They can only be implemented by classes or extended by other interfaces•Interfaces as APIs9",
+    "chunk_id": "Lec-05-Inheritance-and-Interfaces_p9_c1",
+    "content": "Interfaces•Generally speaking, interfaces are contracts•A reference type, that can contain only constants, method signatures, default methods, static methods, and nested types•Interfaces cannot be instantiated–They can only be implemented by classes or extended by other interfaces•Interfaces as APIs9",
     "embedding": [
       -0.07305251061916351,
       0.08293003588914871,
@@ -76291,10 +76438,12 @@
       -0.013547297567129135
     ],
     "source": "Lec-05-Inheritance-and-Interfaces.pdf",
-    "page": 9
+    "page": 9,
+    "chunk_index": 1
   },
   {
-    "text": "Interface Definition•Consisting of modifiers, keyword, interface name, a comma-separated list of parent interfaces (if any), and the interface body•Interface body can contain abstract methods, default methods, and static methods–Implicitly public, so you can omit the public modifier•An interface can contain constant declarations–Implicitly public, static, and final10",
+    "chunk_id": "Lec-05-Inheritance-and-Interfaces_p10_c1",
+    "content": "Interface Definition•Consisting of modifiers, keyword, interface name, a comma-separated list of parent interfaces (if any), and the interface body•Interface body can contain abstract methods, default methods, and static methods–Implicitly public, so you can omit the public modifier•An interface can contain constant declarations–Implicitly public, static, and final10",
     "embedding": [
       -0.08490543067455292,
       0.03433387726545334,
@@ -77322,10 +77471,12 @@
       0.03391000255942345
     ],
     "source": "Lec-05-Inheritance-and-Interfaces.pdf",
-    "page": 10
+    "page": 10,
+    "chunk_index": 1
   },
   {
-    "text": "Implementing and Using Interfaces•Include an implementsclause in the class declaration–Your class can implement more than one interface•Example: Relatable•If you define a reference variable whose type is an interface, any object you assign to it must be an instance of a class that implements the interface\n11",
+    "chunk_id": "Lec-05-Inheritance-and-Interfaces_p11_c1",
+    "content": "Implementing and Using Interfaces•Include an implementsclause in the class declaration–Your class can implement more than one interface•Example: Relatable•If you define a reference variable whose type is an interface, any object you assign to it must be an instance of a class that implements the interface\n11",
     "embedding": [
       -0.08903252333402634,
       0.04404625669121742,
@@ -78353,10 +78504,12 @@
       -0.006349274422973394
     ],
     "source": "Lec-05-Inheritance-and-Interfaces.pdf",
-    "page": 11
+    "page": 11,
+    "chunk_index": 1
   },
   {
-    "text": "Evolving Interfaces•You can create an interface that extends an existing interface•Default methods –Enabling you to add new functionality and ensure binary compatibility with code written for older versions of those interfaces–When you extend an interface that contains a default method, you can•Not mention the default method at all•Redeclarethe default method, which makes it abstract•Redefine the default method, which overrides it•Static methods12",
+    "chunk_id": "Lec-05-Inheritance-and-Interfaces_p12_c1",
+    "content": "Evolving Interfaces•You can create an interface that extends an existing interface•Default methods –Enabling you to add new functionality and ensure binary compatibility with code written for older versions of those interfaces–When you extend an interface that contains a default method, you can•Not mention the default method at all•Redeclarethe default method, which makes it abstract•Redefine the default method, which overrides it•Static methods12",
     "embedding": [
       -0.08801674097776413,
       0.06599624454975128,
@@ -79384,10 +79537,12 @@
       -0.007168895099312067
     ],
     "source": "Lec-05-Inheritance-and-Interfaces.pdf",
-    "page": 12
+    "page": 12,
+    "chunk_index": 1
   },
   {
-    "text": "Abstract Classes vs. Interfaces•Similarities and differences•Consider using abstract classes when–You want to share code among several closely related classes–You expect that classes extending the abstract class have many common methods or fields, or require access modifiers other than public–You want to declare non-static or non-final fields•Consider using interfaces when–You expect that unrelated classes would implement your interface–You want to specify the behaviorof a particular data type,",
+    "chunk_id": "Lec-05-Inheritance-and-Interfaces_p13_c1",
+    "content": "Abstract Classes vs. Interfaces•Similarities and differences•Consider using abstract classes when–You want to share code among several closely related classes–You expect that classes extending the abstract class have many common methods or fields, or require access modifiers other than public–You want to declare non-static or non-final fields•Consider using interfaces when–You expect that unrelated classes would implement your interface–You want to specify the behaviorof a particular data type,",
     "embedding": [
       -0.09259393811225891,
       0.05646364018321037,
@@ -80415,10 +80570,12 @@
       -0.0002993598463945091
     ],
     "source": "Lec-05-Inheritance-and-Interfaces.pdf",
-    "page": 13
+    "page": 13,
+    "chunk_index": 1
   },
   {
-    "text": "classes would implement your interface–You want to specify the behaviorof a particular data type, but not concerned about who implements its behavior–You want to take advantage of multiple inheritance13",
+    "chunk_id": "Lec-05-Inheritance-and-Interfaces_p13_c2",
+    "content": "classes would implement your interface–You want to specify the behaviorof a particular data type, but not concerned about who implements its behavior–You want to take advantage of multiple inheritance13",
     "embedding": [
       -0.08855853229761124,
       0.05996217951178551,
@@ -81446,10 +81603,12 @@
       0.004258860368281603
     ],
     "source": "Lec-05-Inheritance-and-Interfaces.pdf",
-    "page": 13
+    "page": 13,
+    "chunk_index": 2
   },
   {
-    "text": "Anonymous Classes•Anonymous classes make code more concise–Declare and instantiate a class at the same time–They do not have a name: use them if you need to use a local class only once•The anonymous class expression consists of–The new operator–The name of an interface/class to implement/extend–Parentheses that contain the arguments to a constructor–The class declaration body•You cannot declare constructors in an anonymous class14",
+    "chunk_id": "Lec-05-Inheritance-and-Interfaces_p14_c1",
+    "content": "Anonymous Classes•Anonymous classes make code more concise–Declare and instantiate a class at the same time–They do not have a name: use them if you need to use a local class only once•The anonymous class expression consists of–The new operator–The name of an interface/class to implement/extend–Parentheses that contain the arguments to a constructor–The class declaration body•You cannot declare constructors in an anonymous class14",
     "embedding": [
       -0.13115833699703217,
       0.02396034076809883,
@@ -82477,10 +82636,12 @@
       0.04226730391383171
     ],
     "source": "Lec-05-Inheritance-and-Interfaces.pdf",
-    "page": 14
+    "page": 14,
+    "chunk_index": 1
   },
   {
-    "text": "Programming Practice•Design and implement a set of classes representing various shapes, and organize them in an appropriateway–Shape (abstract), which implements the Relatableinterface that contains an intcompare(Relatable)method–Circle (field: radius)–Ellipse (fields: semi-major axis, semi-minor axis)–Rectangle (fields: width, height)–Triangle (fields: altitude, length of base)–Square (field: length of edge)•Implement the following functionalities properlyfor each class–User-friendly",
+    "chunk_id": "Lec-05-Inheritance-and-Interfaces_p15_c1",
+    "content": "Programming Practice•Design and implement a set of classes representing various shapes, and organize them in an appropriateway–Shape (abstract), which implements the Relatableinterface that contains an intcompare(Relatable)method–Circle (field: radius)–Ellipse (fields: semi-major axis, semi-minor axis)–Rectangle (fields: width, height)–Triangle (fields: altitude, length of base)–Square (field: length of edge)•Implement the following functionalities properlyfor each class–User-friendly",
     "embedding": [
       -0.044533248990774155,
       -0.0015821234555914998,
@@ -83508,10 +83669,12 @@
       -0.005615026690065861
     ],
     "source": "Lec-05-Inheritance-and-Interfaces.pdf",
-    "page": 15
+    "page": 15,
+    "chunk_index": 1
   },
   {
-    "text": "length of edge)•Implement the following functionalities properlyfor each class–User-friendly constructor(s)–getArea()–print(): printing shape type, particular(s) and area•In the main method–Use one array to store all types of shapes, and invoke the implemented functionalities in a loop–Test the comparemethods of the shapes15",
+    "chunk_id": "Lec-05-Inheritance-and-Interfaces_p15_c2",
+    "content": "length of edge)•Implement the following functionalities properlyfor each class–User-friendly constructor(s)–getArea()–print(): printing shape type, particular(s) and area•In the main method–Use one array to store all types of shapes, and invoke the implemented functionalities in a loop–Test the comparemethods of the shapes15",
     "embedding": [
       -0.05934339016675949,
       0.013357855379581451,
@@ -84539,10 +84702,12 @@
       -0.00041368804522790015
     ],
     "source": "Lec-05-Inheritance-and-Interfaces.pdf",
-    "page": 15
+    "page": 15,
+    "chunk_index": 2
   },
   {
-    "text": "Dr. Fan Hongfei15October 2025Lecture 6ExceptionsJava Enterprise Application Development",
+    "chunk_id": "Lec-06-Exceptions_p1_c1",
+    "content": "Dr. Fan Hongfei15October 2025Lecture 6ExceptionsJava Enterprise Application Development",
     "embedding": [
       -0.04778565093874931,
       0.00719718961045146,
@@ -85570,10 +85735,12 @@
       0.034673936665058136
     ],
     "source": "Lec-06-Exceptions.pdf",
-    "page": 1
+    "page": 1,
+    "chunk_index": 1
   },
   {
-    "text": "Introduction•Exception: an event, which occurs during the execution of a program, that disruptsthe normal flow of the program’s instructions•Exception object: containing informationabout the error, including its type and the state of the program when the error occurred•Throwing an exception: creatingan exception object and handingit to the runtime system2",
+    "chunk_id": "Lec-06-Exceptions_p2_c1",
+    "content": "Introduction•Exception: an event, which occurs during the execution of a program, that disruptsthe normal flow of the program’s instructions•Exception object: containing informationabout the error, including its type and the state of the program when the error occurred•Throwing an exception: creatingan exception object and handingit to the runtime system2",
     "embedding": [
       -0.07178086787462234,
       0.023335237056016922,
@@ -86601,10 +86768,12 @@
       0.025981834158301353
     ],
     "source": "Lec-06-Exceptions.pdf",
-    "page": 2
+    "page": 2,
+    "chunk_index": 1
   },
   {
-    "text": "Introduction (cont.)•The runtime system searches the call stackfor a method that contains a block of code that can handle the exception:Exception Handler\n3\n•The exception handler chosen is said to catchthe exception•If the runtime system exhaustively searches all the methods on the call stack without finding an appropriate exception handler, the runtime system terminates",
+    "chunk_id": "Lec-06-Exceptions_p3_c1",
+    "content": "Introduction (cont.)•The runtime system searches the call stackfor a method that contains a block of code that can handle the exception:Exception Handler\n3\n•The exception handler chosen is said to catchthe exception•If the runtime system exhaustively searches all the methods on the call stack without finding an appropriate exception handler, the runtime system terminates",
     "embedding": [
       -0.04900046065449715,
       0.002739194082096219,
@@ -87632,10 +87801,12 @@
       0.010517529211938381
     ],
     "source": "Lec-06-Exceptions.pdf",
-    "page": 3
+    "page": 3,
+    "chunk_index": 1
   },
   {
-    "text": "The Catch or Specify Requirement•Code that might throw certain exceptions must be enclosed by either of the following–A try statementthat catches the exception•Providing a handler for the exception–A method that specifies that it can throw the exception•Providing a throws clause that lists the exception•Not all exceptions are subject to the Catch or Specify Requirement4",
+    "chunk_id": "Lec-06-Exceptions_p4_c1",
+    "content": "The Catch or Specify Requirement•Code that might throw certain exceptions must be enclosed by either of the following–A try statementthat catches the exception•Providing a handler for the exception–A method that specifies that it can throw the exception•Providing a throws clause that lists the exception•Not all exceptions are subject to the Catch or Specify Requirement4",
     "embedding": [
       -0.029359392821788788,
       -0.00687583489343524,
@@ -88663,10 +88834,12 @@
       0.029359392821788788
     ],
     "source": "Lec-06-Exceptions.pdf",
-    "page": 4
+    "page": 4,
+    "chunk_index": 1
   },
   {
-    "text": "Three Categories of Exceptions•Checked exception: exceptional conditions that a well-written application should anticipate and recover from–Example: java.io.FileNotFoundException–Subject to the Catch or Specify Requirement•Error: exceptional conditions that are external to the application, and that the application usually cannot anticipate or recover from–Example: java.io.IOError•Runtime exception: exceptional conditions that are internal to the application, and that the application usually",
+    "chunk_id": "Lec-06-Exceptions_p5_c1",
+    "content": "Three Categories of Exceptions•Checked exception: exceptional conditions that a well-written application should anticipate and recover from–Example: java.io.FileNotFoundException–Subject to the Catch or Specify Requirement•Error: exceptional conditions that are external to the application, and that the application usually cannot anticipate or recover from–Example: java.io.IOError•Runtime exception: exceptional conditions that are internal to the application, and that the application usually",
     "embedding": [
       -0.051297444850206375,
       0.0478309728205204,
@@ -89694,10 +89867,12 @@
       0.014358832500874996
     ],
     "source": "Lec-06-Exceptions.pdf",
-    "page": 5
+    "page": 5,
+    "chunk_index": 1
   },
   {
-    "text": "exceptional conditions that are internal to the application, and that the application usually cannot anticipate or recover from–Example: NullPointerException•Errors and runtime exceptions are known as unchecked exceptions5",
+    "chunk_id": "Lec-06-Exceptions_p5_c2",
+    "content": "exceptional conditions that are internal to the application, and that the application usually cannot anticipate or recover from–Example: NullPointerException•Errors and runtime exceptions are known as unchecked exceptions5",
     "embedding": [
       -0.07166367024183273,
       0.050479866564273834,
@@ -90725,10 +90900,12 @@
       0.022136257961392403
     ],
     "source": "Lec-06-Exceptions.pdf",
-    "page": 5
+    "page": 5,
+    "chunk_index": 2
   },
   {
-    "text": "Catching and Handling Exceptions•An example: writing a list of numbers into a text file–A checked exception and an unchecked exception•The tryblock•The catchblocks–The argument type must be the name of a class that inherits from the Throwableclass–The runtime system invokes the exception handler when the handler is the first one in the call stack whose ExceptionTypematchesthe type of the exception thrown–A single catch block can handle more than one type of exception•The finallyblock6",
+    "chunk_id": "Lec-06-Exceptions_p6_c1",
+    "content": "Catching and Handling Exceptions•An example: writing a list of numbers into a text file–A checked exception and an unchecked exception•The tryblock•The catchblocks–The argument type must be the name of a class that inherits from the Throwableclass–The runtime system invokes the exception handler when the handler is the first one in the call stack whose ExceptionTypematchesthe type of the exception thrown–A single catch block can handle more than one type of exception•The finallyblock6",
     "embedding": [
       -0.057549651712179184,
       -0.014055905863642693,
@@ -91756,10 +91933,12 @@
       0.006418808363378048
     ],
     "source": "Lec-06-Exceptions.pdf",
-    "page": 6
+    "page": 6,
+    "chunk_index": 1
   },
   {
-    "text": "Specifying Exceptions Thrown by Methods•In some cases, it is better to let a method further up the call stack handle the exception•The throwsclause comprises the throws keyword followed by a comma-separated list of all the exceptions thrown by that method•Example\n7",
+    "chunk_id": "Lec-06-Exceptions_p7_c1",
+    "content": "Specifying Exceptions Thrown by Methods•In some cases, it is better to let a method further up the call stack handle the exception•The throwsclause comprises the throws keyword followed by a comma-separated list of all the exceptions thrown by that method•Example\n7",
     "embedding": [
       -0.03782251477241516,
       -0.012698029167950153,
@@ -92787,10 +92966,12 @@
       -0.0012477891286835074
     ],
     "source": "Lec-06-Exceptions.pdf",
-    "page": 7
+    "page": 7,
+    "chunk_index": 1
   },
   {
-    "text": "Throwing Exceptions•The throw statement–Requiring a single argument: a Throwableobject–Example: the Stack’s pop method•The Throwableclass and its subclasses\n8",
+    "chunk_id": "Lec-06-Exceptions_p8_c1",
+    "content": "Throwing Exceptions•The throw statement–Requiring a single argument: a Throwableobject–Example: the Stack’s pop method•The Throwableclass and its subclasses\n8",
     "embedding": [
       -0.060553282499313354,
       -0.02026647888123989,
@@ -93818,10 +93999,12 @@
       -0.008069668896496296
     ],
     "source": "Lec-06-Exceptions.pdf",
-    "page": 8
+    "page": 8,
+    "chunk_index": 1
   },
   {
-    "text": "Chained Exceptions•An application often responds to an exception by throwing another exception•Methods and constructors in Throwablethat support chained exceptions–ThrowablegetCause()–ThrowableinitCause(Throwable)–Throwable(String, Throwable)–Throwable(Throwable)9try {//...} catch (IOExceptione) {throw new SampleException(\"Other IOException\", e);}",
+    "chunk_id": "Lec-06-Exceptions_p9_c1",
+    "content": "Chained Exceptions•An application often responds to an exception by throwing another exception•Methods and constructors in Throwablethat support chained exceptions–ThrowablegetCause()–ThrowableinitCause(Throwable)–Throwable(String, Throwable)–Throwable(Throwable)9try {//...} catch (IOExceptione) {throw new SampleException(\"Other IOException\", e);}",
     "embedding": [
       -0.05124637484550476,
       0.01340919453650713,
@@ -94849,10 +95032,12 @@
       0.041815731674432755
     ],
     "source": "Lec-06-Exceptions.pdf",
-    "page": 9
+    "page": 9,
+    "chunk_index": 1
   },
   {
-    "text": "Creating Exception Classes•Do you need an exception type that isn’t represented by those in the Java platform?•Would it help users if they could differentiate your exceptions from those thrown by classes written by other vendors?•Does your code throw more than one related exception?•If you use someone else’s exceptions, will users have access to those exceptions? A similar question is, should your package be independent and self-contained?10",
+    "chunk_id": "Lec-06-Exceptions_p10_c1",
+    "content": "Creating Exception Classes•Do you need an exception type that isn’t represented by those in the Java platform?•Would it help users if they could differentiate your exceptions from those thrown by classes written by other vendors?•Does your code throw more than one related exception?•If you use someone else’s exceptions, will users have access to those exceptions? A similar question is, should your package be independent and self-contained?10",
     "embedding": [
       -0.06518256664276123,
       0.04080534726381302,
@@ -95880,10 +96065,12 @@
       -0.00975088868290186
     ],
     "source": "Lec-06-Exceptions.pdf",
-    "page": 10
+    "page": 10,
+    "chunk_index": 1
   },
   {
-    "text": "Advantages of Exceptions•Separating error-handling code from regular code•Propagating errors up the call stack•Grouping and differentiating error types\n11",
+    "chunk_id": "Lec-06-Exceptions_p11_c1",
+    "content": "Advantages of Exceptions•Separating error-handling code from regular code•Propagating errors up the call stack•Grouping and differentiating error types\n11",
     "embedding": [
       -0.058504704385995865,
       0.01653393730521202,
@@ -96911,10 +97098,12 @@
       0.031796034425497055
     ],
     "source": "Lec-06-Exceptions.pdf",
-    "page": 11
+    "page": 11,
+    "chunk_index": 1
   },
   {
-    "text": "Dr. Fan Hongfei15 October 2025Lecture 7GenericsJava Enterprise Application Development",
+    "chunk_id": "Lec-07-Generics_p1_c1",
+    "content": "Dr. Fan Hongfei15 October 2025Lecture 7GenericsJava Enterprise Application Development",
     "embedding": [
       -0.03177686780691147,
       0.030997466295957565,
@@ -97942,10 +98131,12 @@
       0.04734867066144943
     ],
     "source": "Lec-07-Generics.pdf",
-    "page": 1
+    "page": 1,
+    "chunk_index": 1
   },
   {
-    "text": "Review•Generic programming in C++–Function template–Class template–Standard Template Library (STL)•Containers: vector, list, map, set, ...•Algorithms: sort, find, binary_search, ...•Iterators: begin(), end()•Function objects2",
+    "chunk_id": "Lec-07-Generics_p2_c1",
+    "content": "Review•Generic programming in C++–Function template–Class template–Standard Template Library (STL)•Containers: vector, list, map, set, ...•Algorithms: sort, find, binary_search, ...•Iterators: begin(), end()•Function objects2",
     "embedding": [
       -0.03119051642715931,
       0.02153848111629486,
@@ -98973,10 +99164,12 @@
       0.050494588911533356
     ],
     "source": "Lec-07-Generics.pdf",
-    "page": 2
+    "page": 2,
+    "chunk_index": 1
   },
   {
-    "text": "Introduction to Generics•Example without generics\n3•Supporting any type of object, but always leading to bugs•Type castingis necessary",
+    "chunk_id": "Lec-07-Generics_p3_c1",
+    "content": "Introduction to Generics•Example without generics\n3•Supporting any type of object, but always leading to bugs•Type castingis necessary",
     "embedding": [
       -0.09080462902784348,
       0.03735019639134407,
@@ -100004,10 +100197,12 @@
       0.033307965844869614
     ],
     "source": "Lec-07-Generics.pdf",
-    "page": 3
+    "page": 3,
+    "chunk_index": 1
   },
   {
-    "text": "Introduction to Generics (cont.)•Generics: enabling types(classes, interfaces) to be parameters–Stronger type checks at compile time–Elimination of casting–Enabling the implementation of generic algorithms\n4",
+    "chunk_id": "Lec-07-Generics_p4_c1",
+    "content": "Introduction to Generics (cont.)•Generics: enabling types(classes, interfaces) to be parameters–Stronger type checks at compile time–Elimination of casting–Enabling the implementation of generic algorithms\n4",
     "embedding": [
       -0.06284202635288239,
       0.04363861680030823,
@@ -101035,10 +101230,12 @@
       0.011658133007586002
     ],
     "source": "Lec-07-Generics.pdf",
-    "page": 4
+    "page": 4,
+    "chunk_index": 1
   },
   {
-    "text": "Generic Types\n5•A generic class or interface that is parameterized over types•Defined with the following formatclass ClassName<T1, T2, …, Tn> {…}•A type variable can be any non-primitivetype•Invoking and instantiating easilyClassName<Type> instance = new ClassName<Type>();•Diamond: compiler inferstype arguments from contextList<String> myList= new ArrayList<>();",
+    "chunk_id": "Lec-07-Generics_p5_c1",
+    "content": "Generic Types\n5•A generic class or interface that is parameterized over types•Defined with the following formatclass ClassName<T1, T2, …, Tn> {…}•A type variable can be any non-primitivetype•Invoking and instantiating easilyClassName<Type> instance = new ClassName<Type>();•Diamond: compiler inferstype arguments from contextList<String> myList= new ArrayList<>();",
     "embedding": [
       -0.08437178283929825,
       0.045221760869026184,
@@ -102066,10 +102263,12 @@
       0.017329737544059753
     ],
     "source": "Lec-07-Generics.pdf",
-    "page": 5
+    "page": 5,
+    "chunk_index": 1
   },
   {
-    "text": "Generic Types (cont.)\n6•Type parameter naming conventions–T  ->  Type–S, U, V etc.  ->  2nd, 3rd, 4th types–E  ->  Element–N  ->  Number–K  ->  Key–V  ->  Value",
+    "chunk_id": "Lec-07-Generics_p6_c1",
+    "content": "Generic Types (cont.)\n6•Type parameter naming conventions–T  ->  Type–S, U, V etc.  ->  2nd, 3rd, 4th types–E  ->  Element–N  ->  Number–K  ->  Key–V  ->  Value",
     "embedding": [
       -0.03786274418234825,
       0.0324399471282959,
@@ -103097,10 +103296,12 @@
       0.03883109986782074
     ],
     "source": "Lec-07-Generics.pdf",
-    "page": 6
+    "page": 6,
+    "chunk_index": 1
   },
   {
-    "text": "Generic Methods•Methods that introduce their owntype parameters•Both static and non-static methods are allowed•Syntax: a list of type parameters, inside angle brackets, appearing before the return type•For static generic methods, the type parameter section must appear before the method’s return type\n7",
+    "chunk_id": "Lec-07-Generics_p7_c1",
+    "content": "Generic Methods•Methods that introduce their owntype parameters•Both static and non-static methods are allowed•Syntax: a list of type parameters, inside angle brackets, appearing before the return type•For static generic methods, the type parameter section must appear before the method’s return type\n7",
     "embedding": [
       -0.08872812241315842,
       0.0786358192563057,
@@ -104128,10 +104329,12 @@
       0.005639371927827597
     ],
     "source": "Lec-07-Generics.pdf",
-    "page": 7
+    "page": 7,
+    "chunk_index": 1
   },
   {
-    "text": "Generics and Inheritance\n8•Arrays are covariant–T[] may contain elements of T or any subtype of T–S[] is a subtype of T[] if S is a subtype of T•Java generics are invariant –MyClass<S>has no relationship toMyClass<T>–Subtype a generic class or interface by extending or implementing it",
+    "chunk_id": "Lec-07-Generics_p8_c1",
+    "content": "Generics and Inheritance\n8•Arrays are covariant–T[] may contain elements of T or any subtype of T–S[] is a subtype of T[] if S is a subtype of T•Java generics are invariant –MyClass<S>has no relationship toMyClass<T>–Subtype a generic class or interface by extending or implementing it",
     "embedding": [
       -0.06149838864803314,
       0.06345614045858383,
@@ -105159,10 +105362,12 @@
       0.04108179360628128
     ],
     "source": "Lec-07-Generics.pdf",
-    "page": 8
+    "page": 8,
+    "chunk_index": 1
   },
   {
-    "text": "Bounded Type Parameters and Wildcards\n9•Bounded type parameters–Restrict the types that can be used as type arguments–List the type parameter's name, followed byextends–Multiple bounds are supported, using “&”•Wildcard: “?” representing an unknown type–Used as the type of a parameter, field, local variable or return type–List<?>, Box<?>, Map<?, ?>…–Upper bounded, lower bounded, and unbounded",
+    "chunk_id": "Lec-07-Generics_p9_c1",
+    "content": "Bounded Type Parameters and Wildcards\n9•Bounded type parameters–Restrict the types that can be used as type arguments–List the type parameter's name, followed byextends–Multiple bounds are supported, using “&”•Wildcard: “?” representing an unknown type–Used as the type of a parameter, field, local variable or return type–List<?>, Box<?>, Map<?, ?>…–Upper bounded, lower bounded, and unbounded",
     "embedding": [
       -0.07659933716058731,
       0.015509120188653469,
@@ -106190,10 +106395,12 @@
       0.017545994371175766
     ],
     "source": "Lec-07-Generics.pdf",
-    "page": 9
+    "page": 9,
+    "chunk_index": 1
   },
   {
-    "text": "Bounded Type Parameters and Wildcards (cont.)",
+    "chunk_id": "Lec-07-Generics_p10_c1",
+    "content": "Bounded Type Parameters and Wildcards (cont.)",
     "embedding": [
       -0.06738518923521042,
       0.02333308942615986,
@@ -107221,10 +107428,12 @@
       -0.01918605901300907
     ],
     "source": "Lec-07-Generics.pdf",
-    "page": 10
+    "page": 10,
+    "chunk_index": 1
   },
   {
-    "text": "10•Unboundedwildcards–Examples: List<?>, Box<?>–Scenarios•Using functionality provided in the Objectclass•Using methods in the generic class that do not depend on the type parameter•Upper boundedwildcards–Restriction on the variable: ? extends–Restricting the unknown type to be a specific type or a subtype of that type: List<? extends Number>, Box<? extends Integer>…•Lower boundedwildcards–Restriction on the variable: ? super–Restricting the unknown type to be a specific type or a super type of",
+    "chunk_id": "Lec-07-Generics_p10_c2",
+    "content": "10•Unboundedwildcards–Examples: List<?>, Box<?>–Scenarios•Using functionality provided in the Objectclass•Using methods in the generic class that do not depend on the type parameter•Upper boundedwildcards–Restriction on the variable: ? extends–Restricting the unknown type to be a specific type or a subtype of that type: List<? extends Number>, Box<? extends Integer>…•Lower boundedwildcards–Restriction on the variable: ? super–Restricting the unknown type to be a specific type or a super type of",
     "embedding": [
       -0.04684992507100105,
       -0.004806268494576216,
@@ -108252,10 +108461,12 @@
       0.004667900037020445
     ],
     "source": "Lec-07-Generics.pdf",
-    "page": 10
+    "page": 10,
+    "chunk_index": 2
   },
   {
-    "text": "on the variable: ? super–Restricting the unknown type to be a specific type or a super type of that type: List<? super Integer>…",
+    "chunk_id": "Lec-07-Generics_p10_c3",
+    "content": "on the variable: ? super–Restricting the unknown type to be a specific type or a super type of that type: List<? super Integer>…",
     "embedding": [
       -0.08162325620651245,
       -0.0028906925581395626,
@@ -109283,10 +109494,12 @@
       0.018582182005047798
     ],
     "source": "Lec-07-Generics.pdf",
-    "page": 10
+    "page": 10,
+    "chunk_index": 3
   },
   {
-    "text": "Type Erasure\n11•The compiler erases all type parameters, ensuring that no new classes are created for parameterized types–Replace all type parameters in generic types with their bounds, or Objectif the type parameters are unbounded–Insert type casts if necessary to preserve type safety•Incurring no runtime overhead–Only raw types during runtime",
+    "chunk_id": "Lec-07-Generics_p11_c1",
+    "content": "Type Erasure\n11•The compiler erases all type parameters, ensuring that no new classes are created for parameterized types–Replace all type parameters in generic types with their bounds, or Objectif the type parameters are unbounded–Insert type casts if necessary to preserve type safety•Incurring no runtime overhead–Only raw types during runtime",
     "embedding": [
       -0.06338130682706833,
       0.02908412553369999,
@@ -110314,10 +110527,12 @@
       -0.014895489439368248
     ],
     "source": "Lec-07-Generics.pdf",
-    "page": 11
+    "page": 11,
+    "chunk_index": 1
   },
   {
-    "text": "Best Practice\n12•Do not use raw types–Except for class literals:List.class, String[].class (List<String>.class is illegal in java)•Prefer lists to arrays•Use bounded wildcards to increase API flexibility–public void pushAll(Iterable<E> src)  (x)–public void pushAll(Iterable<? extends E> src) (√)",
+    "chunk_id": "Lec-07-Generics_p12_c1",
+    "content": "Best Practice\n12•Do not use raw types–Except for class literals:List.class, String[].class (List<String>.class is illegal in java)•Prefer lists to arrays•Use bounded wildcards to increase API flexibility–public void pushAll(Iterable<E> src)  (x)–public void pushAll(Iterable<? extends E> src) (√)",
     "embedding": [
       -0.06794095039367676,
       0.03664974123239517,
@@ -111345,10 +111560,12 @@
       0.0014409335562959313
     ],
     "source": "Lec-07-Generics.pdf",
-    "page": 12
+    "page": 12,
+    "chunk_index": 1
   },
   {
-    "text": "Further Reading\n13•Chapter 8 Generic Programming in Core Java (10th Edition)•Item 26-33 in Effective Java (3rd Edition)•Lesson: Generics https://docs.oracle.com/javase/tutorial/java/generics/index.html",
+    "chunk_id": "Lec-07-Generics_p13_c1",
+    "content": "Further Reading\n13•Chapter 8 Generic Programming in Core Java (10th Edition)•Item 26-33 in Effective Java (3rd Edition)•Lesson: Generics https://docs.oracle.com/javase/tutorial/java/generics/index.html",
     "embedding": [
       -0.036764513701200485,
       0.07744079828262329,
@@ -112376,10 +112593,12 @@
       0.03526704013347626
     ],
     "source": "Lec-07-Generics.pdf",
-    "page": 13
+    "page": 13,
+    "chunk_index": 1
   },
   {
-    "text": "Dr. Fan Hongfei15 October 2025Lecture 8Annotations and ReflectionJava Enterprise Application Development",
+    "chunk_id": "Lec-08-Annotations-and-Reflection_p1_c1",
+    "content": "Dr. Fan Hongfei15 October 2025Lecture 8Annotations and ReflectionJava Enterprise Application Development",
     "embedding": [
       -0.04324398562312126,
       0.0016363583272323012,
@@ -113407,10 +113626,12 @@
       0.04265563189983368
     ],
     "source": "Lec-08-Annotations-and-Reflection.pdf",
-    "page": 1
+    "page": 1,
+    "chunk_index": 1
   },
   {
-    "text": "Annotations•A form of metadata, providing data about a program that is not part of the program itself–No direct effect on the operation of the code they annotate•Usage scenarios–Information for the compiler•Detect errors or suppress warnings–Compile-time and deployment-time processing•Generate code, XML files, and more–Runtime processing2",
+    "chunk_id": "Lec-08-Annotations-and-Reflection_p2_c1",
+    "content": "Annotations•A form of metadata, providing data about a program that is not part of the program itself–No direct effect on the operation of the code they annotate•Usage scenarios–Information for the compiler•Detect errors or suppress warnings–Compile-time and deployment-time processing•Generate code, XML files, and more–Runtime processing2",
     "embedding": [
       -0.045920517295598984,
       0.09253393858671188,
@@ -114438,10 +114659,12 @@
       0.021684689447283745
     ],
     "source": "Lec-08-Annotations-and-Reflection.pdf",
-    "page": 2
+    "page": 2,
+    "chunk_index": 1
   },
   {
-    "text": "Syntax•@Entity@Overridevoid mySuperMethod() { ... }•Can include elements, named or unnamed, with values@SuppressWarnings(value = \"unchecked\")void myMethod() { ... }•Can be applied to declarations of classes, fields, methods, and other program elements•Each annotation often appears on its own line by convention•Multiple and repeating annotations on the same declaration are supported3",
+    "chunk_id": "Lec-08-Annotations-and-Reflection_p3_c1",
+    "content": "Syntax•@Entity@Overridevoid mySuperMethod() { ... }•Can include elements, named or unnamed, with values@SuppressWarnings(value = \"unchecked\")void myMethod() { ... }•Can be applied to declarations of classes, fields, methods, and other program elements•Each annotation often appears on its own line by convention•Multiple and repeating annotations on the same declaration are supported3",
     "embedding": [
       -0.043912313878536224,
       0.05386411398649216,
@@ -115469,10 +115692,12 @@
       0.030617332085967064
     ],
     "source": "Lec-08-Annotations-and-Reflection.pdf",
-    "page": 3
+    "page": 3,
+    "chunk_index": 1
   },
   {
-    "text": "Predefined Annotation Types•@Deprecated: the marked element is deprecated and should no longer be used•@Override: informing the compiler that the element is meant to override an element declared in a superclass•@SuppressWarnings: telling the compiler to suppress specific warnings that it would otherwise generate•@FunctionalInterface\n4",
+    "chunk_id": "Lec-08-Annotations-and-Reflection_p4_c1",
+    "content": "Predefined Annotation Types•@Deprecated: the marked element is deprecated and should no longer be used•@Override: informing the compiler that the element is meant to override an element declared in a superclass•@SuppressWarnings: telling the compiler to suppress specific warnings that it would otherwise generate•@FunctionalInterface\n4",
     "embedding": [
       -0.034102413803339005,
       0.04663224518299103,
@@ -116500,10 +116725,12 @@
       0.003045649966225028
     ],
     "source": "Lec-08-Annotations-and-Reflection.pdf",
-    "page": 4
+    "page": 4,
+    "chunk_index": 1
   },
   {
-    "text": "Declaring an Annotation Type•Example@interfaceClassPreamble{String author();String date();int currentRevision() default 1;String lastModified() default \"N/A\";String lastModifiedBy() default \"N/A\";// Note use of arrayString[] reviewers();}5",
+    "chunk_id": "Lec-08-Annotations-and-Reflection_p5_c1",
+    "content": "Declaring an Annotation Type•Example@interfaceClassPreamble{String author();String date();int currentRevision() default 1;String lastModified() default \"N/A\";String lastModifiedBy() default \"N/A\";// Note use of arrayString[] reviewers();}5",
     "embedding": [
       -0.09207982569932938,
       0.03621509671211243,
@@ -117531,10 +117758,12 @@
       0.032685793936252594
     ],
     "source": "Lec-08-Annotations-and-Reflection.pdf",
-    "page": 5
+    "page": 5,
+    "chunk_index": 1
   },
   {
-    "text": "Introduction to Reflection•A feature in Java, allowing an executing Java program to examine or “introspect” upon itself, and manipulate internal properties of the program–Examining properties of a class–Setting and getting field values–Invoking methods–...•Powerful, and has no equivalent in many other languages",
+    "chunk_id": "Lec-08-Annotations-and-Reflection_p6_c1",
+    "content": "Introduction to Reflection•A feature in Java, allowing an executing Java program to examine or “introspect” upon itself, and manipulate internal properties of the program–Examining properties of a class–Setting and getting field values–Invoking methods–...•Powerful, and has no equivalent in many other languages",
     "embedding": [
       -0.02035054937005043,
       0.0757245123386383,
@@ -118562,10 +118791,12 @@
       0.004666762426495552
     ],
     "source": "Lec-08-Annotations-and-Reflection.pdf",
-    "page": 6
+    "page": 6,
+    "chunk_index": 1
   },
   {
-    "text": "Introduction to Reflection (cont.)•Example\n•Loading the specified class, and retrieving the list of methods defined in the class•java.lang.reflect.Methodis a class representing a method7",
+    "chunk_id": "Lec-08-Annotations-and-Reflection_p7_c1",
+    "content": "Introduction to Reflection (cont.)•Example\n•Loading the specified class, and retrieving the list of methods defined in the class•java.lang.reflect.Methodis a class representing a method7",
     "embedding": [
       -0.055240094661712646,
       0.056514374911785126,
@@ -119593,10 +119824,12 @@
       -0.004782536998391151
     ],
     "source": "Lec-08-Annotations-and-Reflection.pdf",
-    "page": 7
+    "page": 7,
+    "chunk_index": 1
   },
   {
-    "text": "Entry Point for All Reflection APIs•JVM instantiates an immutable instance of java.lang.Classfor every type of object–Providing methods to examine the runtime properties of the object including its members and type information–Providing the ability to create new classes and objects•Retrieving class objects–Object.getClass()–.class–Class.forName()–Class.getSuperclass()–Class.getClasses()–...8",
+    "chunk_id": "Lec-08-Annotations-and-Reflection_p8_c1",
+    "content": "Entry Point for All Reflection APIs•JVM instantiates an immutable instance of java.lang.Classfor every type of object–Providing methods to examine the runtime properties of the object including its members and type information–Providing the ability to create new classes and objects•Retrieving class objects–Object.getClass()–.class–Class.forName()–Class.getSuperclass()–Class.getClasses()–...8",
     "embedding": [
       -0.0922044888138771,
       0.0667470172047615,
@@ -120624,10 +120857,12 @@
       -0.016495907679200172
     ],
     "source": "Lec-08-Annotations-and-Reflection.pdf",
-    "page": 8
+    "page": 8,
+    "chunk_index": 1
   },
   {
-    "text": "Reflection APIs•Examine class modifiers and types–getModifiers()–getTypeParameters()–getGenericInterfaces()–...•Fetch annotation information–getAnnotations()•Discover class members–getDeclaredFields() / getDeclaredMethods(): including private members, but no inherited members–getFields() / getMethods(): including inherited members, but no private members–...9",
+    "chunk_id": "Lec-08-Annotations-and-Reflection_p9_c1",
+    "content": "Reflection APIs•Examine class modifiers and types–getModifiers()–getTypeParameters()–getGenericInterfaces()–...•Fetch annotation information–getAnnotations()•Discover class members–getDeclaredFields() / getDeclaredMethods(): including private members, but no inherited members–getFields() / getMethods(): including inherited members, but no private members–...9",
     "embedding": [
       -0.05200755223631859,
       0.041216447949409485,
@@ -121655,10 +121890,12 @@
       0.012136125937104225
     ],
     "source": "Lec-08-Annotations-and-Reflection.pdf",
-    "page": 9
+    "page": 9,
+    "chunk_index": 1
   },
   {
-    "text": "Reflection APIs (cont.)•Field–Providing methods for accessing type information and setting and getting values of a field on a given object–getModifiers()–getType()–get(Object obj), getByte(Object obj), getInt(Object obj), ...–set(Object obj), setByte(Object obj), setInt(Object obj), ...\n10",
+    "chunk_id": "Lec-08-Annotations-and-Reflection_p10_c1",
+    "content": "Reflection APIs (cont.)•Field–Providing methods for accessing type information and setting and getting values of a field on a given object–getModifiers()–getType()–get(Object obj), getByte(Object obj), getInt(Object obj), ...–set(Object obj), setByte(Object obj), setInt(Object obj), ...\n10",
     "embedding": [
       -0.030477415770292282,
       0.027002479881048203,
@@ -122686,10 +122923,12 @@
       0.03784172981977463
     ],
     "source": "Lec-08-Annotations-and-Reflection.pdf",
-    "page": 10
+    "page": 10,
+    "chunk_index": 1
   },
   {
-    "text": "Reflection APIs (cont.)•Method–Providing APIs to access information about a method’s modifiers, return type and parameters, and to invoke methods–getReturnType()–getGenericReturnType()–getParameterTypes()–invoke(Object obj, Object... args) \n11",
+    "chunk_id": "Lec-08-Annotations-and-Reflection_p11_c1",
+    "content": "Reflection APIs (cont.)•Method–Providing APIs to access information about a method’s modifiers, return type and parameters, and to invoke methods–getReturnType()–getGenericReturnType()–getParameterTypes()–invoke(Object obj, Object... args) \n11",
     "embedding": [
       -0.032707083970308304,
       0.0453912690281868,
@@ -123717,10 +123956,12 @@
       -0.0035749778617173433
     ],
     "source": "Lec-08-Annotations-and-Reflection.pdf",
-    "page": 11
+    "page": 11,
+    "chunk_index": 1
   },
   {
-    "text": "Drawbacks•Performance suffers–Reflective method invocation is much slower than normal method invocation•Security restrictions–Reflection requires a runtime permission which may not be present in a restricted security context•Readability sacrificed–The code required to perform reflective access is clumsy and verbose•Exposure of internals–May result in unexpected side-effects•Lose benefits of compile-time type checking•Therefore, use reflection only when necessary12",
+    "chunk_id": "Lec-08-Annotations-and-Reflection_p12_c1",
+    "content": "Drawbacks•Performance suffers–Reflective method invocation is much slower than normal method invocation•Security restrictions–Reflection requires a runtime permission which may not be present in a restricted security context•Readability sacrificed–The code required to perform reflective access is clumsy and verbose•Exposure of internals–May result in unexpected side-effects•Lose benefits of compile-time type checking•Therefore, use reflection only when necessary12",
     "embedding": [
       -0.03049830161035061,
       0.02433880604803562,
@@ -124748,10 +124989,12 @@
       0.005125580355525017
     ],
     "source": "Lec-08-Annotations-and-Reflection.pdf",
-    "page": 12
+    "page": 12,
+    "chunk_index": 1
   },
   {
-    "text": "Further Reading\n13•https://docs.oracle.com/javase/tutorial/reflect/TOC.html•https://www.oracle.com/technical-resources/articles/java/javareflection.html•Items 39-41 in Effective Java (3rd Edition)",
+    "chunk_id": "Lec-08-Annotations-and-Reflection_p13_c1",
+    "content": "Further Reading\n13•https://docs.oracle.com/javase/tutorial/reflect/TOC.html•https://www.oracle.com/technical-resources/articles/java/javareflection.html•Items 39-41 in Effective Java (3rd Edition)",
     "embedding": [
       -0.06826169788837433,
       0.0216370802372694,
@@ -125779,6 +126022,7 @@
       -0.015311912633478642
     ],
     "source": "Lec-08-Annotations-and-Reflection.pdf",
-    "page": 13
+    "page": 13,
+    "chunk_index": 1
   }
 ]

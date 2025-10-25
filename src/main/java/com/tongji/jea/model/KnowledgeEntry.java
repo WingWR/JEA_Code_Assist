@@ -1,4 +1,4 @@
-package com.github.wingwr.javacodeassist.data;
+package com.tongji.jea.model;
 
 import java.util.List;
 
@@ -7,6 +7,7 @@ public class KnowledgeEntry {
     private List<Double> embedding;
     private String source;
     private int page;
+    private String content;
 
     // Getters and Setters
     public String getText() { return text; }
@@ -20,4 +21,12 @@ public class KnowledgeEntry {
 
     public int getPage() { return page; }
     public void setPage(int page) { this.page = page; }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
 }

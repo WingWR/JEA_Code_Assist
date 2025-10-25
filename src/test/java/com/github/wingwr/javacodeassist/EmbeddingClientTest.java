@@ -1,7 +1,7 @@
 package com.github.wingwr.javacodeassist;
 
-import com.github.wingwr.javacodeassist.services.EmbeddingHttpClient;
-import com.github.wingwr.javacodeassist.services.DashScopeExecutor;
+import com.tongji.jea.services.EmbeddingHttpClient;
+import com.tongji.jea.services.DashScopeExecutor;
 
 public class EmbeddingClientTest {
     public static void main(String[] args) {

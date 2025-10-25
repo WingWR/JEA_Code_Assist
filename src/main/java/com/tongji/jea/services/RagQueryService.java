@@ -1,0 +1,132 @@
+package com.tongji.jea.services;
+
+import com.tongji.jea.model.KnowledgeBaseLoader;
+import com.tongji.jea.model.KnowledgeEntry;
+
+import java.util.List;
+import java.util.concurrent.CompletableFuture;
+import java.util.stream.Collectors;
+
+/**
+ * RAG 查询服务类
+ * 负责从知识库中检索相似内容，并生成格式化的上下文与来源摘要。
+ *
+ * @author qiankun25
+ */
+public class RagQueryService {
+
+    private final String knowledgeJsonPath;
+    private final EmbeddingHttpClient embeddingClient;
+    private List<KnowledgeEntry> kbCache = null;
+    private static final double CONFIDENCE_THRESHOLD = 0.40;
+
+    public RagQueryService(String knowledgeJsonPath, EmbeddingHttpClient embeddingClient) {
+        this.knowledgeJsonPath = knowledgeJsonPath;
+        this.embeddingClient = embeddingClient;
+    }
+
+    /**
+     * 加载知识库缓存（只加载一次）
+     */
+    private synchronized List<KnowledgeEntry> loadKb() {
+        if (kbCache == null) {
+            kbCache = KnowledgeBaseLoader.loadFromFile(knowledgeJsonPath);
+        }
+        return kbCache;
+    }
+
+    /**
+     * 主查询函数：对输入文本进行嵌入与相似度搜索，返回高置信度的知识条目列表。
+     *
+     * @param inputText 用户输入或选中代码
+     * @param topK 返回候选条目数量
+     * @return List<KnowledgeEntry> 匹配到的知识条目
+     */
+    public List<KnowledgeEntry> queryKnowledgeEntries(String inputText, int topK) {
+        try {
+            List<Double> embedding = embeddingClient.getEmbedding(inputText);
+            List<KnowledgeEntry> kb = loadKb();
+
+            List<SimilaritySearcher.ScoredEntry> results =
+                    SimilaritySearcher.searchTopK(embedding, kb, topK);
+
+            return results.stream()
+                    .filter(scored -> scored.score >= CONFIDENCE_THRESHOLD)
+                    .map(scored -> scored.entry)
+                    .collect(Collectors.toList());
+
+        } catch (Exception e) {
+            throw new RuntimeException("RAG 检索失败：" + e.getMessage(), e);
+        }
+    }
+
+    /**
+     * 将知识条目格式化为上下文文本，供 LLM 作为提示输入。
+     *
+     * 格式示例：
+     * 【来源】 handbook.pdf（第3页）
+     * 内容：
+     * ...
+     *
+     * 多条之间以两个换行分隔。
+     */
+    public String formatContextText(List<KnowledgeEntry> entries) {
+        if (entries == null || entries.isEmpty()) {
+            return "【知识库】未找到相关内容。";
+        }
+
+        StringBuilder sb = new StringBuilder();
+        for (KnowledgeEntry e : entries) {
+            String source = safeString(e.getSource());
+            int page = e.getPage();
+            String content = safeString(e.getContent());
+
+            sb.append("【来源】").append(source)
+                    .append("（第").append(page).append("页）\n")
+                    .append("内容：\n")
+                    .append(content)
+                    .append("\n\n");
+        }
+
+        return sb.toString().trim();
+    }
+
+    /**
+     * 将知识条目格式化为简洁的来源摘要（供 LLM 回答后附加参考来源）
+     *
+     * 格式示例：
+     * 【参考来源】
+     * - handbook.pdf（第3页）
+     * - regulation.docx（第1页）
+     */
+    public String formatSourceSummary(List<KnowledgeEntry> entries) {
+        if (entries == null || entries.isEmpty()) {
+            return "【参考来源】无匹配知识。";
+        }
+
+        String summary = entries.stream()
+                .map(e -> "- " + e.getSource() + "（第" + e.getPage() + "页）")
+                .distinct()
+                .collect(Collectors.joining("\n"));
+
+        return "【参考来源】\n" + summary;
+    }
+
+    /**
+     * 异步调用封装（如果前端使用异步接口，可选）
+     */
+    public CompletableFuture<List<KnowledgeEntry>> queryKnowledgeEntriesAsync(String inputText, int topK) {
+        return CompletableFuture.supplyAsync(() -> queryKnowledgeEntries(inputText, topK));
+    }
+
+    /**
+     * 重载：刷新知识库缓存
+     */
+    public void refreshKnowledgeBase() {
+        kbCache = null;
+    }
+
+    private String safeString(String s) {
+        return s == null ? "" : s.trim();
+    }
+}

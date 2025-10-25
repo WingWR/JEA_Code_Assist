@@ -7,12 +7,12 @@ import com.intellij.openapi.project.Project;
 import com.intellij.openapi.wm.ToolWindow;
 import com.intellij.openapi.wm.ToolWindowManager;
 import com.intellij.psi.PsiFile;
-import com.tongji.jea.services.LLMService;
+import com.tongji.jea.services.JEACodeAssistService;
 import com.tongji.jea.toolWindow.JEAToolWindowFactory;
 import groovyjarjarantlr4.v4.runtime.misc.NotNull;
 
 import javax.swing.*;
-import java.awt.*;
+
 public class AskTAAction extends AnAction {
 
     @Override
@@ -44,9 +44,9 @@ public class AskTAAction extends AnAction {
 
         String question = questionBuilder.toString();
 
-        // 调用 LLMService
-        LLMService llmService = new LLMService();
-        String response = llmService.ask(question);
+        // 调用 JEACodeAssistService
+        JEACodeAssistService jeaCodeAssistService = project.getService(JEACodeAssistService.class);
+        String response = jeaCodeAssistService.ask(question);
 
         //  打开右侧 ToolWindow（即 JEAToolWindowFactory 创建的）
         ToolWindow toolWindow = ToolWindowManager.getInstance(project)
