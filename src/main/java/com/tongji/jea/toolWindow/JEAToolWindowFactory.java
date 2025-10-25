@@ -10,15 +10,10 @@ import org.jetbrains.annotations.NotNull;
 
 import javax.swing.*;
 import java.awt.*;
-import java.util.LinkedHashMap;
-import java.util.Map;
 
 public class JEAToolWindowFactory implements ToolWindowFactory {
-    // ===== 全局共享 UI 组件 =====
-    private static JPanel sharedChatPanel = null;
-    private static JScrollPane sharedScrollPane = null;
-    private static DefaultListModel<String> contextListModel = new DefaultListModel<>();
-    private static Map<String, String> contextFileMap = new LinkedHashMap<>();
+    // 保存最后一个创建的聊天面板实例
+    private static JPanel latestChatPanel = null;
 
     @Override
     public void createToolWindowContent(@NotNull Project project, @NotNull ToolWindow toolWindow) {
@@ -28,49 +23,24 @@ public class JEAToolWindowFactory implements ToolWindowFactory {
         JPanel mainPanel = new JPanel(new BorderLayout());
         mainPanel.setOpaque(false);
 
-        // 聊天消息面板(更改成为与右键Action共享，以供右键选中上下文加入聊天框)
-        sharedChatPanel = createChatPanel();
-        sharedScrollPane = new JScrollPane(sharedChatPanel);
-        sharedScrollPane.setOpaque(false);
-        sharedScrollPane.getViewport().setOpaque(false);
-        sharedScrollPane.setBorder(BorderFactory.createEmptyBorder()); // 去掉滚动边框
+        // 聊天消息面板
+        JPanel chatPanel = createChatPanel();
+        latestChatPanel = chatPanel;
+        JScrollPane chatScrollPane = new JScrollPane(chatPanel);
+        chatScrollPane.setOpaque(false);
+        chatScrollPane.getViewport().setOpaque(false);
+        chatScrollPane.setBorder(BorderFactory.createEmptyBorder()); // 去掉滚动边框
 
         // 输入区
-        JPanel inputPanel = createInputPanel(service, sharedChatPanel, sharedScrollPane);
+        JPanel inputPanel = createInputPanel(service, chatPanel, chatScrollPane);
 
-        // 上下文管理区
-        // JPanel contextPanel = createContextPanel();
-
-        // mainPanel.add(contextPanel, BorderLayout.NORTH);
-        mainPanel.add(sharedScrollPane, BorderLayout.CENTER);
+        mainPanel.add(chatScrollPane, BorderLayout.CENTER);
         mainPanel.add(inputPanel, BorderLayout.SOUTH);
 
         ContentFactory contentFactory = ContentFactory.getInstance();
         Content content = contentFactory.createContent(mainPanel, "", false);
         toolWindow.getContentManager().addContent(content);
     }
-
-    // 创建上下文管理区，待处理完善
-    /*private JPanel createContextPanel() {
-        JPanel panel = new JPanel(new BorderLayout());
-        panel.setBorder(BorderFactory.createTitledBorder("Context Manager"));
-
-        // 文件列表
-        JList<String> contextList = new JList<>(contextListModel);
-        JScrollPane scrollPane = new JScrollPane(contextList);
-
-        // 清空按钮
-        JButton clearButton = new JButton("Clear Context");
-        clearButton.addActionListener(e -> {
-            contextListModel.clear();
-            contextFileMap.clear();
-            appendSystemMessage("Context cleared.");
-        });
-
-        panel.add(scrollPane, BorderLayout.CENTER);
-        panel.add(clearButton, BorderLayout.SOUTH);
-        return panel;
-    }*/
 
     private JPanel createChatPanel() {
         JPanel chatPanel = new JPanel();
@@ -128,9 +98,9 @@ public class JEAToolWindowFactory implements ToolWindowFactory {
         String question = inputArea.getText().trim();
         if (question.isEmpty()) return;
 
-        addMessage(chatPanel, question, true, false);
-        String answer = service.askTA(question);
-        addMessage(chatPanel, answer, false, false);
+        addMessage(chatPanel, question, true);
+        String answer = service.askTA(question);//后端的唯一交互点
+        addMessage(chatPanel, answer, false);
 
         inputArea.setText("");
         chatPanel.revalidate();
@@ -139,8 +109,16 @@ public class JEAToolWindowFactory implements ToolWindowFactory {
         SwingUtilities.invokeLater(() -> chatScrollPane.getVerticalScrollBar()
                 .setValue(chatScrollPane.getVerticalScrollBar().getMaximum()));
     }
+    public static void addExternalMessage(String question, String answer) {
+        if (latestChatPanel == null) return;
 
-    private static void addMessage(JPanel chatPanel, String message, boolean isUser, boolean isCode) {
+        addMessage(latestChatPanel, "You:\n" + question, true);
+        addMessage(latestChatPanel, "Assistant:\n" + answer, false);
+        latestChatPanel.revalidate();
+        latestChatPanel.repaint();
+    }
+
+    private static void addMessage(JPanel chatPanel, String message, boolean isUser) {
         // 外层面板：决定左右对齐 (FlowLayout)
         JPanel messagePanel = new JPanel(new FlowLayout(isUser ? FlowLayout.RIGHT : FlowLayout.LEFT));
         messagePanel.setOpaque(false);
@@ -159,13 +137,7 @@ public class JEAToolWindowFactory implements ToolWindowFactory {
             messageArea.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
         }
 
-        // 如果是上下文代码显示背景为灰色
-        if (isCode) {
-            messageArea.setBackground(new Color(245, 245, 245));
-            messageArea.setForeground(new Color(60, 60, 60));
-        }
-
-            // 限制宽度，让气泡不会太宽
+        // 限制宽度，让气泡不会太宽
         int maxWidth = 350;
         messageArea.setSize(new Dimension(maxWidth, Short.MAX_VALUE)); // 先设宽度
         Dimension preferredSize = messageArea.getPreferredSize();      // 再计算高度
@@ -181,22 +153,5 @@ public class JEAToolWindowFactory implements ToolWindowFactory {
         chatPanel.add(messagePanel);
         chatPanel.revalidate();
         chatPanel.repaint();
-    }
-
-    // 外部接口，供右键选择上下文加入聊天框
-    public static void appendCodeContext(String code) {
-        if (sharedChatPanel == null) return;
-        SwingUtilities.invokeLater(() -> {
-            addMessage(sharedChatPanel, "Selected code:", true, false);
-            addMessage(sharedChatPanel, code, true, true);
-            scrollToBottom();
-        });
-    }
-
-    private static void scrollToBottom() {
-        if (sharedScrollPane != null) {
-            JScrollBar bar = sharedScrollPane.getVerticalScrollBar();
-            bar.setValue(bar.getMaximum());
-        }
     }
 }
