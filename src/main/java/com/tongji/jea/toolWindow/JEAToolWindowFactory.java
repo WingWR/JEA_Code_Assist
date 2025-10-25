@@ -102,9 +102,9 @@ public class JEAToolWindowFactory implements ToolWindowFactory {
         String question = inputArea.getText().trim();
         if (question.isEmpty()) return;
 
-        addMessage(chatPanel, question, true);
+        addMessage(chatPanel, question);
         String answer = service.askTA(question);//后端的唯一交互点
-        addMessage(chatPanel, answer, false);
+        addMessage(chatPanel, answer);
 
         inputArea.setText("");
         chatPanel.revalidate();
@@ -116,13 +116,13 @@ public class JEAToolWindowFactory implements ToolWindowFactory {
     public static void addExternalMessage(String question, String answer) {
         if (latestChatPanel == null) return;
 
-        addMessage(latestChatPanel, "You:\n" + question, true);
-        addMessage(latestChatPanel, "Assistant:\n" + answer, false);
+        addMessage(latestChatPanel, "You:\n" + question);
+        addMessage(latestChatPanel, "Assistant:\n" + answer);
         latestChatPanel.revalidate();
         latestChatPanel.repaint();
     }
 
-    private static void addMessage(JPanel chatPanel, String message, boolean isUser) {
+    private static void addMessage(JPanel chatPanel, String message) {
         // 外层面板：决定左右对齐 (FlowLayout)
         JPanel messagePanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
         messagePanel.setOpaque(false);
@@ -135,11 +135,6 @@ public class JEAToolWindowFactory implements ToolWindowFactory {
         messageArea.setEditable(false);
         messageArea.setOpaque(true);
         messageArea.setBorder(BorderFactory.createEmptyBorder(8, 10, 8, 10));
-
-        // 右侧消息文字靠右显示
-//        if (isUser) {
-//            messageArea.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
-//        }
 
         // 限制宽度，让气泡不会太宽
         int maxWidth = 350;
