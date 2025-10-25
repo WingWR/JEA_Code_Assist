@@ -124,7 +124,7 @@ public class JEAToolWindowFactory implements ToolWindowFactory {
 
     private static void addMessage(JPanel chatPanel, String message, boolean isUser) {
         // 外层面板：决定左右对齐 (FlowLayout)
-        JPanel messagePanel = new JPanel(new FlowLayout(isUser ? FlowLayout.RIGHT : FlowLayout.LEFT));
+        JPanel messagePanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
         messagePanel.setOpaque(false);
 
         // 文本区域：显示消息内容
@@ -137,9 +137,9 @@ public class JEAToolWindowFactory implements ToolWindowFactory {
         messageArea.setBorder(BorderFactory.createEmptyBorder(8, 10, 8, 10));
 
         // 右侧消息文字靠右显示
-        if (isUser) {
-            messageArea.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
-        }
+//        if (isUser) {
+//            messageArea.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
+//        }
 
         // 限制宽度，让气泡不会太宽
         int maxWidth = 350;
