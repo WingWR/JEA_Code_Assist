@@ -7,12 +7,11 @@ import com.intellij.openapi.project.Project;
 import com.intellij.openapi.wm.ToolWindow;
 import com.intellij.openapi.wm.ToolWindowManager;
 import com.intellij.psi.PsiFile;
-import com.tongji.jea.services.LLMService;
+import com.tongji.jea.model.ContextItem;
+import com.tongji.jea.services.ContextManagerService;
 import com.tongji.jea.toolWindow.JEAToolWindowFactory;
-import groovyjarjarantlr4.v4.runtime.misc.NotNull;
+import org.jetbrains.annotations.NotNull;
 
-import javax.swing.*;
-import java.awt.*;
 public class AskTAAction extends AnAction {
 
     @Override
@@ -26,39 +25,17 @@ public class AskTAAction extends AnAction {
 
         String selectedText = editor.getSelectionModel().getSelectedText();
         if (selectedText == null || selectedText.isBlank()) {
-            selectedText = "(未选择代码)";
+            selectedText = "未选择上下文";
         }
 
-        // 获取文件名、选中行号
-        Document document = editor.getDocument();
-        int startLine = document.getLineNumber(editor.getSelectionModel().getSelectionStart()) + 1;
-        int endLine = document.getLineNumber(editor.getSelectionModel().getSelectionEnd()) + 1;
+        Document doc = editor.getDocument();
+        int startLine = doc.getLineNumber(editor.getSelectionModel().getSelectionStart()) + 1;
+        int endLine = doc.getLineNumber(editor.getSelectionModel().getSelectionEnd()) + 1;
         String fileName = psiFile.getVirtualFile().getName();
 
-        // 拼接上下文
-        StringBuilder questionBuilder = new StringBuilder();
-        questionBuilder.append("文件名：").append(fileName)
-                .append("\n选中行：").append(startLine).append(" - ").append(endLine)
-                .append("\n\n代码内容：\n").append(selectedText)
-                .append("\n\n请帮我分析这段代码的作用、潜在问题和改进建议。");
+        ContextItem contextItem = new ContextItem(fileName + " [" + startLine + "-" + endLine + "]", "code", selectedText);
 
-        String question = questionBuilder.toString();
-
-        // 调用 LLMService
-        LLMService llmService = new LLMService();
-        String response = llmService.ask(question);
-
-        //  打开右侧 ToolWindow（即 JEAToolWindowFactory 创建的）
-        ToolWindow toolWindow = ToolWindowManager.getInstance(project)
-                .getToolWindow("JEA Assistant");
-        if (toolWindow != null) {
-            toolWindow.activate(null);
-        }
-
-        //  向聊天面板添加内容
-        SwingUtilities.invokeLater(() -> {
-            JEAToolWindowFactory.addExternalMessage(question, response);
-        });
+        ContextManagerService.getInstance(project).addContext(contextItem);
     }
 
     @Override
