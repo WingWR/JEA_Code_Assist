@@ -81,7 +81,7 @@ public class RagQueryService {
             int page = e.getPage();
             String content = safeString(e.getContent());
 
-            sb.append("【来源】").append(source)
+            sb.append("\n【来源】").append(source)
                     .append("（第").append(page).append("页）\n")
                     .append("内容：\n")
                     .append(content)
@@ -101,7 +101,7 @@ public class RagQueryService {
      */
     public String formatSourceSummary(List<KnowledgeEntry> entries) {
         if (entries == null || entries.isEmpty()) {
-            return "【参考来源】无匹配知识。";
+            return "\n【参考来源】无匹配知识。";
         }
 
         String summary = entries.stream()

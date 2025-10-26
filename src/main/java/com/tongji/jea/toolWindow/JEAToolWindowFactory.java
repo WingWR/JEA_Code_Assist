@@ -128,9 +128,20 @@ public class JEAToolWindowFactory implements ToolWindowFactory {
         JButton sendButton = new JButton("Send");
         sendButton.addActionListener(e -> sendMessage(service, inputArea, chatPanel, chatScrollPane));
 
+        // ===== New Chat 按钮（放在 Send 右侧）=====
+        JButton newChatButton = new JButton("New Chat");
+        newChatButton.addActionListener(e -> clearConversation(service, chatPanel));
+
+        JPanel buttonPanel = new JPanel();
+        buttonPanel.setLayout(new BoxLayout(buttonPanel, BoxLayout.X_AXIS));
+        buttonPanel.setOpaque(false);
+        buttonPanel.add(sendButton);
+        buttonPanel.add(Box.createRigidArea(new Dimension(5, 0))); // 小间距
+        buttonPanel.add(newChatButton);
+
         inputPanel.add(inputScrollPane);
         inputPanel.add(Box.createRigidArea(new Dimension(5, 0)));
-        inputPanel.add(sendButton);
+        inputPanel.add(buttonPanel);
 
         container.add(tagPanel, BorderLayout.NORTH);
         container.add(inputPanel, BorderLayout.CENTER);
@@ -240,5 +251,23 @@ public class JEAToolWindowFactory implements ToolWindowFactory {
             throw new UnsupportedOperationException("请将 createToolWindowContent 中的 project 保存为实例字段以供删除回调使用。");
         }
         return project;
+    }
+
+    /**
+     * 清空对话历史
+     * @param service
+     * @param chatPanel
+     */
+    private void clearConversation(JEACodeAssistService service, JPanel chatPanel) {
+        // 1. 清空前端聊天面板
+        chatPanel.removeAll();
+        chatPanel.revalidate();
+        chatPanel.repaint();
+
+        // 2. 清空后端对话历史
+        service.clearHistory();
+
+        // 可选：给出提示（比如加一条“新对话已开启”）
+        // addMessage(chatPanel, "Assistant:\n新对话已开启。");
     }
 }
