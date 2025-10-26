@@ -1,0 +1,29 @@
+{
+  "dashscope": {
+    "apiKey": "",
+    "baseUrl": "https://dashscope.aliyuncs.com"
+  },
+  "models": {
+    "chat": "qwen-turbo",
+    "embedding": "text-embedding-v4",
+    "chat_temperature": 0.0,
+    "chat_max_tokens": 2048
+  },
+  "knowledge": {
+    "path": "messages/knowledge_base.json",
+    "ragEnabled": true,
+    "max_results": 5,
+    "confidence_threshold": 0.7
+  },
+  "context": {
+    "enabled": true,
+    "max_history": 10
+  },
+  "network": {
+    "connect_timeout_seconds": 20,
+    "read_timeout_seconds": 60
+  },
+  "logging": {
+    "level": "INFO"
+  }
+}

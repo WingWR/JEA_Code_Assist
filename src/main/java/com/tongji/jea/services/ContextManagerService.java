@@ -3,6 +3,7 @@ package com.tongji.jea.services;
 import com.intellij.openapi.components.Service;
 import com.intellij.openapi.project.Project;
 import com.tongji.jea.model.ContextItem;
+import com.tongji.jea.services.api.IContextManagerService;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
@@ -14,7 +15,7 @@ import java.util.concurrent.CopyOnWriteArrayList;
  * 项目级 Service：存储上下文并发布变更通知。
  */
 @Service(Service.Level.PROJECT)
-public final class ContextManagerService {
+public final class ContextManagerService implements IContextManagerService {
 
     public interface Listener {
         /**
@@ -36,25 +37,26 @@ public final class ContextManagerService {
         return project.getService(ContextManagerService.class);
     }
 
+    @Override
     public synchronized void addContext(@NotNull ContextItem item) {
         items.add(item);
         notifyListeners();
     }
-
+    @Override
     public synchronized void removeContext(@NotNull ContextItem item) {
         items.remove(item);
         notifyListeners();
     }
-
+    @Override
     public synchronized void clearContexts() {
         items.clear();
         notifyListeners();
     }
-
+    @Override
     public synchronized List<ContextItem> getAllContexts() {
         return List.copyOf(items);
     }
-
+    @Override
     public synchronized String buildFullContextText() {
         if (items.isEmpty()) return "";
         StringBuilder sb = new StringBuilder();
@@ -67,12 +69,24 @@ public final class ContextManagerService {
         return sb.toString();
     }
 
+    @Override
+    public void addListener(IContextManagerService.@NotNull Listener l) {
+
+    }
+
+    @Override
+    public void removeListener(IContextManagerService.@NotNull Listener l) {
+
+    }
+
     /** 注册监听器（可在任意线程调用） */
+    @Override
     public void addListener(@NotNull Listener l) {
         listeners.addIfAbsent(l);
     }
 
     /** 取消监听器 */
+    @Override
     public void removeListener(@NotNull Listener l) {
         listeners.remove(l);
     }

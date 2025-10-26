@@ -3,13 +3,14 @@ package com.tongji.jea.services;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
+import com.tongji.jea.services.api.IChatClient;
 
 
 /**
  * 与阿里云Qwen模型交互的客户端
  * 通过DashScopeExecutor统一处理HTTP请求
  */
-public class ChatClient {
+public class ChatClient implements IChatClient {
     private final DashScopeExecutor executor;
     private final String model;
 
@@ -29,6 +30,7 @@ public class ChatClient {
      * @return 模型生成的回答文本
      * @throws Exception API调用或解析异常
      */
+    @Override
     public String ask(String question) throws Exception {
         ObjectMapper mapper = executor.getObjectMapper();
         ObjectNode payload = mapper.createObjectNode();

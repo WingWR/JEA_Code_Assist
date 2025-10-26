@@ -2,6 +2,7 @@ package com.tongji.jea.services;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
+import com.tongji.jea.services.api.IEmbeddingClient;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,7 +13,7 @@ import java.util.List;
  * 负责调用阿里云 DashScope 的文本向量化（Text Embedding）接口。
  * 依赖 DashScopeExecutor 执行 HTTP 通信。
  */
-public class EmbeddingHttpClient {
+public class EmbeddingHttpClient implements IEmbeddingClient {
     private final DashScopeExecutor executor;
     private final String model;
 
@@ -25,6 +26,7 @@ public class EmbeddingHttpClient {
         this.executor = executor;
         this.model = model;
     }
+    @Override
 
     public List<Double> getEmbedding(String text) throws Exception{
         if(text == null || text.isEmpty()){

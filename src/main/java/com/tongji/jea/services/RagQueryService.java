@@ -2,6 +2,7 @@ package com.tongji.jea.services;
 
 import com.tongji.jea.model.KnowledgeBaseLoader;
 import com.tongji.jea.model.KnowledgeEntry;
+import com.tongji.jea.services.api.IRagQueryService;
 
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
@@ -13,7 +14,7 @@ import java.util.stream.Collectors;
  *
  * @author qiankun25
  */
-public class RagQueryService {
+public class RagQueryService implements IRagQueryService {
 
     private final String knowledgeJsonPath;
     private final EmbeddingHttpClient embeddingClient;
@@ -42,6 +43,7 @@ public class RagQueryService {
      * @param topK 返回候选条目数量
      * @return List<KnowledgeEntry> 匹配到的知识条目
      */
+    @Override
     public List<KnowledgeEntry> queryKnowledgeEntries(String inputText, int topK) {
         try {
             List<Double> embedding = embeddingClient.getEmbedding(inputText);
@@ -70,6 +72,7 @@ public class RagQueryService {
      *
      * 多条之间以两个换行分隔。
      */
+    @Override
     public String formatContextText(List<KnowledgeEntry> entries) {
         if (entries == null || entries.isEmpty()) {
             return "【知识库】未找到相关内容。";
@@ -99,6 +102,7 @@ public class RagQueryService {
      * - handbook.pdf（第3页）
      * - regulation.docx（第1页）
      */
+    @Override
     public String formatSourceSummary(List<KnowledgeEntry> entries) {
         if (entries == null || entries.isEmpty()) {
             return "【参考来源】无匹配知识。";
@@ -115,6 +119,7 @@ public class RagQueryService {
     /**
      * 异步调用封装（如果前端使用异步接口，可选）
      */
+    @Override
     public CompletableFuture<List<KnowledgeEntry>> queryKnowledgeEntriesAsync(String inputText, int topK) {
         return CompletableFuture.supplyAsync(() -> queryKnowledgeEntries(inputText, topK));
     }
@@ -122,6 +127,7 @@ public class RagQueryService {
     /**
      * 重载：刷新知识库缓存
      */
+    @Override
     public void refreshKnowledgeBase() {
         kbCache = null;
     }
