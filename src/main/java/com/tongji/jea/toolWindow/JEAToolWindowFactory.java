@@ -162,6 +162,7 @@ public class JEAToolWindowFactory implements ToolWindowFactory {
 
         // 这里是消息的发送和接收
         addMessage(chatPanel, "You:\n" + question);
+        addMessage(chatPanel, "Assistant is thinking...\n"); // 加入等待提示
         String answer = service.ask(question); // 此处接入后端的返回逻辑
         addMessage(chatPanel, "Assistant:\n" + answer);
 
