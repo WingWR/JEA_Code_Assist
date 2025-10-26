@@ -162,9 +162,9 @@ public class JEAToolWindowFactory implements ToolWindowFactory {
 
         // 这里是消息的发送和接收
         addMessage(chatPanel, "You:\n" + question);
-        addMessage(chatPanel, "Assistant is thinking...\n"); // 加入等待提示
-        String answer = service.ask(question); // 此处接入后端的返回逻辑
-        addMessage(chatPanel, "Assistant:\n" + answer);
+
+        // 显示思考提示
+        JTextArea thinkingMsg = addMessage(chatPanel, "Assistant is thinking...\n");
 
         inputArea.setText("");
         chatPanel.revalidate();
@@ -172,10 +172,35 @@ public class JEAToolWindowFactory implements ToolWindowFactory {
 
         SwingUtilities.invokeLater(() -> chatScrollPane.getVerticalScrollBar()
                 .setValue(chatScrollPane.getVerticalScrollBar().getMaximum()));
+
+        // 在后台线程执行大模型调用
+        java.util.concurrent.CompletableFuture.supplyAsync(() -> {
+            return service.ask(question); // 调用模型或 API，耗时任务
+        }).thenAccept(answer -> {
+            // 回到主线程更新 UI
+            SwingUtilities.invokeLater(() -> {
+                chatPanel.remove(thinkingMsg.getParent()); // 移除“思考中”提示
+                addMessage(chatPanel, "Assistant:\n" + answer);
+
+                chatPanel.revalidate();
+                chatPanel.repaint();
+
+                JScrollBar scrollBar = chatScrollPane.getVerticalScrollBar();
+                scrollBar.setValue(scrollBar.getMaximum());
+            });
+        }).exceptionally(ex -> {
+            SwingUtilities.invokeLater(() -> {
+                chatPanel.remove(thinkingMsg.getParent());
+                addMessage(chatPanel, "⚠️ 出错：" + ex.getMessage());
+                chatPanel.revalidate();
+                chatPanel.repaint();
+            });
+            return null;
+        });
     }
 
     // 在消息窗口显示信息
-    private void addMessage(JPanel chatPanel, String message) {
+    private JTextArea addMessage(JPanel chatPanel, String message) {
         // 外层面板：决定左右对齐 (FlowLayout)
         JPanel messagePanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
         messagePanel.setOpaque(false);
@@ -205,6 +230,8 @@ public class JEAToolWindowFactory implements ToolWindowFactory {
         chatPanel.add(messagePanel);
         chatPanel.revalidate();
         chatPanel.repaint();
+
+        return messageArea;
     }
 
     // 辅助：通过某个组件查找 Project（用于删除回调中获取 project）
