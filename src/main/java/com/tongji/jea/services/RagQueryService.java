@@ -19,11 +19,15 @@ public class RagQueryService implements IRagQueryService {
     private final String knowledgeJsonPath;
     private final EmbeddingHttpClient embeddingClient;
     private List<KnowledgeEntry> kbCache = null;
-    private static final double CONFIDENCE_THRESHOLD = 0.70;
+    private final int topK;
+    private final double confidenceThreshold;
 
-    public RagQueryService(String knowledgeJsonPath, EmbeddingHttpClient embeddingClient) {
+    public RagQueryService(String knowledgeJsonPath, EmbeddingHttpClient embeddingClient,
+                           int topK, double confidenceThreshold) {
         this.knowledgeJsonPath = knowledgeJsonPath;
         this.embeddingClient = embeddingClient;
+        this.topK = topK;
+        this.confidenceThreshold = confidenceThreshold;
     }
 
     /**
@@ -45,6 +49,8 @@ public class RagQueryService implements IRagQueryService {
      */
     @Override
     public List<KnowledgeEntry> queryKnowledgeEntries(String inputText, int topK) {
+        // 使用传入的topK参数，如果没有传入则使用配置的默认值
+        int actualTopK = topK > 0 ? topK : this.topK;
         try {
             List<Double> embedding = embeddingClient.getEmbedding(inputText);
             List<KnowledgeEntry> kb = loadKb();
@@ -53,7 +59,7 @@ public class RagQueryService implements IRagQueryService {
                     SimilaritySearcher.searchTopK(embedding, kb, topK);
 
             return results.stream()
-                    .filter(scored -> scored.score >= CONFIDENCE_THRESHOLD)
+                    .filter(scored -> scored.score >= this.confidenceThreshold)
                     .map(scored -> scored.entry)
                     .collect(Collectors.toList());
 

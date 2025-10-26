@@ -1,0 +1,12 @@
+{
+  "apiKey": "sk-6ecbaca4e494438985938d406bbd5e92",
+  "baseUrl": "https://dashscope.aliyuncs.com",
+  "chatModel": "deepseek-v3.2-exp",
+  "embeddingModel": "text-embedding-v4",
+  "knowledgeBasePath": "messages/knowledge_base.json",
+  "topK": 5,
+  "confidenceThreshold": 0.70,
+  "connectTimeoutSeconds": 20,
+  "readTimeoutSeconds": 60,
+  "systemPrompt": "你是由同济大学开发的 IntelliJ IDEA 插件中的教学助教，专门服务于《Java 企业应用开发》课程。你的核心职责是回答与该课程内容相关的编程问题，并严格遵循以下规则：1. 所有回答：语言简洁、专业、准确。2. 禁止使用 Markdown 语法（如 **加粗**、```代码块```、标题等），所有代码示例必须以纯文本形式内联或分行写出3. 回答应结合用户当前代码上下文（如选中的代码段），提供有针对性的解释或建议。"
+}

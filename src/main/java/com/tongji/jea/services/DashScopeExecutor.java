@@ -10,7 +10,7 @@ import java.util.Map;
 public class DashScopeExecutor {
 
     /** DashScope 官方基础 URL */
-    private static final String BASE_URL = "https://dashscope.aliyuncs.com";
+    private final String baseUrl;
 
     /** HTTP 客户端 */
     private final OkHttpClient httpClient;
@@ -25,12 +25,14 @@ public class DashScopeExecutor {
      * 构造函数。
      * @param apiKey 阿里云的apiKey
      */
-    public DashScopeExecutor(String apiKey) {
+    public DashScopeExecutor(String apiKey, String baseUrl,
+                             int connectTimeout, int readTimeout) {
         this.apiKey = apiKey;
+        this.baseUrl= baseUrl;
         this.objectMapper = new ObjectMapper();
         this.httpClient = new OkHttpClient.Builder()
-                .connectTimeout(Duration.ofSeconds(20))
-                .readTimeout(Duration.ofSeconds(60))
+                .connectTimeout(Duration.ofSeconds(connectTimeout))
+                .readTimeout(Duration.ofSeconds(readTimeout))
                 .build();
     }
 
@@ -43,7 +45,7 @@ public class DashScopeExecutor {
      * @throws IOException 网络或解析异常
      */
     public JsonNode executePost(String path, JsonNode jsonBody) throws IOException {
-        String url = BASE_URL + path;
+        String url = baseUrl + path;
 
         String jsonString = objectMapper.writeValueAsString(jsonBody);
         RequestBody body = RequestBody.create(
@@ -78,7 +80,7 @@ public class DashScopeExecutor {
      * @throws IOException 网络或解析异常
      */
     public JsonNode executeGet(String path, Map<String, String> params) throws IOException {
-        HttpUrl.Builder urlBuilder = HttpUrl.parse(BASE_URL + path).newBuilder();
+        HttpUrl.Builder urlBuilder = HttpUrl.parse(baseUrl + path).newBuilder();
         if (params != null) {
             params.forEach(urlBuilder::addQueryParameter);
         }

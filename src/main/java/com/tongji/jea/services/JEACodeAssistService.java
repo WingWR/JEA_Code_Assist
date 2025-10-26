@@ -4,57 +4,73 @@ import com.intellij.openapi.components.Service;
 import com.intellij.openapi.diagnostic.Logger;
 import com.intellij.openapi.project.Project;
 import com.tongji.jea.model.KnowledgeEntry;
-import com.tongji.jea.services.api.IChatClient;
-import com.tongji.jea.services.api.IContextManagerService;
-import com.tongji.jea.services.api.IEmbeddingClient;
-import com.tongji.jea.services.api.IRagQueryService;
-import com.tongji.jea.services.ChatClient;
-import com.tongji.jea.services.DashScopeExecutor;
-import com.tongji.jea.services.RagQueryService;
-import com.tongji.jea.services.EmbeddingHttpClient;
+import com.tongji.jea.services.api.*;
 import com.tongji.jea.model.ChatMessage;
+import com.tongji.jea.config.PluginConfig;
+import com.tongji.jea.config.PluginConfigManager;
 
 import java.util.ArrayList;
 import java.util.List;
 
-@Service(Service.Level.PROJECT)
+
 /**
  * 后台服务，处理与教学助手（TA）的交互
  * 即后端与前端的交互点
  */
-public final class JEACodeAssistService {
+@Service(Service.Level.PROJECT)
+public final class JEACodeAssistService implements IJEACodeAssistService {
     private static final Logger LOG = Logger.getInstance(JEACodeAssistService.class);
-    /** 聊天模型客户端（Qwen、OpenAI等实现） */
+    /**
+     * 聊天模型客户端（Qwen、OpenAI等实现）
+     */
     private final IChatClient chatClient;
 
-    /** 上下文管理服务（记录用户输入上下文） */
+    /**
+     * 上下文管理服务（记录用户输入上下文）
+     */
     private final IContextManagerService contextManagerService;
 
-    /** RAG 查询服务（知识库检索） */
+    /**
+     * RAG 查询服务（知识库检索）
+     */
     private final IRagQueryService ragQueryService;
     private final List<ChatMessage> conversationHistory = new ArrayList<>();
-    private static final String SYSTEM_PROMPT =
-            "你是由同济大学开发的 IntelliJ IDEA 插件中的教学助教，专门服务于《Java 企业应用开发》课程。" +
-                    "你的核心职责是回答与该课程内容相关的编程问题，并严格遵循以下规则：" +
-                    "1. 所有回答：语言简洁、专业、准确。" +
-                    "2. 禁止使用 Markdown 语法（如 **加粗**、```代码块```、标题等），所有代码示例必须以纯文本形式内联或分行写出" +
-                    "3. 回答应结合用户当前代码上下文（如选中的代码段），提供有针对性的解释或建议。"
-                    ;
 
+    /**
+     * 系统提示词
+     */
+    private final String systemPrompt;
 
 
     public JEACodeAssistService(Project project) {
         LOG.info("JEACodeAssistService initialized for project: " + project.getName());
-        String apiKey = "sk-6ecbaca4e494438985938d406bbd5e92";//TODO:统一从配置读取
-        DashScopeExecutor executor = new DashScopeExecutor(apiKey);
+        // 从配置管理器获取配置
+        PluginConfig config = PluginConfigManager.getConfig();
+        this.systemPrompt = config.getSystemPrompt();
 
-        // 初始化各模块（通过接口封装）
-        this.chatClient = new ChatClient(executor, "deepseek-v3.2-exp");
-        IEmbeddingClient embeddingClient = new EmbeddingHttpClient(executor, "text-embedding-v4");
+        // 使用配置参数初始化执行器
+        DashScopeExecutor executor = new DashScopeExecutor(
+                config.getApiKey(),
+                config.getBaseUrl(),
+                config.getConnectTimeoutSeconds(),
+                config.getReadTimeoutSeconds()
+        );
 
-        String knowledgePath = "messages/knowledge_base.json";
-        this.ragQueryService = new RagQueryService(knowledgePath, (EmbeddingHttpClient) embeddingClient);
+        // 初始化各模块
+        this.chatClient = new ChatClient(executor, config.getChatModel());
+        IEmbeddingClient embeddingClient = new EmbeddingHttpClient(executor, config.getEmbeddingModel());
+
+        // 使用配置的知识库路径和参数初始化RAG服务
+        this.ragQueryService = new RagQueryService(
+                config.getKnowledgeBasePath(),
+                (EmbeddingHttpClient) embeddingClient,
+                config.getTopK(),
+                config.getConfidenceThreshold()
+        );
+
         this.contextManagerService = ContextManagerService.getInstance(project);
+        LOG.info("JEACodeAssistService 初始化完成，使用模型: " + config.getChatModel());
+
     }
 
 
@@ -65,49 +81,102 @@ public final class JEACodeAssistService {
      * @param question 用户提问
      * @return 大模型回答 + 参考来源
      */
+    @Override
     public String ask(String question) {
-        // TODO: 待添加获取LLM的回复逻辑
-        //添加上下文内容
-        question += contextManagerService.buildFullContextText();
-        //添加知识库逻辑
-        List<KnowledgeEntry> knowledgeEntries = ragQueryService.queryKnowledgeEntries(question,5);
-        //格式化提问知识库内容
-        String knowledgeText = ragQueryService.formatContextText(knowledgeEntries);
-        String sourceSummary = ragQueryService.formatSourceSummary(knowledgeEntries);
-
-        //拼接问题上下文
-        question += knowledgeText;
-
-        conversationHistory.add(new ChatMessage("user", question));
-
-        //设置系统提示词
-        // 构造完整请求历史：system + conversationHistory
-        List<ChatMessage> fullHistory = new ArrayList<>();
-        fullHistory.add(new ChatMessage("system", SYSTEM_PROMPT)); // 每次都加！
-        fullHistory.addAll(conversationHistory);
-
-
-        String finalResponse;
-
-        try{
-            String llmResponse = chatClient.ask(fullHistory);
-            //拼接大模型响应+知识库条目
-            finalResponse = llmResponse + sourceSummary;
+        if (question == null || question.trim().isEmpty()) {
+            return "问题不能为空，请输入有效的问题。";
         }
-        catch (Exception e) {
-            finalResponse = "很抱歉，当前无法处理您的请求，请稍后再试。";
-            // 记录详细错误日志，包含上下文
-            LOG.error("调用大模型失败，问题内容: {}"+question, e);
-        }
-        //将模型回复加入历史（用于下一轮上下文）
-        conversationHistory.add(new ChatMessage("assistant", finalResponse));
+
+        String finalQuestion = buildEnhancedQuestion(question);
+
+        // 构造完整对话历史
+        List<ChatMessage> fullHistory = buildFullHistory(finalQuestion);
+
+        String finalResponse = processLLMRequest(fullHistory, finalQuestion);
+
+        // 更新对话历史
+        updateConversationHistory(question, finalResponse);
 
         return finalResponse;
     }
 
     /**
+     * 添加上下文和知识库内容
+     */
+    private String buildEnhancedQuestion(String originalQuestion) {
+        StringBuilder enhancedQuestion = new StringBuilder(originalQuestion);
+
+        // 添加上下文内容
+        String contextText = contextManagerService.buildFullContextText();
+        if (!contextText.isEmpty()) {
+            enhancedQuestion.append("\n\n【当前代码上下文】\n").append(contextText);
+        }
+
+        // 添加知识库内容
+        List<KnowledgeEntry> knowledgeEntries = ragQueryService.queryKnowledgeEntries(originalQuestion, 5);
+        String knowledgeText = ragQueryService.formatContextText(knowledgeEntries);
+        if (!knowledgeText.contains("未找到相关内容")) {
+            enhancedQuestion.append("\n\n【相关课程资料】\n").append(knowledgeText);
+        }
+
+        return enhancedQuestion.toString();
+    }
+
+    /**
+     * 构建完整的对话历史
+     */
+    private List<ChatMessage> buildFullHistory(String finalQuestion) {
+        List<ChatMessage> fullHistory = new ArrayList<>();
+
+        // 添加系统提示词
+        fullHistory.add(new ChatMessage("system", systemPrompt));
+
+        // 添加历史对话
+        fullHistory.addAll(conversationHistory);
+
+        // 添加当前问题
+        fullHistory.add(new ChatMessage("user", finalQuestion));
+
+        return fullHistory;
+    }
+
+    /**
+     * 处理LLM请求
+     */
+    private String processLLMRequest(List<ChatMessage> fullHistory, String question) {
+        try {
+            String llmResponse = chatClient.ask(fullHistory);
+
+            // 添加知识库来源摘要
+            List<KnowledgeEntry> knowledgeEntries = ragQueryService.queryKnowledgeEntries(question, 5);
+            String sourceSummary = ragQueryService.formatSourceSummary(knowledgeEntries);
+
+            return llmResponse + sourceSummary;
+
+        } catch (Exception e) {
+            LOG.error("调用大模型失败，问题内容: " + question, e);
+            return "很抱歉，当前无法处理您的请求，请稍后再试。错误详情: " + e.getMessage();
+        }
+    }
+
+    /**
+     * 更新对话历史
+     */
+    private void updateConversationHistory(String originalQuestion, String response) {
+        // 保存原始问题和完整响应
+        conversationHistory.add(new ChatMessage("user", originalQuestion));
+        conversationHistory.add(new ChatMessage("assistant", response));
+
+        // 可选：限制历史记录长度，避免内存溢出
+        if (conversationHistory.size() > 20) { // 保留最近10轮对话
+            conversationHistory.subList(0, 4).clear(); // 移除前2轮对话
+        }
+    }
+
+    /**
      * 清空对话历史（供前端“新建对话”等操作调用）
      */
+    @Override
     public void clearHistory() {
         conversationHistory.clear();
     }
@@ -115,7 +184,10 @@ public final class JEACodeAssistService {
     /**
      * 获取当前对话历史（用于调试或前端显示）
      */
+    @Override
     public List<ChatMessage> getHistory() {
         return new ArrayList<>(conversationHistory); // 返回副本避免外部修改
     }
+
+
 }
