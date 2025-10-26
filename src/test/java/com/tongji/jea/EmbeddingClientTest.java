@@ -1,7 +1,9 @@
-package com.github.wingwr.javacodeassist;
+package com.tongji.jea;
 
-import com.github.wingwr.javacodeassist.services.EmbeddingHttpClient;
-import com.github.wingwr.javacodeassist.services.DashScopeExecutor;
+import com.tongji.jea.services.DashScopeExecutor;
+import com.tongji.jea.services.EmbeddingHttpClient;
+
+import java.util.List;
 
 public class EmbeddingClientTest {
     public static void main(String[] args) {
@@ -9,8 +11,8 @@ public class EmbeddingClientTest {
         DashScopeExecutor executor = new DashScopeExecutor(apiKey);
         EmbeddingHttpClient embeddingClient = new EmbeddingHttpClient(executor, "text-embedding-v4");
         try {
-            double[] vector = embeddingClient.getEmbedding("Java plugin development in IntelliJ.");
-            System.out.println("Embedding length: " + vector.length);
+            List<Double> vector = embeddingClient.getEmbedding("Java plugin development in IntelliJ.");
+            System.out.println("Embedding length: " + vector.size());
         } catch (Exception e) {
             e.printStackTrace();
         }
