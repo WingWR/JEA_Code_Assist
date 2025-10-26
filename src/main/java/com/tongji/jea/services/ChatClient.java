@@ -3,14 +3,13 @@ package com.tongji.jea.services;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
-import com.tongji.jea.services.api.IChatClient;
 
 
 /**
  * 与阿里云Qwen模型交互的客户端
  * 通过DashScopeExecutor统一处理HTTP请求
  */
-public class ChatClient implements IChatClient {
+public class ChatClient {
     private final DashScopeExecutor executor;
     private final String model;
 
@@ -25,41 +24,63 @@ public class ChatClient implements IChatClient {
     }
 
     /**
-     * 向Qwen模型发送问题并获取回答
-     * @param question 用户问题
+     * 【新】支持多轮对话：接收对话历史，调用Qwen模型
+     * @param history 对话历史，每条消息包含 role ("user"/"assistant"/"system") 和 content
      * @return 模型生成的回答文本
      * @throws Exception API调用或解析异常
      */
-    @Override
-    public String ask(String question) throws Exception {
+    public String ask(List<ChatMessage> history) throws Exception {
+        if (history == null || history.isEmpty()) {
+            throw new IllegalArgumentException("对话历史不能为空");
+        }
+
         ObjectMapper mapper = executor.getObjectMapper();
+
+        // 构建顶层 payload
         ObjectNode payload = mapper.createObjectNode();
         payload.put("model", model);
 
+        // 构建 messages 数组
+        ArrayNode messages = mapper.createArrayNode();
+        for (ChatMessage msg : history) {
+            ObjectNode messageNode = mapper.createObjectNode();
+            messageNode.put("role", msg.getRole());
+            messageNode.put("content", msg.getContent());
+            messages.add(messageNode);
+        }
+
+        // 设置 input.messages
         ObjectNode input = mapper.createObjectNode();
-        input.put("prompt", question);
+        input.set("messages", messages);
         payload.set("input", input);
 
+        // 设置 parameters
         ObjectNode parameters = mapper.createObjectNode();
-        parameters.put("stream", false); // 非流式输出
+        parameters.put("stream", false); // 非流式
         payload.set("parameters", parameters);
 
-        // 调用阿里云API（路径与阿里云文档一致）
+        // 调用 DashScope API
         String path = "/api/v1/services/aigc/text-generation/generation";
-        JsonNode response = executor.executePost(path, payload);
+        var response = executor.executePost(path, payload);
 
-        // 解析响应（兼容阿里云API结构）
-        JsonNode output = response.get("output");
+        // 解析响应
+        var output = response.get("output");
         if (output == null) {
-            throw new IllegalStateException("Response missing 'output'");
+            throw new IllegalStateException("API 响应缺少 'output' 字段");
         }
 
-        JsonNode choices = output.get("choices");
-        if (choices == null || choices.isEmpty()) {
-            throw new IllegalStateException("Response missing 'choices'");
+        var choices = output.get("choices");
+        if (choices == null || choices.size() == 0) {
+            throw new IllegalStateException("API 响应缺少有效 'choices'");
         }
 
-        // 获取第一个回复内容
-        return choices.get(0).get("message").get("content").asText();
+        // 提取第一个 choice 的 content
+        var firstChoice = choices.get(0);
+        var message = firstChoice.get("message");
+        if (message == null || !message.has("content")) {
+            throw new IllegalStateException("模型回复缺少 'content'");
+        }
+
+        return message.get("content").asText();
     }
 }
