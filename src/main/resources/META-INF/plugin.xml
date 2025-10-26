@@ -23,5 +23,13 @@
                 description="Ask the AI assistant about selected code">
             <add-to-group group-id="EditorPopupMenu" anchor="last"/>
         </action>
+
+        <action
+                id="AddToContextAction"
+                class="com.tongji.jea.actions.AddToContextAction"
+                text="Add to AI Context"
+                description="Add the file to AI Context">
+            <add-to-group group-id="ProjectViewPopupMenu" anchor="last"/>
+        </action>
     </actions>
 </idea-plugin>
