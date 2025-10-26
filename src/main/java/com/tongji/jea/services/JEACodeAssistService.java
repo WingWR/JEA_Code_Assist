@@ -42,7 +42,7 @@ public final class JEACodeAssistService {
         //格式化提问知识库内容
         String knowledgeText = ragQueryService.formatContextText(knowledgeEntries);
         //格式化知识库来源条目
-        String sourceSummary  = ragQueryService.formatContextText(knowledgeEntries);
+        String sourceSummary  = ragQueryService.formatSourceSummary(knowledgeEntries);
 
         //拼接问题上下文
         question += knowledgeText;
