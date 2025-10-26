@@ -15,7 +15,7 @@ import java.util.List;
  * JEACodeAssistService
  * --------------------
  * 后台服务：处理与教学助手（TA）的交互逻辑。
- * 这是插件后端与前端 UI 的主要桥梁。
+ * 这是插件后端与前端 UI 的交互点
  */
 @Service(Service.Level.PROJECT)
 public final class JEACodeAssistService {
