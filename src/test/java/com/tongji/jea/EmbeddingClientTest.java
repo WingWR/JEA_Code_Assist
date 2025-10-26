@@ -8,7 +8,7 @@ import java.util.List;
 public class EmbeddingClientTest {
     public static void main(String[] args) {
         String apiKey = "sk-6ecbaca4e494438985938d406bbd5e92";
-        DashScopeExecutor executor = new DashScopeExecutor(apiKey);
+        DashScopeExecutor executor = new DashScopeExecutor(apiKey,"https://dashscope.aliyuncs.com",20,60);
         EmbeddingHttpClient embeddingClient = new EmbeddingHttpClient(executor, "text-embedding-v4");
         try {
             List<Double> vector = embeddingClient.getEmbedding("Java plugin development in IntelliJ.");
