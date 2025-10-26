@@ -33,7 +33,6 @@ public class ChatClient implements IChatClient {
      * @throws Exception API调用或解析异常
      */
     @Override
-    public String ask(String question) throws Exception {
     public String ask(List<ChatMessage> history) throws Exception {
         if (history == null || history.isEmpty()) {
             throw new IllegalArgumentException("对话历史不能为空");
