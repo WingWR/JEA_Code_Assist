@@ -11,9 +11,10 @@ import com.intellij.ui.content.ContentFactory;
 import com.intellij.util.ui.JBUI;
 import com.tongji.jea.model.ContextItem;
 import com.tongji.jea.services.ContextManagerService;
-import com.tongji.jea.services.JEACodeAssistService;
 import com.tongji.jea.toolWindow.conponents.ContextTagComponent;
 import com.tongji.jea.toolWindow.conponents.WrapLayout;
+import com.tongji.jea.services.api.IJEACodeAssistService;
+import com.tongji.jea.services.JEACodeAssistService;
 import org.jetbrains.annotations.NotNull;
 
 import javax.swing.*;
@@ -37,8 +38,7 @@ public class JEAToolWindowFactory implements ToolWindowFactory {
     @Override
     public void createToolWindowContent(@NotNull Project project, @NotNull ToolWindow toolWindow) {
         this.project = project;
-
-        JEACodeAssistService service = project.getService(JEACodeAssistService.class);
+        IJEACodeAssistService service = project.getService(JEACodeAssistService.class);
         ContextManagerService contextManagerService = ContextManagerService.getInstance(project);
 
         // 主面板，透明
@@ -80,7 +80,7 @@ public class JEAToolWindowFactory implements ToolWindowFactory {
     }
 
     // 输入面板
-    private JPanel createInputPanel(JEACodeAssistService service, JPanel chatPanel, JScrollPane chatScrollPane) {
+    private JPanel createInputPanel(IJEACodeAssistService service, JPanel chatPanel, JScrollPane chatScrollPane) {
         JPanel container = new JPanel(new BorderLayout());
         container.setOpaque(false);
         container.setBackground(Gray._40);
@@ -167,7 +167,7 @@ public class JEAToolWindowFactory implements ToolWindowFactory {
 
     //////// 聊天面板的逻辑功能
     // 向消息窗口发送信息
-    private void sendMessage(JEACodeAssistService service, JTextArea inputArea, JPanel chatPanel, JScrollPane chatScrollPane) {
+    private void sendMessage(IJEACodeAssistService service, JTextArea inputArea, JPanel chatPanel, JScrollPane chatScrollPane) {
         String question = inputArea.getText().trim();
         if (question.isEmpty()) return;
 
@@ -258,7 +258,7 @@ public class JEAToolWindowFactory implements ToolWindowFactory {
      * @param service
      * @param chatPanel
      */
-    private void clearConversation(JEACodeAssistService service, JPanel chatPanel) {
+    private void clearConversation(IJEACodeAssistService service, JPanel chatPanel) {
         // 1. 清空前端聊天面板
         chatPanel.removeAll();
         chatPanel.revalidate();
