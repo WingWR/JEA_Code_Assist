@@ -25,6 +25,13 @@ public final class JEACodeAssistService {
     private final ContextManagerService contextManagerService;
     private final RagQueryService ragQueryService;
     private final List<ChatMessage> conversationHistory = new ArrayList<>();
+    private static final String SYSTEM_PROMPT =
+            "你是由同济大学开发的 IntelliJ IDEA 插件中的教学助教，专门服务于《Java 企业应用开发》课程。" +
+                    "你的核心职责是回答与该课程内容相关的编程问题，并严格遵循以下规则：" +
+                    "1. 所有回答：语言简洁、专业、准确。" +
+                    "2. 禁止使用 Markdown 语法（如 **加粗**、```代码块```、标题等），所有代码示例必须以纯文本形式内联或分行写出" +
+                    "3. 回答应结合用户当前代码上下文（如选中的代码段），提供有针对性的解释或建议。"
+                    ;
 
     public JEACodeAssistService(Project project) {
         LOG.info("JEACodeAssistService initialized for project: " + project.getName());
@@ -56,10 +63,17 @@ public final class JEACodeAssistService {
 
         conversationHistory.add(new ChatMessage("user", question));
 
+        //设置系统提示词
+        // 构造完整请求历史：system + conversationHistory
+        List<ChatMessage> fullHistory = new ArrayList<>();
+        fullHistory.add(new ChatMessage("system", SYSTEM_PROMPT)); // 每次都加！
+        fullHistory.addAll(conversationHistory);
+
+
         String finalResponse;
 
         try{
-            String llmResponse = chatClient.ask(conversationHistory);
+            String llmResponse = chatClient.ask(fullHistory);
             //拼接大模型响应+知识库条目
             finalResponse = llmResponse + sourceSummary;
         }

@@ -105,7 +105,7 @@ public class RagQueryService implements IRagQueryService {
     @Override
     public String formatSourceSummary(List<KnowledgeEntry> entries) {
         if (entries == null || entries.isEmpty()) {
-            return "\n【参考来源】无匹配知识。";
+            return "\n【参考来源】本回答基于通用知识，未引用课程资料。";
         }
 
         String summary = entries.stream()
