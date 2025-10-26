@@ -40,7 +40,7 @@ public class EmbeddingHttpClient {
         payload.set("input", inputNode);
 
         //构造embedding模型api路径
-        String path = "/api/v1/services/embeddings/text-embedding/text-embedding/" + model;
+        String path = "/api/v1/services/embeddings/text-embedding/text-embedding/";
 
         JsonNode response = executor.executePost(path, payload);
 

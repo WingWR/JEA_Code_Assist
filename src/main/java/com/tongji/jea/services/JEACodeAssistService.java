@@ -20,29 +20,35 @@ import java.util.concurrent.CompletableFuture;
 public final class JEACodeAssistService {
     private static final Logger LOG = Logger.getInstance(JEACodeAssistService.class);
     private final ChatClient chatClient;
+    private final ContextManagerService contextManagerService;
     private final RagQueryService ragQueryService;
 
     public JEACodeAssistService(Project project) {
         LOG.info("JEACodeAssistService initialized for project: " + project.getName());
-        String apiKey = "sk-7d351140e99c4744a37d73b67bfe7592";//TODO:统一从配置读取
+        String apiKey = "sk-6ecbaca4e494438985938d406bbd5e92";//TODO:统一从配置读取
         DashScopeExecutor executor = new DashScopeExecutor(apiKey);
 
-        this.chatClient = new ChatClient(executor, "qwen-turbo");//模型可替换，qwen-max etc.
+        this.chatClient = new ChatClient(executor, "qwen3-max-2025-09-23");//模型可替换，qwen-max etc.
 
         String knowledgePath = "messages/knowledge_base.json";//resourcePath 路径下的相对路径
         EmbeddingHttpClient embeddingHttpClient = new EmbeddingHttpClient(executor, "text-embedding-v4");
         this.ragQueryService = new RagQueryService(knowledgePath, embeddingHttpClient);
+        this.contextManagerService = ContextManagerService.getInstance(project);
     }
 
 
     public String ask(String question) {
         // TODO: 待添加获取LLM的回复逻辑
+        //添加上下文内容
+        question += contextManagerService.buildFullContextText();
         //添加知识库逻辑
         List<KnowledgeEntry> knowledgeEntries = ragQueryService.queryKnowledgeEntries(question,5);
         //格式化提问知识库内容
         String knowledgeText = ragQueryService.formatContextText(knowledgeEntries);
         //格式化知识库来源条目
         String sourceSummary  = ragQueryService.formatSourceSummary(knowledgeEntries);
+
+
 
         //拼接问题上下文
         question += knowledgeText;

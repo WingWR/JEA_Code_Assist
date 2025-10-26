@@ -18,7 +18,7 @@ public class RagQueryService {
     private final String knowledgeJsonPath;
     private final EmbeddingHttpClient embeddingClient;
     private List<KnowledgeEntry> kbCache = null;
-    private static final double CONFIDENCE_THRESHOLD = 0.40;
+    private static final double CONFIDENCE_THRESHOLD = 0.70;
 
     public RagQueryService(String knowledgeJsonPath, EmbeddingHttpClient embeddingClient) {
         this.knowledgeJsonPath = knowledgeJsonPath;
