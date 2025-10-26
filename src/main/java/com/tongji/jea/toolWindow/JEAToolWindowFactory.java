@@ -24,6 +24,7 @@ public class JEAToolWindowFactory implements ToolWindowFactory {
     // 保存 Project 实例供删除回调使用
     private Project project;
 
+
     // UI 组件引用（每个 ToolWindow 实例独立）
     private JPanel chatPanel;
     private JPanel tagPanel;       // 上下文标签区
