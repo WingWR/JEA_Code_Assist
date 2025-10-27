@@ -56,7 +56,7 @@ dependencies {
     implementation("com.fasterxml.jackson.core:jackson-databind:2.17.0")
 
     // 阿里云百炼调用SDK
-    implementation(group = "com.alibaba", name = "dashscope-sdk-java", version = "2.21.12")
+    implementation(group = "com.alibaba", name = "dashscope-sdk-java", version = "2.21.14")
 }
 
 // Configure IntelliJ Platform Gradle Plugin - read more: https://plugins.jetbrains.com/docs/intellij/tools-intellij-platform-gradle-plugin-extension.html
