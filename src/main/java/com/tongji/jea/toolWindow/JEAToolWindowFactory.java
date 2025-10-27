@@ -133,7 +133,7 @@ public class JEAToolWindowFactory implements ToolWindowFactory {
         newChatButton.addActionListener(e -> clearConversation(service, chatPanel));
 
         JPanel buttonPanel = new JPanel();
-        buttonPanel.setLayout(new BoxLayout(buttonPanel, BoxLayout.X_AXIS));
+        buttonPanel.setLayout(new BoxLayout(buttonPanel, BoxLayout.Y_AXIS));
         buttonPanel.setOpaque(false);
         buttonPanel.add(sendButton);
         buttonPanel.add(Box.createRigidArea(new Dimension(5, 0))); // 小间距
