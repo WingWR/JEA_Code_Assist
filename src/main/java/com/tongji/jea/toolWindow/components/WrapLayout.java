@@ -1,4 +1,4 @@
-package com.tongji.jea.toolWindow.conponents;
+package com.tongji.jea.toolWindow.components;
 
 import javax.swing.*;
 import java.awt.*;
