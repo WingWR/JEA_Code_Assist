@@ -2,9 +2,10 @@
 
 ## Overview
 
+<!-- Plugin description -->
 **JEA Code Assist** is an IntelliJ IDEA plugin designed as a **Teaching Assistant (TA)** for the *Java Enterprise Application Development* course.  
 It provides an AI-powered assistant with **Retrieval-Augmented Generation (RAG)** and **source citation**, enabling students and instructors to interactively query course materials directly within IntelliJ IDEA.
-
+<!-- Plugin description end -->
 ---
 
 ## Key Features
